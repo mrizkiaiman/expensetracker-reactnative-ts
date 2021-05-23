@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import {StyleSheet, Text, View, SafeAreaView} from 'react-native'
 //Components
-import TextInput from '../../components/TextInput'
-import Button from '../../components/Button'
+import TextInput from '../../../components/TextInput'
+import Button from '../../../components/Button'
 
 interface ISLogin {}
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import {StyleSheet, Text, View} from 'react-native'
-import {IProps} from '../types'
+import {IProps} from '../../types'
 
 interface IPCreateTransactions extends IProps {}
 
