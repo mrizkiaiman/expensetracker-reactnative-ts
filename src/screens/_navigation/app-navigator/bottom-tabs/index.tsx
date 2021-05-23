@@ -2,14 +2,14 @@ import React, {Children} from 'react'
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
-import routes from '../../routes'
-import Colors from '../../../../styles/colors'
+import routes from '@navigation/routes'
+import Colors from '@styles/colors'
 
-import Home from '../../../common/home'
-import Daily from '../../../common/daily'
-import Profile from '../../../common/profile'
-import Budget from '../../../common/budget'
-import CreateTransactions from '../../../common/transaction-create'
+import Home from '@screens/common/home'
+import Daily from '@screens/common/daily'
+import Profile from '@screens/common/profile'
+import Budget from '@screens/common/budget'
+import CreateTransactions from '@screens/common/transaction-create'
 
 interface TabProps {}
 interface IPTabIcons {

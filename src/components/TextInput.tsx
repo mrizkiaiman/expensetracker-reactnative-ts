@@ -1,7 +1,7 @@
 import React from 'react'
 import {StyleSheet, Text, View} from 'react-native'
 import {TextInput} from 'react-native-paper'
-import Colors from '../styles/colors'
+import colors from '../styles/colors'
 
 interface ICTextInput {
   label: string
@@ -29,7 +29,7 @@ const CustomTextInput: React.FC<ICTextInput> = ({
       label={label}
       value={value}
       onChangeText={onChangeText}
-      theme={{colors: {primary: borderColor ? borderColor : Colors.blue}}}
+      theme={{colors: {primary: borderColor ? borderColor : colors.blue}}}
       style={styles.mainContainer}
     />
   )

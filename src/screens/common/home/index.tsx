@@ -1,17 +1,17 @@
 import React from 'react'
 import {StyleSheet, Text, View} from 'react-native'
-import {IProps} from '../../types'
+import {IProps} from '@app/types'
 
-interface IPDashboard extends IProps {}
+interface IPHome extends IProps {}
 
-const Dashboard: React.FC<IPDashboard> = props => {
+const Home: React.FC<IPHome> = props => {
   return (
     <View>
-      <Text>Dashboard</Text>
+      <Text>Home</Text>
     </View>
   )
 }
 
-export default Dashboard
+export default Home
 
 const styles = StyleSheet.create({})
