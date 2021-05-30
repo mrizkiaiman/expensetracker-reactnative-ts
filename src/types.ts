@@ -5,15 +5,11 @@ export interface IProps {
   key?: any
 }
 
-export type AppProps = {
-  message: string;
-  count: number;
-  names: string[];
-  obj: {};
-  onSomething: Function;
-  /** Function that doesn't take or return anything */
-  onClick: () => void;
-  /** Function with named prop */
-  onChange: (value: number | string) => void;
-  /** Alternative function type syntax that takes an event */
-};
+export type CommonTypes = {
+  message: string
+  title: string
+  id: string
+  obj: {}
+  onPress: () => void
+  onChangeText?: (text: string) => void
+}

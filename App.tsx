@@ -3,12 +3,13 @@ import React from 'react'
 import {StyleSheet, Text, View} from 'react-native'
 import {NavigationContainer} from '@react-navigation/native'
 
-import AppNavigator from './src/screens/_navigation/app-navigator'
+import AppNavigator from '@navigation/app-navigator'
+import AuthNavigator from '@navigation/auth-navigator'
 
 export default function App() {
   return (
     <NavigationContainer>
-      <AppNavigator />
+      <AuthNavigator />
     </NavigationContainer>
   )
 }

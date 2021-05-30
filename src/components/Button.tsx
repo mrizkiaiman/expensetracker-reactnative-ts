@@ -1,17 +1,19 @@
 import React from 'react'
 import {StyleSheet, Text, View} from 'react-native'
-import {Button} from 'react-native-paper'
-import colors from '../styles/colors'
+import {IProps, CommonTypes} from '@app/types'
+import colors from '@styles/colors'
 
-interface ICButton {
-  title: string
-  onSubmit: () => void
+import {Button} from 'react-native-paper'
+
+interface ICButton extends IProps {
+  title: CommonTypes['title']
+  onPress?: CommonTypes['onPress']
 }
 
-const CustomButton: React.FC<ICButton> = ({title, onSubmit}) => {
+const CustomButton: React.FC<ICButton> = ({title, onPress}) => {
   return (
-    <Button style={styles.mainContainer} mode="contained" onPress={onSubmit}>
-      {title}
+    <Button style={styles.mainContainer} mode="contained" onPress={onPress}>
+      <Text>{title}</Text>
     </Button>
   )
 }

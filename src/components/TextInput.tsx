@@ -1,12 +1,14 @@
 import React from 'react'
 import {StyleSheet, Text, View} from 'react-native'
-import {TextInput} from 'react-native-paper'
-import colors from '../styles/colors'
+import {IProps, CommonTypes} from '@app/types'
+import colors from '@styles/colors'
 
-interface ICTextInput {
+import {TextInput} from 'react-native-paper'
+
+interface ICTextInput extends IProps {
   label: string
   value: string
-  onChangeText: (text: string) => void
+  onChangeText: CommonTypes['onChangeText']
   borderColor?: string
   mode?: 'flat' | 'outlined'
   theme?: {

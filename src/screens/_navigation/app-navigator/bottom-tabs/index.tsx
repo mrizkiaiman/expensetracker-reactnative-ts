@@ -1,6 +1,7 @@
 import React, {Children} from 'react'
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import { useNavigation } from '@react-navigation/native'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import routes from '@navigation/routes'
 import Colors from '@styles/colors'
@@ -11,13 +12,13 @@ import Profile from '@screens/common/profile'
 import Budget from '@screens/common/budget'
 import CreateTransactions from '@screens/common/transaction-create'
 
+
 interface TabProps {}
 interface IPTabIcons {
   focused: boolean
   icon: any
   title: string
 }
-const Tab = createBottomTabNavigator()
 
 const TabIcon = (props: IPTabIcons) => (
   <View style={styles.tabIconContainer}>
@@ -42,6 +43,9 @@ const CustomTabButton = (props: any) => (
 )
 
 const BottomTabs: React.FC<TabProps> = props => {
+  const navigation = useNavigation()
+  const Tab = createBottomTabNavigator()
+
   return (
     <Tab.Navigator
       tabBarOptions={{
@@ -69,7 +73,7 @@ const BottomTabs: React.FC<TabProps> = props => {
           tabBarIcon: ({focused}) => (
             <MaterialCommunityIcons name="view-dashboard-outline" size={24} color={focused ? 'red' : 'black'} />
           ),
-          tabBarButton: props => <CustomTabButton props={props} />,
+          tabBarButton: props => <CustomTabButton onPress={() => navigation.navigate(routes.TRANSACTION_CREATE)} />,
         }}
       />
       <Tab.Screen

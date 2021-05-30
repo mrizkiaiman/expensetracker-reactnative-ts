@@ -1,8 +1,10 @@
 import React from 'react'
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack'
-import routes from '../routes'
+import routes from '@navigation/routes'
 
 import BottomTabs from './bottom-tabs'
+import SignIn from '@screens/auth/sign-in'
+import TransactionCreate from '@screens/common/transaction-create'
 
 interface IPAppNavigator {}
 
@@ -15,7 +17,8 @@ const AppStack: React.FC<IPAppNavigator> = ({}) => {
         headerShown: false,
       }}
       initialRouteName={routes.BOTTOM_TAB}>
-      <Stack.Screen name={routes.BOTTOM_TAB} component={BottomTabs} options={{title: 'Home'}} />
+      <Stack.Screen name={routes.BOTTOM_TAB} component={BottomTabs} />
+      <Stack.Screen name={routes.TRANSACTION_CREATE} options={{animationTypeForReplace: 'pop'}} component={TransactionCreate} />
     </Stack.Navigator>
   )
 }
