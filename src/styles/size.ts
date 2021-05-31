@@ -12,8 +12,11 @@ const responsiveSize = {
   },
 }
 
+const HORIZONTAL: number = 24
+
 export default {
   width,
   height,
   responsiveSize,
+  HORIZONTAL,
 }

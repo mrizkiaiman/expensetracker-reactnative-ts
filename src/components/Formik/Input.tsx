@@ -30,5 +30,6 @@ export default ({name, errorMessageCustomStyles, ...otherProps}: any) => {
 }
 
 const styles = StyleSheet.create({
-  mainContainer: {},
+  mainContainer: {
+  },
 })
