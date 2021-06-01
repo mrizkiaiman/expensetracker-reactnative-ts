@@ -12,4 +12,8 @@ export type CommonTypes = {
   obj: {}
   onPress: () => void
   onChangeText?: (text: string) => void
+  navigation: {
+    navigate: (path: string) => void
+    goBack: () => void
+  }
 }

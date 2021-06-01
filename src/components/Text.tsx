@@ -5,11 +5,16 @@ import colors from '@styles/colors'
 
 interface ICText extends IProps {
   type?: 'default' | 'regular' | 'semibold' | 'bold'
+  onPress?: () => void | null
 }
 
-const DefaultText: React.FC<ICText> = ({children, style, type}) => {
+const DefaultText: React.FC<ICText> = ({children, style, type, onPress}) => {
   const usedStyle = styles[type || 'default']
-  return <Text style={[usedStyle, style]}>{children}</Text>
+  return (
+    <Text onPress={onPress} style={[usedStyle, style]}>
+      {children}
+    </Text>
+  )
 }
 
 export default DefaultText

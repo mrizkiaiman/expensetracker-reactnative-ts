@@ -1,7 +1,7 @@
 export default {
   background: '#fff',
   primary: '#FF3378',
-  accent: '#F0B10D',
+  accent: '#0389FF',
   error: '#EF2531',
   disabled: '#E5E5E6',
   placeholder: '#CDCDCD',

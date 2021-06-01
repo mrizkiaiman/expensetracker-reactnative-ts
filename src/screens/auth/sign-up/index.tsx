@@ -10,11 +10,12 @@ import Button from '@components/Button'
 import {IProps, CommonTypes} from '@app/types'
 import routes from '@navigation/routes'
 
-interface ISSignIn extends IProps {
+interface ISSignUp extends IProps {
   navigation: CommonTypes['navigation']
 }
 
-const SignIn: React.FC<ISSignIn> = ({navigation}) => {
+const SignUp: React.FC<ISSignUp> = ({navigation}) => {
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isKeyboardVisible, setKeyboardVisible] = useState(false)
@@ -41,11 +42,12 @@ const SignIn: React.FC<ISSignIn> = ({navigation}) => {
     <SafeAreaView style={styles.mainContainer}>
       <View style={styles.contentContainer}>
         {isKeyboardVisible ? (
-          <SignInImage style={{alignSelf: 'flex-start'}} height={120} width={120} />
+          <SignInImage style={{alignSelf: 'flex-start'}} height={110} width={110} />
         ) : (
-          <SignInImage style={styles.illustrationImg} height={210} width={210} />
+          <SignInImage style={styles.illustrationImg} height={200} width={200} />
         )}
-        <Text style={styles.title}>Sign in</Text>
+        <Text style={styles.title}>Sign up</Text>
+        <TextInput label="Name" placeholder="M. Rizki Aiman" value={name} onChangeText={value => setName(value)} />
         <TextInput
           label="Email"
           placeholder="mrizkiaiman@tester.com"
@@ -59,11 +61,11 @@ const SignIn: React.FC<ISSignIn> = ({navigation}) => {
           onChangeText={value => setPassword(value)}
           isPassword
         />
-        <Button title="Sign-in" onPress={login} />
+        <Button title="Sign-up" onPress={login} />
         <Text style={styles.navigateToSignUpText}>
-          Don't have an account?{' '}
-          <Text onPress={() => navigation.navigate(routes.SIGN_UP)} style={{color: colors.primary}}>
-            Sign up
+          Already have an account?{' '}
+          <Text onPress={() => navigation.navigate(routes.SIGN_IN)} style={{color: colors.primary}}>
+            Sign in
           </Text>
         </Text>
       </View>
@@ -71,7 +73,7 @@ const SignIn: React.FC<ISSignIn> = ({navigation}) => {
   )
 }
 
-export default SignIn
+export default SignUp
 
 const styles = StyleSheet.create({
   mainContainer: {

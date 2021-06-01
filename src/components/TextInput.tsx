@@ -72,7 +72,7 @@ export default CustomTextInput
 
 const styles = StyleSheet.create({
   mainContainer: {
-    marginVertical: 8,
+    marginVertical: 6,
   },
   label: {
     fontSize: 12,
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     color: 'black',
     backgroundColor: colors.background,
     fontFamily: 'Prompt_600SemiBold',
-    fontSize: 20,
+    fontSize: 18,
     paddingBottom: 4,
   },
   inputContainer: {
