@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {StyleSheet, Text, View} from 'react-native'
 import AppLoading from 'expo-app-loading'
 import {NavigationContainer} from '@react-navigation/native'
@@ -21,6 +21,8 @@ import {
   Prompt_700Bold,
   Prompt_800ExtraBold,
 } from '@expo-google-fonts/prompt'
+import AuthContext from '@app/auth/context'
+import authStorage from '@app/auth/storage'
 
 import AppNavigator from '@navigation/app-navigator'
 import AuthNavigator from '@navigation/auth-navigator'
@@ -43,15 +45,21 @@ export default function App() {
     Prompt_800ExtraBold,
   })
 
-  if (!fontsLoaded)
+  const [user, setUser] = useState('')
+  const [isReady, setIsReady] = useState(false)
+  const restoreUser = async () => {
+    const user: any = await authStorage.getUser()
+    if (user) setUser(user)
+  }
+
+  if (!isReady || !fontsLoaded)
+    return <AppLoading startAsync={restoreUser} onFinish={() => setIsReady(true)} onError={console.warn} />
+  else
     return (
-      <AppLoading />
+      <AuthContext.Provider value={{user, setUser}}>
+        <NavigationContainer>{user ? <AppNavigator /> : <AuthNavigator />}</NavigationContainer>
+      </AuthContext.Provider>
     )
-  else return (
-    <NavigationContainer>
-      <AuthNavigator />
-    </NavigationContainer>
-  )
 }
 
 const styles = StyleSheet.create({

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {StyleSheet, View, SafeAreaView, Keyboard} from 'react-native'
 import colors from '@styles/colors'
 import size from '@styles/size'
+import useAuth from '@app/auth/useAuth'
 
 import SignInImage from '@assets/illustrations/sign-in.svg'
 import TextInput from '@components/TextInput'
@@ -18,6 +19,7 @@ const SignIn: React.FC<ISSignIn> = ({navigation}) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isKeyboardVisible, setKeyboardVisible] = useState(false)
+  const auth = useAuth()
 
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () => {
@@ -33,8 +35,8 @@ const SignIn: React.FC<ISSignIn> = ({navigation}) => {
     }
   }, [])
 
-  const login = () => {
-    console.log('Test')
+  const login = async () => {
+    await auth.logIn('testtoken')
   }
 
   return (
