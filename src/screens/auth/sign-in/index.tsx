@@ -5,7 +5,7 @@ import size from '@styles/size'
 import useAuth from '@app/auth/useAuth'
 
 import SignInImage from '@assets/illustrations/sign-in.svg'
-import TextInput from '@components/TextInput'
+import Input from '@app/components/Input'
 import Text from '@components/Text'
 import Button from '@components/Button'
 import {IProps, CommonTypes} from '@app/types'
@@ -48,13 +48,13 @@ const SignIn: React.FC<ISSignIn> = ({navigation}) => {
           <SignInImage style={styles.illustrationImg} height={210} width={210} />
         )}
         <Text style={styles.title}>Sign in</Text>
-        <TextInput
+        <Input
           label="Email"
           placeholder="mrizkiaiman@tester.com"
           value={email}
           onChangeText={value => setEmail(value)}
         />
-        <TextInput
+        <Input
           label="Password"
           placeholder="**********"
           value={password}

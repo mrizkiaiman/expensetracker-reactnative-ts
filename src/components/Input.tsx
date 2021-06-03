@@ -7,7 +7,7 @@ import {Ionicons} from '@expo/vector-icons'
 import ErrorIcon from '@assets/icons/errorText.svg'
 import Text from '@components/Text'
 
-interface ICTextInput extends IProps {
+interface ICInput extends IProps {
   placeholder: string
   value: string
   label?: string
@@ -18,7 +18,7 @@ interface ICTextInput extends IProps {
   errorText?: string
 }
 
-const CustomTextInput: React.FC<ICTextInput> = ({
+const CustomInput: React.FC<ICInput> = ({
   placeholder,
   value,
   onChangeText,
@@ -68,7 +68,7 @@ const CustomTextInput: React.FC<ICTextInput> = ({
   )
 }
 
-export default CustomTextInput
+export default CustomInput
 
 const styles = StyleSheet.create({
   mainContainer: {

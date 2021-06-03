@@ -1,13 +1,18 @@
 import React from 'react'
 import {StyleSheet, Text, View} from 'react-native'
-import {IProps} from '@app/types'
+import {IProps, CommonTypes} from '@app/types'
 
-interface IPCreateTransactions extends IProps {}
+import Header from '@components/Header'
 
-const CreateTransactions: React.FC<IPCreateTransactions> = props => {
+interface IPCreateTransactions extends IProps {
+  navigation: CommonTypes['navigation']
+}
+
+const CreateTransactions: React.FC<IPCreateTransactions> = ({navigation}) => {
   return (
     <View>
-      <Text>CreateTransactions</Text>
+      <Header title="Create Transaction"/>
+
     </View>
   )
 }

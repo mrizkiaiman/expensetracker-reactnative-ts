@@ -4,7 +4,7 @@ import colors from '@styles/colors'
 import size from '@styles/size'
 
 import SignInImage from '@assets/illustrations/sign-in.svg'
-import TextInput from '@components/TextInput'
+import Input from '@app/components/Input'
 import Text from '@components/Text'
 import Button from '@components/Button'
 import {IProps, CommonTypes} from '@app/types'
@@ -47,14 +47,14 @@ const SignUp: React.FC<ISSignUp> = ({navigation}) => {
           <SignInImage style={styles.illustrationImg} height={200} width={200} />
         )}
         <Text style={styles.title}>Sign up</Text>
-        <TextInput label="Name" placeholder="M. Rizki Aiman" value={name} onChangeText={value => setName(value)} />
-        <TextInput
+        <Input label="Name" placeholder="M. Rizki Aiman" value={name} onChangeText={value => setName(value)} />
+        <Input
           label="Email"
           placeholder="mrizkiaiman@tester.com"
           value={email}
           onChangeText={value => setEmail(value)}
         />
-        <TextInput
+        <Input
           label="Password"
           placeholder="**********"
           value={password}
