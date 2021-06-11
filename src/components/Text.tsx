@@ -4,7 +4,7 @@ import {IProps, CommonTypes} from '@app/types'
 import colors from '@styles/colors'
 
 interface ICText extends IProps {
-  type?: 'default' | 'regular' | 'semibold' | 'bold'
+  type?: 'default' | 'regular' | 'semibold' | 'bold' | 'title'
   onPress?: () => void | null
 }
 
@@ -35,5 +35,9 @@ const styles = StyleSheet.create({
   bold: {
     fontSize: 14,
     fontFamily: 'Prompt_700Bold',
+  },
+  title: {
+    fontSize: 24,
+    fontFamily: 'Prompt_600SemiBold',
   },
 })

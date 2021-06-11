@@ -6,7 +6,7 @@ export default {
   disabled: '#E5E5E6',
   placeholder: '#CDCDCD',
 
-  line: '#D8D8D8',
+  line: '#E2E2E2',
   green: '#006266',
   orange: '#FFC312',
   blue: '#0a3d62',

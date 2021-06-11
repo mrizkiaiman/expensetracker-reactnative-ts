@@ -1,0 +1,77 @@
+[
+  {
+    "user": "-",
+    "budget": "Daily Life",
+    "category": {
+      "name": "Foods",
+      "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893228/torakka/categories/food_fgldi7.svg"
+    },
+    "account": "BCA",
+    "measurement": "Primary",
+    "experience": "5",
+    "amount": 50000,
+    "description": "McMuffin",
+    "dt_created": "2021-06-04",
+    "dt_updated": "06-04-2021"
+  },
+  {
+    "user": "-",
+    "budget": "Daily Life",
+    "category": {
+      "name": "Subscription",
+      "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893230/torakka/categories/others_dkkokw.svg"
+    },
+    "account": "Jenius",
+    "measurement": "Secondary",
+    "experience": "5",
+    "amount": 50000,
+    "description": "Spotify",
+    "dt_created": "2021-06-04",
+    "dt_updated": "06-04-2021"
+  },
+  {
+    "user": "-",
+    "budget": "Daily Life",
+    "category": {
+      "name": "Foods",
+      "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893228/torakka/categories/food_fgldi7.svg"
+    },
+    "account": "BCA",
+    "measurement": "Primary",
+    "experience": "5",
+    "amount": 30000,
+    "description": "Salad",
+    "dt_created": "2021-06-04",
+    "dt_updated": "06-04-2021"
+  },
+  {
+    "user": "-",
+    "budget": "Daily Life",
+    "category": {
+      "name": "Foods",
+      "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893228/torakka/categories/food_fgldi7.svg"
+    },
+    "account": "BCA",
+    "measurement": "Primary",
+    "experience": "5",
+    "amount": 50000,
+    "description": "McMuffin-",
+    "dt_created": "2021-06-04",
+    "dt_updated": "06-04-2021"
+  },
+  {
+    "user": "-",
+    "budget": "Daily Life",
+    "category": {
+      "name": "Subscription",
+      "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893230/torakka/categories/others_dkkokw.svg"
+    },
+    "account": "Jenius",
+    "measurement": "Secondary",
+    "experience": "5",
+    "amount": 50000,
+    "description": "Spotify-",
+    "dt_created": "2021-06-04",
+    "dt_updated": "06-04-2021"
+  }
+]

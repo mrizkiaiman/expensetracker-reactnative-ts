@@ -7,7 +7,6 @@ import colors from '@styles/colors'
 import ChevronRight from '@assets/icons/chevron-right.svg'
 import Text from '@components/Text'
 
-
 interface ICHeader {
   title?: string
   headerRight?: () => JSX.Element
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
     width: '100%',
     borderBottomLeftRadius: 25,
     borderBottomRightRadius: 25,
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 1,
