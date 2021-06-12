@@ -3,9 +3,12 @@ import {StyleSheet, View, SafeAreaView, ScrollView} from 'react-native'
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
 import {IProps} from '@app/types'
 import colors from '@styles/colors'
+import size from '@styles/size'
 import mockedTransactions from '@app/mockdata/transactions.json'
 
 import CoinsImg from '@assets/icons/coins.svg'
+import ExpenseImg from '@assets/icons/>|.svg'
+import IncomeImg from '@assets/icons/|<.svg'
 import Text from '@components/Text'
 import ScrollViewBounced from '@components/parts/ScrollViewBounced'
 import TransactionList from '@screens/common/home/transaction-list'
@@ -45,11 +48,8 @@ const Home: React.FC<IPHome> = props => {
             </View>
           </View>
         </View>
-        <View
-          style={[
-            styles.contentContainer,
-            {marginTop: 8, borderTopWidth: 1, borderTopColor: colors.line, paddingBottom: 0},
-          ]}>
+
+        <View style={[styles.contentContainer, {borderTopWidth: 1, borderTopColor: colors.line, marginTop: 8}]}>
           <View style={[styles.topHeader, {marginTop: 16}]}>
             <Text type="title" style={styles.titleText}>
               Transactions
@@ -60,6 +60,53 @@ const Home: React.FC<IPHome> = props => {
           </View>
           <TransactionList transactionList={mockedTransactions} />
         </View>
+
+        <View style={[styles.contentContainer, {borderTopWidth: 1, borderTopColor: colors.line, marginTop: 8}]}>
+          <View style={[styles.topHeader, {marginTop: 16}]}>
+            <Text type="title" style={styles.titleText}>
+              Budget
+            </Text>
+            <Text type="semibold" style={{color: colors.primary}}>
+              See all
+            </Text>
+          </View>
+        </View>
+
+        <View style={[styles.contentContainer, {borderTopWidth: 1, borderTopColor: colors.line, marginTop: 8}]}>
+          <View style={[styles.topHeader, {marginTop: 16}]}>
+            <Text type="title" style={styles.titleText}>
+              Account
+            </Text>
+            <Text type="semibold" style={{color: colors.primary}}>
+              See all
+            </Text>
+          </View>
+        </View>
+
+        {/* <View style={[styles.contentContainer, styles.squareMenuButtonContainer]}>
+          <View style={styles.squareMenuButton}>
+            <View style={[styles.squareMenuButtonIconContainer, {backgroundColor: colors.blue}]}>
+              <IncomeImg height={30} width={30} />
+            </View>
+            <View style={styles.squareMenuButtonTextContainer}>
+              <Text style={{color: colors.gray, marginBottom: 4}}>Income</Text>
+              <Text type="semibold" style={{fontSize: 20}}>
+                Rp80.000
+              </Text>
+            </View>
+          </View>
+          <View style={styles.squareMenuButton}>
+            <View style={styles.squareMenuButtonIconContainer}>
+              <ExpenseImg height={30} width={30} />
+            </View>
+            <View style={styles.squareMenuButtonTextContainer}>
+              <Text style={{color: colors.gray, marginBottom: 4}}>Expense</Text>
+              <Text type="semibold" style={{fontSize: 20}}>
+                Rp80.000
+              </Text>
+            </View>
+          </View>
+        </View> */}
       </View>
     </ScrollView>
   )
@@ -69,7 +116,7 @@ export default Home
 
 const styles = StyleSheet.create({
   mainContainer: {
-    paddingBottom: 220,
+    paddingBottom: 200,
   },
   contentContainer: {
     backgroundColor: colors.background,
@@ -96,5 +143,41 @@ const styles = StyleSheet.create({
   },
   expenseText: {
     fontSize: 18,
+  },
+  squareMenuButtonContainer: {
+    marginTop: 16,
+    backgroundColor: colors.transparent,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderBottomWidth: 0,
+  },
+  squareMenuButton: {
+    height: size.width * 0.44,
+    width: size.width * 0.43,
+    backgroundColor: 'white',
+    borderRadius: 12,
+    marginHorizontal: 8,
+    paddingTop: 24,
+    paddingStart: 24,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+    elevation: 2,
+  },
+  squareMenuButtonIconContainer: {
+    width: 45,
+    height: 45,
+    borderRadius: 100,
+    backgroundColor: colors.red,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  squareMenuButtonTextContainer: {
+    marginTop: 32,
   },
 })

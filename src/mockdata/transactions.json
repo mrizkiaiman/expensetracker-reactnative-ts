@@ -1,5 +1,6 @@
 [
   {
+    "_id": "-",
     "user": "-",
     "budget": "Daily Life",
     "category": {
@@ -15,6 +16,7 @@
     "dt_updated": "06-04-2021"
   },
   {
+    "_id": "-",
     "user": "-",
     "budget": "Daily Life",
     "category": {
@@ -30,6 +32,7 @@
     "dt_updated": "06-04-2021"
   },
   {
+    "_id": "-",
     "user": "-",
     "budget": "Daily Life",
     "category": {
@@ -45,6 +48,7 @@
     "dt_updated": "06-04-2021"
   },
   {
+    "_id": "-",
     "user": "-",
     "budget": "Daily Life",
     "category": {
@@ -60,6 +64,7 @@
     "dt_updated": "06-04-2021"
   },
   {
+    "_id": "-",
     "user": "-",
     "budget": "Daily Life",
     "category": {

@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Prompt_700Bold',
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
     fontFamily: 'Prompt_600SemiBold',
   },
 })
