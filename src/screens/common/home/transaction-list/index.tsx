@@ -31,8 +31,8 @@ interface IPTransactionList extends IProps {
 const TransactionList: React.FC<IPTransactionList> = ({transactionList}) => {
   return (
     <>
-      {transactionList.slice(0, 3).map((transaction, index) => (
-        <View style={[styles.mainContainer, index === 2 && {borderBottomWidth: 0}]} key={transaction.description}>
+      {transactionList.slice(0, 5).map((transaction, index) => (
+        <View style={[styles.mainContainer, index === 4 && {borderBottomWidth: 0}]} key={transaction.description}>
           <Text type="semibold" style={{color: colors.gray}}>
             {moment(transaction.dt_created).format('ll')}
           </Text>

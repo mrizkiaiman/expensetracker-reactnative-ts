@@ -8,4 +8,7 @@ export default class Routes {
   static PROFILE = '/tab/profile'
   static DAILY = '/tab/daily'
   static TRANSACTION_CREATE = '/tab/create-transaction'
+
+  static ACCOUNT_LIST = '/account/list'
+  static ACCOUNT_FORM = '/account/form'
 }

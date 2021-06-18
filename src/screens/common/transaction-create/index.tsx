@@ -11,8 +11,7 @@ interface IPCreateTransactions extends IProps {
 const CreateTransactions: React.FC<IPCreateTransactions> = ({navigation}) => {
   return (
     <View>
-      <Header title="Create Transaction"/>
-
+      <Header title="Create Transaction" />
     </View>
   )
 }

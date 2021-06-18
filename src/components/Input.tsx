@@ -48,7 +48,7 @@ const CustomInput: React.FC<ICInput> = ({
           placeholder={placeholder}
           value={value}
           onChangeText={onChangeText}
-          style={[styles.input, style]}
+          style={[styles.input, {width: isPassword ? '90%' : '100%'}, style]}
           keyboardType={isNumber ? 'phone-pad' : 'default'}
           secureTextEntry={Boolean(isPassword && state.hide)}
         />
