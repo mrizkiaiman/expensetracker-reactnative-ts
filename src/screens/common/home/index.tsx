@@ -59,7 +59,7 @@ const Home: React.FC<IPHome> = ({navigation}) => {
             </Text>
           </View>
           <ScrollView horizontal contentContainerStyle={styles.boxMenuContainer}>
-            <TouchableOpacity  style={styles.boxMenu}>
+            <TouchableOpacity style={styles.boxMenu}>
               <FontAwesome name="bank" size={36} color="white" />
               <Text style={styles.boxMenuText}>Bank</Text>
             </TouchableOpacity>
@@ -71,7 +71,9 @@ const Home: React.FC<IPHome> = ({navigation}) => {
               <Ionicons name="ios-cash" size={36} color="white" />
               <Text style={styles.boxMenuText}>Cash</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.boxMenu, styles.boxMenuTransparent]} onPress={() => navigation.navigate(routes.ACCOUNT_FORM)}>
+            <TouchableOpacity
+              style={[styles.boxMenu, styles.boxMenuTransparent]}
+              onPress={() => navigation.navigate(routes.ACCOUNT_FORM)}>
               <FontAwesome name="plus" size={40} color={colors.primary} />
             </TouchableOpacity>
           </ScrollView>
@@ -187,9 +189,8 @@ const styles = StyleSheet.create({
   },
 })
 
-
-
-{/* <View style={[styles.contentContainer, styles.squareMenuButtonContainer]}>
+{
+  /* <View style={[styles.contentContainer, styles.squareMenuButtonContainer]}>
   <View style={styles.squareMenuButton}>
     <View style={[styles.squareMenuButtonIconContainer, {backgroundColor: colors.blue}]}>
       <IncomeImg height={30} width={30} />
@@ -212,4 +213,5 @@ const styles = StyleSheet.create({
       </Text>
     </View>
   </View>
-</View> */}
+</View> */
+}

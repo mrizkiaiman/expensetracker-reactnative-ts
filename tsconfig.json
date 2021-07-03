@@ -7,12 +7,14 @@
       "@app/*": ["src/*"],
       "@assets/*": ["assets/*"],
       "@components/*": ["src/components/*"],
+      "@domain/*": ["src/domain/*"],
       "@screens/*": ["src/screens/*"],
-      "@services/*": ["src/services/*"],
+      "@services/*": ["src/domain/services/*"],
       "@states/*": ["src/states/*"],
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"],
       "@navigation/*": ["src/screens/_navigation/*"],
+      "@mockdata/*": ["mockdata/"],
     }
   }
 }
