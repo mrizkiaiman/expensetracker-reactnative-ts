@@ -1,25 +1,27 @@
 import React, {useState, useEffect} from 'react'
 import {StyleSheet, View, SafeAreaView, Keyboard} from 'react-native'
-import colors from '@styles/colors'
-import size from '@styles/size'
+import {useNavigation} from '@react-navigation/native'
 import useAuth from '@app/auth/useAuth'
+
+import myStyles from '@styles/index'
+import {RAW_COLORS} from '@styles/vars'
 
 import SignInImage from '@assets/illustrations/sign-in.svg'
 import Input from '@app/components/Input'
 import Text from '@components/Text'
 import Button from '@components/Button'
-import {IProps, CommonTypes} from '@app/types'
+import {IProps} from '@app/types'
 import routes from '@navigation/routes'
 
-interface ISSignIn extends IProps {
-  navigation: CommonTypes['navigation']
-}
+interface IPSignIn extends IProps {}
 
-const SignIn: React.FC<ISSignIn> = ({navigation}) => {
+const SignIn: React.FunctionComponent<IPSignIn> = props => {
+  const navigation = useNavigation()
+  const auth = useAuth()
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isKeyboardVisible, setKeyboardVisible] = useState(false)
-  const auth = useAuth()
 
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () => {
@@ -64,7 +66,7 @@ const SignIn: React.FC<ISSignIn> = ({navigation}) => {
         <Button title="Sign-in" onPress={login} />
         <Text style={styles.navigateToSignUpText}>
           Don't have an account?{' '}
-          <Text onPress={() => navigation.navigate(routes.SIGN_UP)} style={{color: colors.primary}}>
+          <Text onPress={() => navigation.navigate(routes.SIGN_UP)} style={{color: RAW_COLORS.primary}}>
             Sign up
           </Text>
         </Text>
@@ -77,11 +79,11 @@ export default SignIn
 
 const styles = StyleSheet.create({
   mainContainer: {
-    backgroundColor: colors.background,
+    backgroundColor: RAW_COLORS.background,
     flex: 1,
   },
   contentContainer: {
-    paddingHorizontal: size.HORIZONTAL,
+    ...myStyles.phOne,
     paddingTop: 64,
   },
   illustrationImg: {

@@ -7,7 +7,7 @@ import SignUp from '@screens/auth/sign-up'
 
 interface IPAuthNavigator {}
 
-const AuthStack: React.FC<IPAuthNavigator> = ({}) => {
+const AuthStack: React.FunctionComponent<IPAuthNavigator> = ({}) => {
   const Stack = createStackNavigator()
 
   return (

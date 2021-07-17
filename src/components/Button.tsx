@@ -1,16 +1,18 @@
 import React from 'react'
 import {StyleSheet, TouchableOpacity} from 'react-native'
-import {IProps, CommonTypes} from '@app/types'
-import colors from '@styles/colors'
+import {IProps} from '@app/types'
+import {RAW_COLORS} from '@styles/vars'
 
 import Text from '@components/Text'
 
-interface ICButton extends IProps {
-  title: CommonTypes['title']
-  onPress?: CommonTypes['onPress']
+interface IPButton extends IProps {
+  title: string
+  onPress?: () => void
 }
 
-const CustomButton: React.FC<ICButton> = ({title, onPress}) => {
+const CustomButton: React.FunctionComponent<IPButton> = props => {
+  const {title, onPress} = props
+
   return (
     <TouchableOpacity style={styles.mainContainer} onPress={onPress}>
       <Text type="bold" style={styles.title}>
@@ -24,7 +26,7 @@ export default CustomButton
 
 const styles = StyleSheet.create({
   mainContainer: {
-    backgroundColor: colors.primary,
+    backgroundColor: RAW_COLORS.primary,
     padding: 12,
     justifyContent: 'center',
     alignItems: 'center',

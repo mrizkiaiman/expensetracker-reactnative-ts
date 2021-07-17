@@ -1,7 +1,7 @@
 import {showMessage, hideMessage} from 'react-native-flash-message'
 import {Platform, StatusBar} from 'react-native'
 
-export default function showToast(message: string, type: 'info' | 'success' | 'danger') {
+const showToast = (message: string, type: 'info' | 'success' | 'danger') => {
   showMessage({
     message: 'Attention!',
     description: message,
@@ -12,6 +12,8 @@ export default function showToast(message: string, type: 'info' | 'success' | 'd
     statusBarHeight: Platform.OS === 'ios' ? StatusBar.currentHeight : 0,
   })
 }
+
+export default showToast
 
 export function hideToast() {
   hideMessage()

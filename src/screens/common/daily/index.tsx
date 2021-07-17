@@ -4,7 +4,7 @@ import {IProps} from '@app/types'
 
 interface IPDaily extends IProps {}
 
-const Daily: React.FC<IPDaily> = props => {
+const Daily: React.FunctionComponent<IPDaily> = props => {
   return (
     <View>
       <Text>Daily</Text>

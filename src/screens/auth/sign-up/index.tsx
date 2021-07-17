@@ -1,20 +1,22 @@
 import React, {useState, useEffect} from 'react'
 import {StyleSheet, View, SafeAreaView, Keyboard} from 'react-native'
-import colors from '@styles/colors'
-import size from '@styles/size'
+import {useNavigation} from '@react-navigation/native'
+
+import myStyles from '@styles/index'
+import {RAW_COLORS} from '@styles/vars'
 
 import SignInImage from '@assets/illustrations/sign-in.svg'
 import Input from '@app/components/Input'
 import Text from '@components/Text'
 import Button from '@components/Button'
-import {IProps, CommonTypes} from '@app/types'
+import {IProps} from '@app/types'
 import routes from '@navigation/routes'
 
-interface ISSignUp extends IProps {
-  navigation: CommonTypes['navigation']
-}
+interface IPSignUp extends IProps {}
 
-const SignUp: React.FC<ISSignUp> = ({navigation}) => {
+const SignUp: React.FunctionComponent<IPSignUp> = props => {
+  const navigation = useNavigation()
+
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -64,7 +66,7 @@ const SignUp: React.FC<ISSignUp> = ({navigation}) => {
         <Button title="Sign-up" onPress={login} />
         <Text style={styles.navigateToSignUpText}>
           Already have an account?{' '}
-          <Text onPress={() => navigation.navigate(routes.SIGN_IN)} style={{color: colors.primary}}>
+          <Text onPress={() => navigation.navigate(routes.SIGN_IN)} style={{color: RAW_COLORS.primary}}>
             Sign in
           </Text>
         </Text>
@@ -77,11 +79,11 @@ export default SignUp
 
 const styles = StyleSheet.create({
   mainContainer: {
-    backgroundColor: colors.background,
+    backgroundColor: RAW_COLORS.background,
     flex: 1,
   },
   contentContainer: {
-    paddingHorizontal: size.HORIZONTAL,
+    ...myStyles.phOne,
     paddingTop: 64,
   },
   illustrationImg: {

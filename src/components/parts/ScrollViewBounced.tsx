@@ -1,14 +1,15 @@
 import React from 'react'
 import {StyleSheet, Text, View} from 'react-native'
 import {IProps} from '@app/types'
-import size from '@styles/size'
-const {width, height} = size
+import {SCREEN_SIZE} from '@styles/vars'
 
-interface IPScrollViewBounced extends IProps {
+interface IScrollViewBounced extends IProps {
   color: string
 }
 
-const ScrollViewBounced: React.FC<IPScrollViewBounced> = ({color}) => {
+const ScrollViewBounced: React.FunctionComponent<IScrollViewBounced> = props => {
+  const {color} = props
+
   return <View style={{...styles.mainContainer, backgroundColor: color}} />
 }
 
@@ -16,9 +17,9 @@ export default ScrollViewBounced
 
 const styles = StyleSheet.create({
   mainContainer: {
-    height: height,
+    height: SCREEN_SIZE.fullHeight,
     position: 'absolute',
-    top: -height,
+    top: -SCREEN_SIZE.fullHeight,
     left: 0,
     right: 0,
   },

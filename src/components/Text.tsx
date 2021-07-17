@@ -1,14 +1,15 @@
 import React, {ReactNode} from 'react'
 import {StyleSheet, Text, View, StyleProp, TextStyle} from 'react-native'
-import {IProps, CommonTypes} from '@app/types'
-import colors from '@styles/colors'
+import {IProps} from '@app/types'
 
-interface ICText extends IProps {
+interface IPText extends IProps {
   type?: 'default' | 'regular' | 'semibold' | 'bold' | 'title'
-  onPress?: () => void | null
+  onPress?: () => void
+  children: ReactNode
 }
 
-const DefaultText: React.FC<ICText> = ({children, style, type, onPress}) => {
+const DefaultText: React.FunctionComponent<IPText> = props => {
+  const {children, style, type, onPress} = props
   const usedStyle = styles[type || 'default']
   return (
     <Text onPress={onPress} style={[usedStyle, style]}>

@@ -9,7 +9,7 @@ import AccountForm from '@screens/modules/account-form'
 
 interface IPAppNavigator {}
 
-const AppStack: React.FC<IPAppNavigator> = ({}) => {
+const AppStack: React.FunctionComponent<IPAppNavigator> = ({}) => {
   const Stack = createStackNavigator()
   return (
     <Stack.Navigator

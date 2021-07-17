@@ -1,19 +1,21 @@
 import React from 'react'
 import {StyleSheet, Text, View} from 'react-native'
-import {IProps, CommonTypes} from '@app/types'
-import colors from '@styles/colors'
-import size from '@styles/size'
+import {useNavigation} from '@react-navigation/native'
+import {IProps} from '@app/types'
+
+import myStyles from '@styles/index'
+import {RAW_COLORS, SCREEN_SIZE} from '@styles/vars'
 
 import Header from '@components/Header'
 
-interface IPAccountForm extends IProps {
-  navigation: CommonTypes['navigation']
-}
+interface IPAccountForm extends IProps {}
 
-const AccountForm: React.FC<IPAccountForm> = props => {
+const AccountForm: React.FunctionComponent<IPAccountForm> = props => {
+  const navigation = useNavigation()
+
   return (
     <View style={styles.mainContainer}>
-      <Header title="Add Account" />
+      <Header title="AccountForm" />
     </View>
   )
 }

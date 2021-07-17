@@ -2,18 +2,19 @@ import React from 'react'
 import {StyleSheet, TouchableOpacity, Image, View} from 'react-native'
 import {useNavigation} from '@react-navigation/core'
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
-import colors from '@styles/colors'
+import {RAW_COLORS} from '@styles/vars'
 
 import ChevronRight from '@assets/icons/chevron-right.svg'
 import Text from '@components/Text'
 
-interface ICHeader {
+interface IPHeader {
   title?: string
   headerRight?: () => JSX.Element
   onGoBack?: () => void
 }
 
-const Header: React.FC<ICHeader> = ({title, headerRight, onGoBack}) => {
+const Header: React.FunctionComponent<IPHeader> = props => {
+  const {title, headerRight, onGoBack} = props
   const navigation = useNavigation()
   const insets = useSafeAreaInsets()
 
@@ -38,7 +39,7 @@ export default Header
 
 const styles = StyleSheet.create({
   mainContainer: {
-    backgroundColor: colors.background,
+    backgroundColor: RAW_COLORS.background,
     justifyContent: 'center',
     width: '100%',
     borderBottomLeftRadius: 25,

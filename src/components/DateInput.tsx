@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {StyleSheet, View} from 'react-native'
 
-import DateTimePicker from '@react-native-community/datetimepicker'
+import DateTimePicker, {AndroidEvent, Event} from '@react-native-community/datetimepicker'
 import TouchableInput from '@components/TouchableInput'
 
 interface IPDatePicker {
@@ -14,18 +14,13 @@ interface IPDatePicker {
   setDateValue: any
 }
 
-const DatePicker: React.FC<IPDatePicker> = ({
-  label,
-  placeholder,
-  value,
-  errorText,
-  isRequired,
-  onChangeText,
-  setDateValue,
-}) => {
+const DatePicker: React.FunctionComponent<IPDatePicker> = props => {
+  const {label, placeholder, value, errorText, isRequired, onChangeText, setDateValue} = props
   const todaysDate = new Date()
+
   const [date, setDate] = useState<Date>(todaysDate)
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
+
   return (
     <View>
       <TouchableInput
@@ -43,7 +38,7 @@ const DatePicker: React.FC<IPDatePicker> = ({
           mode={'date'}
           is24Hour={true}
           display="default"
-          onChange={(event, selectedDate) => {
+          onChange={(_event: Event | AndroidEvent, selectedDate: Date | undefined) => {
             const currentDate = selectedDate || date
             let stringDate = ''
             if (currentDate) {

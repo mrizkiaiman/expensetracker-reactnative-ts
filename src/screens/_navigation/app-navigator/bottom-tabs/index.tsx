@@ -1,7 +1,7 @@
 import React, {Children} from 'react'
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
-import { useNavigation } from '@react-navigation/native'
+import {useNavigation} from '@react-navigation/native'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import routes from '@navigation/routes'
 import Colors from '@styles/colors'
@@ -11,7 +11,6 @@ import Daily from '@screens/common/daily'
 import Profile from '@screens/common/profile'
 import Budget from '@screens/common/budget'
 import CreateTransactions from '@screens/common/transaction-create'
-
 
 interface TabProps {}
 interface IPTabIcons {
@@ -42,7 +41,7 @@ const CustomTabButton = (props: any) => (
   </TouchableOpacity>
 )
 
-const BottomTabs: React.FC<TabProps> = props => {
+const BottomTabs: React.FunctionComponent<TabProps> = props => {
   const navigation = useNavigation()
   const Tab = createBottomTabNavigator()
 

@@ -1,34 +1,26 @@
 import React, {useState} from 'react'
 import {StyleSheet, TextInput, View, StyleProp, TextStyle, TouchableOpacity} from 'react-native'
-import {IProps, CommonTypes} from '@app/types'
-import colors from '@styles/colors'
+import {IProps} from '@app/types'
+import {RAW_COLORS} from '@styles/vars'
 
 import {Ionicons} from '@expo/vector-icons'
 import ErrorIcon from '@assets/icons/errorText.svg'
 import Text from '@components/Text'
 
-interface ICInput extends IProps {
+interface IPInput extends IProps {
   placeholder: string
   value: string
   label?: string
-  onChangeText: CommonTypes['onChangeText']
+  onChangeText: (value: string) => void
   isPassword?: boolean
   isRequired?: boolean
   isNumber?: boolean
   errorText?: string
 }
 
-const CustomInput: React.FC<ICInput> = ({
-  placeholder,
-  value,
-  onChangeText,
-  label,
-  isPassword,
-  isRequired,
-  isNumber,
-  style,
-  errorText,
-}) => {
+const CustomInput: React.FunctionComponent<IPInput> = props => {
+  const {placeholder, value, onChangeText, label, isPassword, isRequired, isNumber, style, errorText} = props
+
   const [state, setState] = useState({
     hide: true,
     focus: false,
@@ -54,7 +46,7 @@ const CustomInput: React.FC<ICInput> = ({
         />
         {isPassword && (
           <TouchableOpacity onPress={(): void => setState({...state, hide: !state.hide})}>
-            <Ionicons name={state.hide ? 'md-eye' : 'md-eye-off'} size={24} color={colors.gray} />
+            <Ionicons name={state.hide ? 'md-eye' : 'md-eye-off'} size={24} color={RAW_COLORS.gray} />
           </TouchableOpacity>
         )}
       </View>
@@ -77,12 +69,12 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 12,
     marginBottom: 4,
-    color: colors.gray,
+    color: RAW_COLORS.gray,
   },
   input: {
     marginVertical: 8,
     color: 'black',
-    backgroundColor: colors.background,
+    backgroundColor: RAW_COLORS.background,
     fontFamily: 'Prompt_600SemiBold',
     fontSize: 18,
     paddingBottom: 4,
@@ -91,7 +83,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderBottomColor: colors.line,
+    borderBottomColor: RAW_COLORS.line,
     borderBottomWidth: 0.8,
   },
   errorTextContainer: {
@@ -101,7 +93,7 @@ const styles = StyleSheet.create({
     paddingTop: 4,
   },
   errorText: {
-    color: colors.error,
+    color: RAW_COLORS.error,
     paddingHorizontal: 4,
     paddingTop: 4,
     fontSize: 11,

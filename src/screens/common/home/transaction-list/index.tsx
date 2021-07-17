@@ -28,7 +28,7 @@ interface IPTransactionList extends IProps {
   transactionList: IPTransactionData[]
 }
 
-const TransactionList: React.FC<IPTransactionList> = ({transactionList}) => {
+const TransactionList: React.FunctionComponent<IPTransactionList> = ({transactionList}) => {
   return (
     <>
       {transactionList.slice(0, 5).map((transaction, index) => (
