@@ -17,7 +17,7 @@ module.exports = function (api) {
             '@services': './src/domain/services',
             '@states': './src/states',
             '@utils': './src/utils',
-            '@styles': './src/styles',
+            '@styles': './src/utils/styles',
             '@navigation': './src/screens/_navigation',
             '@mockdata': './mockdata',
           },

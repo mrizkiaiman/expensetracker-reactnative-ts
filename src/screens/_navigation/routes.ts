@@ -1,14 +1,17 @@
 export default class Routes {
-  static SIGN_IN = '/sign-in'
-  static SIGN_UP = '/sign-up'
+  private static _PREFIX = 'app'
+  private static _TAB = 'doc'
 
-  static BOTTOM_TAB = '/tab'
-  static HOME = '/tab/home'
-  static BUDGET = '/tab/budget'
-  static PROFILE = '/tab/profile'
-  static DAILY = '/tab/daily'
-  static TRANSACTION_CREATE = '/tab/create-transaction'
+  static SIGN_IN = `/${Routes._PREFIX}/sign-in`
+  static SIGN_UP = `/${Routes._PREFIX}/sign-up`
 
-  static ACCOUNT_LIST = '/account/list'
-  static ACCOUNT_FORM = '/account/form'
+  static BOTTOM_TAB = `/${Routes._PREFIX}/${Routes._TAB}`
+  static HOME = `/${Routes._PREFIX}/${Routes._TAB}/home`
+  static BUDGET = `/${Routes._PREFIX}/${Routes._TAB}/budget`
+  static PROFILE = `/${Routes._PREFIX}/${Routes._TAB}/profile`
+  static DAILY = `/${Routes._PREFIX}/${Routes._TAB}/daily`
+  static TRANSACTION_CREATE = `/${Routes._PREFIX}/${Routes._TAB}/create-transaction`
+
+  static ACCOUNT_LIST = `/${Routes._PREFIX}/account/list`
+  static ACCOUNT_FORM = `/${Routes._PREFIX}/account/form`
 }

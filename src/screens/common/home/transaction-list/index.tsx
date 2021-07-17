@@ -1,11 +1,12 @@
 import React from 'react'
 import {StyleSheet, View, Image} from 'react-native'
 import {IProps} from '@app/types'
-import colors from '@styles/colors'
 import numberDotsFormatter from '@app/utils/numberDotsFormatter'
 import moment from 'moment'
-import {SvgUri} from 'react-native-svg'
 
+import {RAW_COLORS} from '@styles/vars'
+
+import {SvgUri} from 'react-native-svg'
 import Text from '@components/Text'
 
 interface IPTransactionData {
@@ -33,7 +34,7 @@ const TransactionList: React.FunctionComponent<IPTransactionList> = ({transactio
     <>
       {transactionList.slice(0, 5).map((transaction, index) => (
         <View style={[styles.mainContainer, index === 4 && {borderBottomWidth: 0}]} key={transaction.description}>
-          <Text type="semibold" style={{color: colors.gray}}>
+          <Text type="semibold" style={{color: RAW_COLORS.gray}}>
             {moment(transaction.dt_created).format('ll')}
           </Text>
           <View style={styles.contentContainer}>
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     backgroundColor: 'white',
     borderBottomWidth: 1,
-    borderBottomColor: colors.line,
+    borderBottomColor: RAW_COLORS.line,
     paddingTop: 14,
     paddingBottom: 18,
   },
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
     borderRadius: 90,
   },
   accountTextContainer: {
-    backgroundColor: colors.primary,
+    backgroundColor: RAW_COLORS.primary,
     borderRadius: 8,
     width: 100,
     height: 30,

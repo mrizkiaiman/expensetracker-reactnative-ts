@@ -1,2 +1,5 @@
 export {default as IProps} from './_IProps'
+export {default as IRESTApiResponse} from './_IRESTApiResponse'
+export {default as IPagingDocs} from './_IPagingDocs'
+export {default as IStdEntity} from './_IStdEntity'
 export {default as Common} from './_common'

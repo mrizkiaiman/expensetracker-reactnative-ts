@@ -4,7 +4,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import {useNavigation} from '@react-navigation/native'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import routes from '@navigation/routes'
-import Colors from '@styles/colors'
+
+import {RAW_COLORS} from '@styles/vars'
 
 import Home from '@screens/common/home'
 import Daily from '@screens/common/daily'
@@ -21,8 +22,8 @@ interface IPTabIcons {
 
 const TabIcon = (props: IPTabIcons) => (
   <View style={styles.tabIconContainer}>
-    <MaterialCommunityIcons name={props.icon} size={24} color={props.focused ? Colors.pink : Colors.gray} />
-    <Text style={{...styles.tabIconText, color: props.focused ? Colors.pink : Colors.gray}}>{props.title}</Text>
+    <MaterialCommunityIcons name={props.icon} size={24} color={props.focused ? RAW_COLORS.pink : RAW_COLORS.gray} />
+    <Text style={{...styles.tabIconText, color: props.focused ? RAW_COLORS.pink : RAW_COLORS.gray}}>{props.title}</Text>
   </View>
 )
 
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 35,
-    backgroundColor: Colors.pink,
+    backgroundColor: RAW_COLORS.pink,
     justifyContent: 'center',
     alignItems: 'center',
   },

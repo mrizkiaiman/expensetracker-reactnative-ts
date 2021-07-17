@@ -11,7 +11,7 @@
       "@screens/*": ["src/screens/*"],
       "@services/*": ["src/domain/services/*"],
       "@states/*": ["src/states/*"],
-      "@styles/*": ["src/styles/*"],
+      "@styles/*": ["src/utils/styles/*"],
       "@utils/*": ["src/utils/*"],
       "@navigation/*": ["src/screens/_navigation/*"],
       "@mockdata/*": ["mockdata/"],

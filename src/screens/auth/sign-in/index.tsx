@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import {StyleSheet, View, SafeAreaView, Keyboard} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 import useAuth from '@app/auth/useAuth'
+import {IProps} from '@app/types'
+import routes from '@navigation/routes'
 
 import myStyles from '@styles/index'
 import {RAW_COLORS} from '@styles/vars'
@@ -10,8 +12,6 @@ import SignInImage from '@assets/illustrations/sign-in.svg'
 import Input from '@app/components/Input'
 import Text from '@components/Text'
 import Button from '@components/Button'
-import {IProps} from '@app/types'
-import routes from '@navigation/routes'
 
 interface IPSignIn extends IProps {}
 
