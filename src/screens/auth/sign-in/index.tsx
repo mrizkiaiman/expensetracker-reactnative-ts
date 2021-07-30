@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react'
-import {StyleSheet, View, SafeAreaView, Keyboard} from 'react-native'
+import React, {useState} from 'react'
+import {StyleSheet, View, SafeAreaView} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 import useAuth from '@app/auth/useAuth'
+import {useKeyboardListener} from '@hooks/index'
 import {IProps} from '@app/types'
 import routes from '@navigation/routes'
 
@@ -21,21 +22,7 @@ const SignIn: React.FunctionComponent<IPSignIn> = props => {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [isKeyboardVisible, setKeyboardVisible] = useState(false)
-
-  useEffect(() => {
-    const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () => {
-      setKeyboardVisible(true)
-    })
-    const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', () => {
-      setKeyboardVisible(false)
-    })
-
-    return () => {
-      keyboardDidHideListener.remove()
-      keyboardDidShowListener.remove()
-    }
-  }, [])
+  const keyboardVisibility = useKeyboardListener()
 
   const login = async () => {
     await auth.logIn('testtoken')
@@ -44,7 +31,7 @@ const SignIn: React.FunctionComponent<IPSignIn> = props => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <View style={styles.contentContainer}>
-        {isKeyboardVisible ? (
+        {keyboardVisibility ? (
           <SignInImage style={{alignSelf: 'flex-start'}} height={120} width={120} />
         ) : (
           <SignInImage style={styles.illustrationImg} height={210} width={210} />

@@ -11,6 +11,7 @@ interface IPText extends IProps {
 const DefaultText: React.FunctionComponent<IPText> = props => {
   const {children, style, type, onPress} = props
   const usedStyle = styles[type || 'default']
+
   return (
     <Text onPress={onPress} style={[usedStyle, style]}>
       {children}
