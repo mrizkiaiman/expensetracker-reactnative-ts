@@ -9,11 +9,10 @@ import myStyles from '@styles/index'
 import {RAW_COLORS, SPACES} from '@styles/vars'
 
 import AddAcountImage from '@assets/illustrations/add-account.svg'
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
+import {KeyboardAwareWrapper} from '@components/wrapper'
 import Header from '@components/Header'
 import Text from '@components/Text'
-import Button from '@components/Button'
-import {FormikButton, FormikForm, FormikInput} from '@components/formik'
+import {FormikForm, FormikInput} from '@components/formik'
 
 interface IPAccountForm extends IProps {}
 
@@ -30,13 +29,7 @@ const AccountForm: React.FunctionComponent<IPAccountForm> = props => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <Header title="Create Account" />
-      <KeyboardAwareScrollView
-        enableOnAndroid
-        extraScrollHeight={50}
-        extraHeight={50}
-        contentContainerStyle={{paddingBottom: SPACES.oneSpace}}
-        keyboardShouldPersistTaps="handled"
-        showsVerticalScrollIndicator={false}>
+      <KeyboardAwareWrapper>
         <View style={styles.contentContainer}>
           {keyboardVisibility ? (
             <AddAcountImage style={{alignSelf: 'flex-start', marginTop: -SPACES.twoSpace}} height={120} width={120} />
@@ -51,13 +44,24 @@ const AccountForm: React.FunctionComponent<IPAccountForm> = props => {
               setSubmitting(true)
               resetForm()
             }}>
-            <FormikInput name="name" placeholder="Account name" />
-            <FormikInput name="amount" placeholder="Amount" isNumber={true} autoCapitalize="none" />
-            <FormikInput name="accountType" placeholder="Account Type" autoCapitalize="none" />
-            <FormikButton title="Sign in" />
+            <FormikInput label="Account name" name="name" placeholder="Main savings" />
+            <FormikInput
+              label="Starter amount"
+              name="amount"
+              placeholder="Rp100.000"
+              isNumber={true}
+              autoCapitalize="none"
+            />
+            <FormikInput
+              label="Account type"
+              name="accountType"
+              placeholder="Bank"
+              autoCapitalize="none"
+              withSubmitButton={true}
+            />
           </FormikForm>
         </View>
-      </KeyboardAwareScrollView>
+      </KeyboardAwareWrapper>
     </SafeAreaView>
   )
 }

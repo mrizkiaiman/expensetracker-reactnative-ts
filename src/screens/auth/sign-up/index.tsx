@@ -3,9 +3,10 @@ import {StyleSheet, View, SafeAreaView, Keyboard} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 
 import myStyles from '@styles/index'
-import {RAW_COLORS} from '@styles/vars'
+import {RAW_COLORS, SPACES} from '@styles/vars'
 
 import SignInImage from '@assets/illustrations/sign-in.svg'
+import {KeyboardAwareWrapper} from '@components/wrapper'
 import Input from '@app/components/Input'
 import Text from '@components/Text'
 import Button from '@components/Button'
@@ -42,35 +43,37 @@ const SignUp: React.FunctionComponent<IPSignUp> = props => {
 
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <View style={styles.contentContainer}>
-        {isKeyboardVisible ? (
-          <SignInImage style={{alignSelf: 'flex-start'}} height={110} width={110} />
-        ) : (
-          <SignInImage style={styles.illustrationImg} height={200} width={200} />
-        )}
-        <Text style={styles.title}>Sign up</Text>
-        <Input label="Name" placeholder="M. Rizki Aiman" value={name} onChangeText={value => setName(value)} />
-        <Input
-          label="Email"
-          placeholder="mrizkiaiman@tester.com"
-          value={email}
-          onChangeText={value => setEmail(value)}
-        />
-        <Input
-          label="Password"
-          placeholder="**********"
-          value={password}
-          onChangeText={value => setPassword(value)}
-          isPassword
-        />
-        <Button title="Sign-up" onPress={login} />
-        <Text style={styles.navigateToSignUpText}>
-          Already have an account?{' '}
-          <Text onPress={() => navigation.navigate(routes.SIGN_IN)} style={{color: RAW_COLORS.primary}}>
-            Sign in
+      <KeyboardAwareWrapper>
+        <View style={styles.contentContainer}>
+          {isKeyboardVisible ? (
+            <SignInImage style={{alignSelf: 'flex-start', marginTop: 32}} height={110} width={110} />
+          ) : (
+            <SignInImage style={styles.illustrationImg} height={200} width={200} />
+          )}
+          <Text style={styles.title}>Sign up</Text>
+          <Input label="Name" placeholder="M. Rizki Aiman" value={name} onChangeText={value => setName(value)} />
+          <Input
+            label="Email"
+            placeholder="mrizkiaiman@tester.com"
+            value={email}
+            onChangeText={value => setEmail(value)}
+          />
+          <Input
+            label="Password"
+            placeholder="**********"
+            value={password}
+            onChangeText={value => setPassword(value)}
+            isPassword
+          />
+          <Button title="Sign-up" onPress={login} />
+          <Text style={styles.navigateToSignUpText}>
+            Already have an account?{' '}
+            <Text onPress={() => navigation.navigate(routes.SIGN_IN)} style={{color: RAW_COLORS.primary}}>
+              Sign in
+            </Text>
           </Text>
-        </Text>
-      </View>
+        </View>
+      </KeyboardAwareWrapper>
     </SafeAreaView>
   )
 }
@@ -88,6 +91,7 @@ const styles = StyleSheet.create({
   },
   illustrationImg: {
     alignSelf: 'center',
+    paddingTop: 64,
   },
   title: {
     fontSize: 32,

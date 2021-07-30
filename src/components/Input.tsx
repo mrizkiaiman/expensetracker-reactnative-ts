@@ -5,6 +5,7 @@ import {RAW_COLORS} from '@styles/vars'
 
 import {Ionicons} from '@expo/vector-icons'
 import ErrorIcon from '@assets/icons/errorText.svg'
+import SubmitButton from '@assets/icons/input-submit-button.svg'
 import Text from '@components/Text'
 
 interface IPInput extends IProps {
@@ -16,10 +17,22 @@ interface IPInput extends IProps {
   isRequired?: boolean
   isNumber?: boolean
   errorText?: string
+  withSubmitButton?: boolean
 }
 
 const CustomInput: React.FunctionComponent<IPInput> = props => {
-  const {placeholder, value, onChangeText, label, isPassword, isRequired, isNumber, style, errorText} = props
+  const {
+    placeholder,
+    value,
+    onChangeText,
+    label,
+    isPassword,
+    isRequired,
+    isNumber,
+    style,
+    errorText,
+    withSubmitButton,
+  } = props
 
   const [state, setState] = useState({
     hide: true,
@@ -35,7 +48,7 @@ const CustomInput: React.FunctionComponent<IPInput> = props => {
           {isRequired && <Text> *</Text>}
         </Text>
       )}
-      <View style={styles.inputContainer}>
+      <View style={[styles.inputContainer, {width: withSubmitButton ? '70%' : '100%'}]}>
         <TextInput
           placeholder={placeholder}
           value={value}
@@ -47,6 +60,11 @@ const CustomInput: React.FunctionComponent<IPInput> = props => {
         {isPassword && (
           <TouchableOpacity onPress={(): void => setState({...state, hide: !state.hide})}>
             <Ionicons name={state.hide ? 'md-eye' : 'md-eye-off'} size={24} color={RAW_COLORS.gray} />
+          </TouchableOpacity>
+        )}
+        {withSubmitButton && (
+          <TouchableOpacity style={styles.submitButtonContainer}>
+            <SubmitButton />
           </TouchableOpacity>
         )}
       </View>
@@ -103,5 +121,8 @@ const styles = StyleSheet.create({
     marginRight: 5,
     height: 12,
     width: 12,
+  },
+  submitButtonContainer: {
+    marginLeft: '24%',
   },
 })

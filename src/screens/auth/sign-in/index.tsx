@@ -32,7 +32,7 @@ const SignIn: React.FunctionComponent<IPSignIn> = props => {
     <SafeAreaView style={styles.mainContainer}>
       <View style={styles.contentContainer}>
         {keyboardVisibility ? (
-          <SignInImage style={{alignSelf: 'flex-start'}} height={120} width={120} />
+          <SignInImage style={{alignSelf: 'flex-start', marginTop: 64}} height={120} width={120} />
         ) : (
           <SignInImage style={styles.illustrationImg} height={210} width={210} />
         )}
@@ -71,10 +71,10 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     ...myStyles.phOne,
-    paddingTop: 64,
   },
   illustrationImg: {
     alignSelf: 'center',
+    marginTop: 96,
   },
   title: {
     fontSize: 32,

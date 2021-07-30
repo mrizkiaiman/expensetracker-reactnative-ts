@@ -47,6 +47,7 @@ const myStyles = {
   //Padding-horizontal
   phHalf: {paddingLeft: vars.SPACES.halfSpace, paddingRight: vars.SPACES.halfSpace},
   phOne: {paddingLeft: vars.SPACES.oneSpace, paddingRight: vars.SPACES.oneSpace},
+  phOneHalf: {paddingLeft: vars.SPACES.oneHalfSpace, paddingRight: vars.SPACES.oneHalfSpace},
 
   //Text
   heading: {fontWeight: 700},
