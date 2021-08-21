@@ -11,8 +11,6 @@ import {RAW_COLORS, SCREEN_SIZE} from '@styles/vars'
 
 import {FontAwesome, Ionicons} from '@expo/vector-icons'
 import CoinsImg from '@assets/icons/coins.svg'
-import ExpenseImg from '@assets/icons/>|.svg'
-import IncomeImg from '@assets/icons/|<.svg'
 import Text from '@components/Text'
 import ScrollViewBounced from '@app/components/ScrollViewBounced'
 import TransactionList from '@screens/common/home/transaction-list'
