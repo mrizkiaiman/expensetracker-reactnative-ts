@@ -3,7 +3,7 @@ import {StyleSheet, SafeAreaView, View} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 import {useKeyboardListener} from '@hooks/index'
 import {IProps} from '@app/types'
-import {IAccountForm} from '@models/account'
+import {IAccountForm} from '@app/domain/models/modules/account'
 
 import myStyles from '@styles/index'
 import {RAW_COLORS, SPACES} from '@styles/vars'
