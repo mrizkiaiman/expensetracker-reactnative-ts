@@ -3,7 +3,7 @@ import {createStackNavigator, TransitionPresets} from '@react-navigation/stack'
 import routes from '@navigation/routes'
 
 import BottomTabs from './bottom-tabs'
-import TransactionCreate from '@screens/common/transaction-create'
+import TransactionCreate from '@screens/modules/transaction-create'
 import AccountList from '@screens/modules/account-list'
 import AccountForm from '@screens/modules/account-form'
 

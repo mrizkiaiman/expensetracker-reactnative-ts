@@ -21,8 +21,6 @@ import {
   Prompt_700Bold,
   Prompt_800ExtraBold,
 } from '@expo-google-fonts/prompt'
-import AuthContext from '@app/auth/context'
-import authStorage from '@app/auth/storage'
 
 import AppNavigator from '@navigation/app-navigator'
 import AuthNavigator from '@navigation/auth-navigator'
@@ -47,17 +45,9 @@ export default function App() {
 
   const [user, setUser] = useState('')
   const [isReady, setIsReady] = useState(false)
-  const restoreUser = async () => {
-    const user: any = await authStorage.getUser()
-    if (user) setUser(user)
-  }
+  const restoreUser = async () => {}
 
   if (!isReady || !fontsLoaded)
     return <AppLoading startAsync={restoreUser} onFinish={() => setIsReady(true)} onError={console.warn} />
-  else
-    return (
-      <AuthContext.Provider value={{user, setUser}}>
-        <NavigationContainer>{user ? <AppNavigator /> : <AuthNavigator />}</NavigationContainer>
-      </AuthContext.Provider>
-    )
+  else return <NavigationContainer>{user ? <AppNavigator /> : <AuthNavigator />}</NavigationContainer>
 }

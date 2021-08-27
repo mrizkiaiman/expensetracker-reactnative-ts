@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from 'react'
-import {StyleSheet, View, SafeAreaView, Keyboard} from 'react-native'
+import React, {useState} from 'react'
+import {View, SafeAreaView} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
+import {useKeyboardListener} from '@utils/hooks'
 
-import {myStyles} from '@styles/index'
-import {RAW_COLORS, SPACES} from '@styles/vars'
 import {IProps} from '@app/types'
 import routes from '@navigation/routes'
+import {styles} from './styles'
+import {RAW_COLORS} from '@styles/vars'
 
 import SignInImage from '@assets/illustrations/sign-in.svg'
 import {KeyboardAwareWrapper} from '@components/wrapper'
@@ -19,21 +20,7 @@ const SignUp: React.FunctionComponent<IPSignUp> = props => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [isKeyboardVisible, setKeyboardVisible] = useState(false)
-
-  useEffect(() => {
-    const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () => {
-      setKeyboardVisible(true)
-    })
-    const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', () => {
-      setKeyboardVisible(false)
-    })
-
-    return () => {
-      keyboardDidHideListener.remove()
-      keyboardDidShowListener.remove()
-    }
-  }, [])
+  const keyboardVisibility = useKeyboardListener()
 
   const login = () => {
     console.log('Test')
@@ -43,7 +30,7 @@ const SignUp: React.FunctionComponent<IPSignUp> = props => {
     <SafeAreaView style={styles.mainContainer}>
       <KeyboardAwareWrapper>
         <View style={styles.contentContainer}>
-          {isKeyboardVisible ? (
+          {keyboardVisibility ? (
             <SignInImage style={{alignSelf: 'flex-start', marginTop: 32}} height={110} width={110} />
           ) : (
             <SignInImage style={styles.illustrationImg} height={200} width={200} />
@@ -77,27 +64,3 @@ const SignUp: React.FunctionComponent<IPSignUp> = props => {
 }
 
 export default SignUp
-
-const styles = StyleSheet.create({
-  mainContainer: {
-    backgroundColor: RAW_COLORS.background,
-    flex: 1,
-  },
-  contentContainer: {
-    ...myStyles.phOne,
-    paddingTop: 64,
-  },
-  illustrationImg: {
-    alignSelf: 'center',
-    paddingTop: 64,
-  },
-  title: {
-    fontSize: 32,
-    fontFamily: 'Prompt_700Bold',
-    marginVertical: 28,
-  },
-  navigateToSignUpText: {
-    textAlign: 'center',
-    marginTop: 8,
-  },
-})

@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
-import {StyleSheet, SafeAreaView, View} from 'react-native'
+import {SafeAreaView, View} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 import {useKeyboardListener} from '@hooks/index'
+
 import {IProps} from '@app/types'
 import {IAccountForm} from '@app/domain/models/modules/account'
-
-import {myStyles} from '@styles/index'
-import {RAW_COLORS, SPACES} from '@styles/vars'
+import {styles} from './styles'
+import {SPACES} from '@styles/vars'
 
 import AddAcountImage from '@assets/illustrations/add-account.svg'
 import {KeyboardAwareWrapper} from '@components/wrapper'
@@ -66,24 +66,3 @@ const AccountForm: React.FunctionComponent<IPAccountForm> = props => {
 }
 
 export default AccountForm
-
-const styles = StyleSheet.create({
-  mainContainer: {
-    backgroundColor: RAW_COLORS.background,
-    flex: 1,
-  },
-  contentContainer: {
-    ...myStyles.phOne,
-    paddingTop: 64,
-  },
-  illustrationImg: {
-    alignSelf: 'center',
-    marginLeft: SPACES.oneSpace + SPACES.halfSpace,
-    marginTop: -SPACES.twoSpace,
-  },
-  title: {
-    fontSize: 32,
-    fontFamily: 'Prompt_700Bold',
-    marginVertical: SPACES.twoSpace,
-  },
-})

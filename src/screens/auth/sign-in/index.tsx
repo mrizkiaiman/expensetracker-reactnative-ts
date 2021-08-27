@@ -1,12 +1,11 @@
 import React, {useState} from 'react'
-import {StyleSheet, View, SafeAreaView} from 'react-native'
+import {View, SafeAreaView} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
-import useAuth from '@app/auth/useAuth'
 import {useKeyboardListener} from '@hooks/index'
+
 import {IProps} from '@app/types'
 import routes from '@navigation/routes'
-
-import {myStyles} from '@styles/index'
+import {styles} from './styles'
 import {RAW_COLORS} from '@styles/vars'
 
 import SignInImage from '@assets/illustrations/sign-in.svg'
@@ -16,15 +15,12 @@ interface IPSignIn extends IProps {}
 
 const SignIn: React.FunctionComponent<IPSignIn> = props => {
   const navigation = useNavigation()
-  const auth = useAuth()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const keyboardVisibility = useKeyboardListener()
 
-  const login = async () => {
-    await auth.logIn('testtoken')
-  }
+  const login = async () => {}
 
   return (
     <SafeAreaView style={styles.mainContainer}>
@@ -61,26 +57,3 @@ const SignIn: React.FunctionComponent<IPSignIn> = props => {
 }
 
 export default SignIn
-
-const styles = StyleSheet.create({
-  mainContainer: {
-    backgroundColor: RAW_COLORS.background,
-    flex: 1,
-  },
-  contentContainer: {
-    ...myStyles.phOne,
-  },
-  illustrationImg: {
-    alignSelf: 'center',
-    marginTop: 96,
-  },
-  title: {
-    fontSize: 32,
-    fontFamily: 'Prompt_700Bold',
-    marginVertical: 28,
-  },
-  navigateToSignUpText: {
-    textAlign: 'center',
-    marginTop: 8,
-  },
-})

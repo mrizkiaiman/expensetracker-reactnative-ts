@@ -2,8 +2,16 @@ import React, {ReactNode} from 'react'
 import {StyleSheet, Text, View, StyleProp, TextStyle} from 'react-native'
 import {IProps} from '@app/types'
 
+enum TextType {
+  DEFAULT = 'default',
+  REGULAR = 'regular',
+  SEMIBOLD = 'semibold',
+  BOLD = 'bold',
+  TITLE = 'title',
+}
+
 interface IPText extends IProps {
-  type?: 'default' | 'regular' | 'semibold' | 'bold' | 'title'
+  type?: TextType
   onPress?: () => void
   children: ReactNode
 }

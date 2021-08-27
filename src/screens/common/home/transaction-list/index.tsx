@@ -1,32 +1,18 @@
 import React from 'react'
-import {StyleSheet, View, Image} from 'react-native'
+import {View} from 'react-native'
+
 import {IProps} from '@app/types'
+import {IPTransactionRow} from '@models/modules/transaction'
 import numberDotsFormatter from '@app/utils/numberDotsFormatter'
 import moment from 'moment'
-
+import {styles} from './styles'
 import {RAW_COLORS} from '@styles/vars'
 
 import {SvgUri} from 'react-native-svg'
 import {Text} from '@app/components'
 
-interface IPTransactionData {
-  user: string
-  budget: string
-  category: {
-    name: string
-    img: string
-  }
-  account: string
-  measurement: string
-  experience: string
-  amount: number
-  description: string
-  dt_created: string
-  dt_updated: string
-}
-
 interface IPTransactionList extends IProps {
-  transactionList: IPTransactionData[]
+  transactionList: IPTransactionRow[]
 }
 
 const TransactionList: React.FunctionComponent<IPTransactionList> = ({transactionList}) => {
@@ -39,7 +25,7 @@ const TransactionList: React.FunctionComponent<IPTransactionList> = ({transactio
           </Text>
           <View style={styles.contentContainer}>
             <View style={styles.iconContainer}>
-              <SvgUri width={30} height={30} uri={transaction.category.img} />
+              <SvgUri width={30} height={30} uri={transaction?.category?.img ?? null} />
             </View>
             <View style={styles.contentInfoContainer}>
               <View style={{marginStart: 16}}>
@@ -62,41 +48,3 @@ const TransactionList: React.FunctionComponent<IPTransactionList> = ({transactio
 }
 
 export default TransactionList
-
-const styles = StyleSheet.create({
-  mainContainer: {
-    backgroundColor: 'white',
-    borderBottomWidth: 1,
-    borderBottomColor: RAW_COLORS.line,
-    paddingTop: 14,
-    paddingBottom: 18,
-  },
-  contentContainer: {
-    marginTop: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  contentInfoContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    flex: 1,
-    width: '100%',
-  },
-  iconContainer: {
-    width: 50,
-    height: 50,
-    backgroundColor: '#F7F7F7',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 90,
-  },
-  accountTextContainer: {
-    backgroundColor: RAW_COLORS.primary,
-    borderRadius: 8,
-    width: 100,
-    height: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 4,
-  },
-})

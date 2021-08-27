@@ -1,13 +1,12 @@
 import React, {useState} from 'react'
-import {StyleSheet, View, SafeAreaView, ScrollView, TouchableOpacity} from 'react-native'
+import {StyleSheet, View, ScrollView, TouchableOpacity} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
-import {IProps} from '@app/types'
-import routes from '@navigation/routes'
-import mockedTransactions from '@app/mockdata/transactions.json'
 
-import {myStyles} from '@styles/index'
+import {IProps} from '@app/types'
 import {RAW_COLORS, SCREEN_SIZE} from '@styles/vars'
+import mockedTransactions from '@app/mockdata/transactions.json'
+import routes from '@navigation/routes'
 
 import {FontAwesome, Ionicons} from '@expo/vector-icons'
 import CoinsImg from '@assets/icons/coins.svg'

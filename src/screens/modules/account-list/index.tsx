@@ -1,8 +1,8 @@
 import React from 'react'
 import {StyleSheet, Text, View} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
-import {IProps} from '@app/types'
 
+import {IProps} from '@app/types'
 import {myStyles} from '@styles/index'
 import {RAW_COLORS, SCREEN_SIZE} from '@styles/vars'
 
