@@ -7,7 +7,7 @@ import moment from 'moment'
 import {RAW_COLORS} from '@styles/vars'
 
 import {SvgUri} from 'react-native-svg'
-import Text from '@components/Text'
+import {Text} from '@app/components'
 
 interface IPTransactionData {
   user: string

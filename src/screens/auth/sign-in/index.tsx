@@ -6,13 +6,11 @@ import {useKeyboardListener} from '@hooks/index'
 import {IProps} from '@app/types'
 import routes from '@navigation/routes'
 
-import myStyles from '@styles/index'
+import {myStyles} from '@styles/index'
 import {RAW_COLORS} from '@styles/vars'
 
 import SignInImage from '@assets/illustrations/sign-in.svg'
-import Input from '@app/components/Input'
-import Text from '@components/Text'
-import Button from '@components/Button'
+import {Input, Text, Button} from '@app/components'
 
 interface IPSignIn extends IProps {}
 

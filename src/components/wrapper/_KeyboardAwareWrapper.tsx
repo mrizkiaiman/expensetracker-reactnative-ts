@@ -2,7 +2,7 @@ import React from 'react'
 import {StyleSheet, Text, View} from 'react-native'
 import {IProps} from '@app/types'
 
-import myStyles from '@styles/index'
+import {myStyles} from '@styles/index'
 import {RAW_COLORS, SPACES} from '@styles/vars'
 
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'

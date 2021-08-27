@@ -5,13 +5,12 @@ import {useKeyboardListener} from '@hooks/index'
 import {IProps} from '@app/types'
 import {IAccountForm} from '@app/domain/models/modules/account'
 
-import myStyles from '@styles/index'
+import {myStyles} from '@styles/index'
 import {RAW_COLORS, SPACES} from '@styles/vars'
 
 import AddAcountImage from '@assets/illustrations/add-account.svg'
 import {KeyboardAwareWrapper} from '@components/wrapper'
-import Header from '@components/Header'
-import Text from '@components/Text'
+import {Text, Header} from '@app/components'
 import {FormikForm, FormikInput} from '@components/formik'
 
 interface IPAccountForm extends IProps {}

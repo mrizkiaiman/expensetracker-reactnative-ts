@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 import {IProps} from '@app/types'
 
-import Header from '@components/Header'
+import {Header} from '@app/components'
 
 interface IPCreateTransactions extends IProps {}
 

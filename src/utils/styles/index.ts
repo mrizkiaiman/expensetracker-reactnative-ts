@@ -1,6 +1,6 @@
 import * as vars from './vars'
 
-const myStyles = {
+export const myStyles = {
   //Size
   wFull: {width: vars.SCREEN_SIZE.fullWidth},
   hFull: {height: vars.SCREEN_SIZE.fullHeight},
@@ -54,4 +54,3 @@ const myStyles = {
   textCenter: {textAlign: 'center'},
 }
 
-export default myStyles

@@ -2,7 +2,7 @@ import React from 'react'
 import {useFormikContext} from 'formik'
 import {IProps} from '@app/types'
 
-import Button from '../Button'
+import {Button} from '@components/index'
 
 interface IPFormikButton extends IProps {
   title: string

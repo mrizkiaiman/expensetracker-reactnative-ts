@@ -3,10 +3,10 @@ import {StyleSheet, Text, View} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 import {IProps} from '@app/types'
 
-import myStyles from '@styles/index'
+import {myStyles} from '@styles/index'
 import {RAW_COLORS, SCREEN_SIZE} from '@styles/vars'
 
-import Header from '@components/Header'
+import {Header} from '@app/components'
 
 interface IPAccountList extends IProps {}
 

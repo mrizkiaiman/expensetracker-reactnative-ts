@@ -2,16 +2,14 @@ import React, {useState, useEffect} from 'react'
 import {StyleSheet, View, SafeAreaView, Keyboard} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 
-import myStyles from '@styles/index'
+import {myStyles} from '@styles/index'
 import {RAW_COLORS, SPACES} from '@styles/vars'
+import {IProps} from '@app/types'
+import routes from '@navigation/routes'
 
 import SignInImage from '@assets/illustrations/sign-in.svg'
 import {KeyboardAwareWrapper} from '@components/wrapper'
-import Input from '@app/components/Input'
-import Text from '@components/Text'
-import Button from '@components/Button'
-import {IProps} from '@app/types'
-import routes from '@navigation/routes'
+import {Input, Text, Button} from '@app/components'
 
 interface IPSignUp extends IProps {}
 

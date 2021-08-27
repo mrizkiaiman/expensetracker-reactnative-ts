@@ -3,7 +3,7 @@ import {StyleSheet, TouchableOpacity} from 'react-native'
 import {IProps} from '@app/types'
 import {RAW_COLORS} from '@styles/vars'
 
-import Text from '@components/Text'
+import {Text} from '@app/components'
 
 interface IPButton extends IProps {
   title: string
