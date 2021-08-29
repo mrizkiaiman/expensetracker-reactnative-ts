@@ -5,7 +5,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context'
 import {RAW_COLORS} from '@styles/vars'
 
 import ChevronRight from '@assets/icons/chevron-right.svg'
-import {Text} from '@app/components'
+import Text from '@app/components/_Text'
 
 interface IPHeader {
   title?: string

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {StyleSheet, View} from 'react-native'
 
 import DateTimePicker, {AndroidEvent, Event} from '@react-native-community/datetimepicker'
-import {TouchableInput} from '@app/components'
+import TouchableInput from '@app/components/_TouchableInput'
 
 interface IPDatePicker {
   label: string

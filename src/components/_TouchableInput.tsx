@@ -5,7 +5,7 @@ import {RAW_COLORS} from '@styles/vars'
 
 import {Ionicons} from '@expo/vector-icons'
 import ErrorIcon from '@assets/icons/errorText.svg'
-import {Text} from '@app/components'
+import Text from '@app/components/_Text'
 
 interface IPTouchableInput extends IProps {
   placeholder: string
