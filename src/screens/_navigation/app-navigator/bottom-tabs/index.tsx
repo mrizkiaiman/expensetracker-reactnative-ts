@@ -10,7 +10,7 @@ import {RAW_COLORS} from '@styles/vars'
 import Home from '@screens/common/home'
 import Daily from '@screens/common/daily'
 import Profile from '@screens/common/profile'
-import Budget from '@screens/common/budget'
+import Stats from '@app/screens/common/stats'
 import CreateTransactions from '@screens/modules/transaction-create'
 
 interface TabProps {}
@@ -77,10 +77,10 @@ const BottomTabs: React.FunctionComponent<TabProps> = props => {
         }}
       />
       <Tab.Screen
-        name={routes.BUDGET}
-        component={Budget}
+        name={routes.STATS}
+        component={Stats}
         options={{
-          tabBarIcon: ({focused}) => <TabIcon title="Budget" icon="wallet" focused={focused} />,
+          tabBarIcon: ({focused}) => <TabIcon title="Stats" icon="wallet" focused={focused} />,
         }}
       />
       <Tab.Screen

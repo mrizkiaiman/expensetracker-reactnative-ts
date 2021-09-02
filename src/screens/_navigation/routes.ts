@@ -7,7 +7,7 @@ export default class Routes {
 
   static BOTTOM_TAB = `/${Routes._PREFIX}/${Routes._TAB}`
   static HOME = `/${Routes._PREFIX}/${Routes._TAB}/home`
-  static BUDGET = `/${Routes._PREFIX}/${Routes._TAB}/budget`
+  static STATS = `/${Routes._PREFIX}/${Routes._TAB}/stats`
   static PROFILE = `/${Routes._PREFIX}/${Routes._TAB}/profile`
   static DAILY = `/${Routes._PREFIX}/${Routes._TAB}/daily`
   static TRANSACTION_CREATE = `/${Routes._PREFIX}/${Routes._TAB}/create-transaction`
