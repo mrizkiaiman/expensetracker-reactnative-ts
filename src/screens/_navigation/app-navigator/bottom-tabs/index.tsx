@@ -11,7 +11,7 @@ import Home from '@screens/common/home'
 import Daily from '@screens/common/daily'
 import Profile from '@screens/common/profile'
 import Stats from '@app/screens/common/stats'
-import CreateTransactions from '@screens/modules/transaction-create'
+import CreateTransactions from '@app/screens/modules/transaction-form'
 
 interface TabProps {}
 interface IPTabIcons {
