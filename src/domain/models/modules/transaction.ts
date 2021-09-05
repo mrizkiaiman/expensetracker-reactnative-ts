@@ -10,6 +10,7 @@ export interface IPTransactionRow {
   experience?: string
   amount: number
   description?: string
+  transactionType?: string
   dt_created: string
   dt_updated: string
 }

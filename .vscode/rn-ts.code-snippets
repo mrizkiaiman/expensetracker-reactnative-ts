@@ -92,5 +92,20 @@
       "}",
       ""
     ]
+  },
+  "Styles Functional Component": {
+    "scope": "javascript,typescript,typescriptreact",
+    "prefix": "rnstyles",
+    "body": [
+      "import {StyleSheet} from 'react-native'",
+      "import {RAW_COLORS, SCREEN_SIZE} from '@styles/vars'",
+      "",
+      "export const styles = StyleSheet.create({",
+      "  mainContainer: {",
+      "    backgroundColor: 'white',",
+      "    height: '100%',",
+      "  },",
+      "})"
+    ]
   }
 }

@@ -5,13 +5,22 @@ import {useFormikContext} from 'formik'
 import {Input} from '@app/components'
 import ErrorMessage from '@components/formik/_ErrorMessage'
 
-export default ({name, errorMessageCustomStyles, ...otherProps}: any) => {
+export interface IPFormikInput {
+  name: string
+  label?: string
+  placeholder?: string
+  isNumber?: boolean
+  autoCapitalize?: string
+  withSubmitButton?: boolean
+}
+
+export default ({name, ...otherProps}: IPFormikInput) => {
   const {setFieldValue, values, errors, touched} = useFormikContext<any>()
 
   return (
     <View style={styles.mainContainer}>
-      <Input {...otherProps} onChangeText={text => setFieldValue(name, text)} value={values[name]} />
-      <ErrorMessage visible={touched[name]} text={errors[name]} style={errorMessageCustomStyles} />
+      <Input {...otherProps} onChangeText={value => setFieldValue(name, value)} value={values[name]} />
+      <ErrorMessage visible={touched[name]} text={errors[name]} />
     </View>
   )
 }

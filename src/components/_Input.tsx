@@ -9,7 +9,7 @@ import SubmitButton from '@assets/icons/input-submit-button.svg'
 import Text from '@app/components/_Text'
 
 interface IPInput extends IProps {
-  placeholder: string
+  placeholder?: string
   value: string
   label?: string
   onChangeText: (value: string) => void
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     marginVertical: 6,
   },
   label: {
-    fontSize: 12,
+    fontSize: 14,
     marginBottom: 4,
     color: RAW_COLORS.gray,
   },
