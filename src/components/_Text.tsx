@@ -3,7 +3,7 @@ import {StyleSheet, Text, View, StyleProp, TextStyle} from 'react-native'
 import {IProps} from '@app/types'
 
 interface IPText extends IProps {
-  type?: 'default' | 'regular' | 'semibold' | 'bold' | 'title'
+  type?: 'default' | 'regular' | 'semibold' | 'bold' | 'title' | 'big-title'
   onPress?: () => void
   children: ReactNode
 }
@@ -41,5 +41,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontFamily: 'Prompt_600SemiBold',
+  },
+  'big-title': {
+    fontSize: 24,
+    fontFamily: 'Prompt_700Bold',
   },
 })

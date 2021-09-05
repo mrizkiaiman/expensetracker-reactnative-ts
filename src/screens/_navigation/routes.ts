@@ -10,7 +10,8 @@ export default class Routes {
   static STATS = `/${Routes._PREFIX}/${Routes._TAB}/stats`
   static PROFILE = `/${Routes._PREFIX}/${Routes._TAB}/profile`
   static DAILY = `/${Routes._PREFIX}/${Routes._TAB}/daily`
-  static TRANSACTION_CREATE = `/${Routes._PREFIX}/${Routes._TAB}/create-transaction`
+  static TRANSACTION_FORM_FIRST = `/${Routes._PREFIX}/${Routes._TAB}/transaction-form/first`
+  static TRANSACTION_FORM_SECOND = `/${Routes._PREFIX}/${Routes._TAB}/transaction-form/second`
 
   static ACCOUNT_LIST = `/${Routes._PREFIX}/account/list`
   static ACCOUNT_FORM = `/${Routes._PREFIX}/account/form`

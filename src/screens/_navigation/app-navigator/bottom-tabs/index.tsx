@@ -11,7 +11,7 @@ import Home from '@screens/common/home'
 import Daily from '@screens/common/daily'
 import Profile from '@screens/common/profile'
 import Stats from '@app/screens/common/stats'
-import CreateTransactions from '@app/screens/modules/transaction-form'
+import {FirstTransactionForm} from '@app/screens/modules/transaction-form/first-form'
 
 interface TabProps {}
 interface IPTabIcons {
@@ -43,20 +43,22 @@ const CustomTabButton = (props: any) => (
 )
 
 const BottomTabs: React.FunctionComponent<TabProps> = props => {
-  const navigation = useNavigation()
+  const navigation = useNavigation<any>()
   const Tab = createBottomTabNavigator()
 
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        showLabel: false,
-        style: [styles.tabNavigator, styles.shadow],
+      screenOptions={{
+        tabBarShowLabel: false,
+
+        tabBarStyle: [styles.tabNavigator, styles.shadow],
       }}>
       <Tab.Screen
         name={routes.HOME}
         component={Home}
         options={{
           tabBarIcon: ({focused}) => <TabIcon title="Home" icon="view-dashboard-outline" focused={focused} />,
+          headerShown: false,
         }}
       />
       <Tab.Screen
@@ -64,16 +66,17 @@ const BottomTabs: React.FunctionComponent<TabProps> = props => {
         component={Daily}
         options={{
           tabBarIcon: ({focused}) => <TabIcon title="Daily" icon="book-outline" focused={focused} />,
+          headerShown: false,
         }}
       />
       <Tab.Screen
-        name={routes.TRANSACTION_CREATE}
-        component={CreateTransactions}
+        name={routes.TRANSACTION_FORM_FIRST}
+        component={FirstTransactionForm}
         options={{
           tabBarIcon: ({focused}) => (
             <MaterialCommunityIcons name="view-dashboard-outline" size={24} color={focused ? 'red' : 'black'} />
           ),
-          tabBarButton: props => <CustomTabButton onPress={() => navigation.navigate(routes.TRANSACTION_CREATE)} />,
+          tabBarButton: props => <CustomTabButton onPress={() => navigation.navigate(routes.TRANSACTION_FORM_FIRST)} />,
         }}
       />
       <Tab.Screen
@@ -81,6 +84,7 @@ const BottomTabs: React.FunctionComponent<TabProps> = props => {
         component={Stats}
         options={{
           tabBarIcon: ({focused}) => <TabIcon title="Stats" icon="wallet" focused={focused} />,
+          headerShown: false,
         }}
       />
       <Tab.Screen
@@ -88,6 +92,7 @@ const BottomTabs: React.FunctionComponent<TabProps> = props => {
         component={Profile}
         options={{
           tabBarIcon: ({focused}) => <TabIcon title="Profile" icon="face-profile" focused={focused} />,
+          headerShown: false,
         }}
       />
     </Tab.Navigator>

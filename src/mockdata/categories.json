@@ -1,0 +1,114 @@
+[
+  {
+    "name": "Automobile",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893225/torakka/categories/automobile_jzus4g.svg"
+  },
+  {
+    "name": "Bank",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893225/torakka/categories/bank_th0rvj.svg"
+  },
+  {
+    "name": "Cash",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893224/torakka/categories/cash_nrxusy.svg"
+  },
+  {
+    "name": "Charity",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893225/torakka/categories/charity_twjb4q.svg"
+  },
+  {
+    "name": "Childcare",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893229/torakka/categories/child-care_bt2oja.svg"
+  },
+  {
+    "name": "Credit Card",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893224/torakka/categories/credit-card_ol08xk.svg"
+  },
+  {
+    "name": "Food",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893228/torakka/categories/food_fgldi7.svg"
+  },
+  {
+    "name": "Education",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893225/torakka/categories/education_rddilq.svg"
+  },
+  {
+    "name": "Entertainment",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893228/torakka/categories/entertainment_pwjrvs.svg"
+  },
+  {
+    "name": "Fitness",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893227/torakka/categories/fitness_on8lm8.svg"
+  },
+  {
+    "name": "Furniture",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893227/torakka/categories/furniture_qpamky.svg"
+  },
+  {
+    "name": "Gadget",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893228/torakka/categories/gadget_pljonn.svg"
+  },
+  {
+    "name": "Gift",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893228/torakka/categories/gift_szqnib.svg"
+  },
+  {
+    "name": "Groceries",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893230/torakka/categories/groceries_dtnw7w.svg"
+  },
+  {
+    "name": "Loan",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893230/torakka/categories/loan_nas0nz.svg"
+  },
+  {
+    "name": "Medical",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893231/torakka/categories/medical_pyphcw.svg"
+  },
+  {
+    "name": "Misc",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893231/torakka/categories/misc_abrjfl.svg"
+  },
+  {
+    "name": "Office",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893230/torakka/categories/office_e8ksnd.svg"
+  },
+  {
+    "name": "Others",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893230/torakka/categories/others_dkkokw.svg"
+  },
+  {
+    "name": "Pets",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893232/torakka/categories/pets_qgejug.svg"
+  },
+  {
+    "name": "Property",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893232/torakka/categories/property_lphgyx.svg"
+  },
+  {
+    "name": "Rent",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893233/torakka/categories/rent_ecr9tj.svg"
+  },
+  {
+    "name": "Savings",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893233/torakka/categories/savings_xbihsw.svg"
+  },
+  {
+    "name": "Tax",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893233/torakka/categories/tax_frjt7e.svg"
+  },
+  {
+    "name": "Transport",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893233/torakka/categories/transport_qxjwh1.svg"
+  },
+  {
+    "name": "Travel",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893235/torakka/categories/travel_lmjpb8.svg"
+  },
+  {
+    "name": "Utilities",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893236/torakka/categories/utilities_y1g44f.svg"
+  },
+  {
+    "name": "Shopping",
+    "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1622893233/torakka/categories/shopping_yozsrp.svg"
+  }
+]

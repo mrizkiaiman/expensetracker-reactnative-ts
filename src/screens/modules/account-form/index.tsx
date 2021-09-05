@@ -39,7 +39,6 @@ const AccountForm: React.FunctionComponent<IPAccountForm> = props => {
           <FormikForm
             initialValues={initialValues}
             onSubmit={async ({resetForm, setSubmitting}: any) => {
-              console.log('masuk')
               setSubmitting(true)
               resetForm()
             }}>

@@ -16,7 +16,7 @@ import TransactionList from '@screens/common/home/transaction-list'
 interface IPHome extends IProps {}
 
 const Home: React.FunctionComponent<IPHome> = props => {
-  const navigation = useNavigation()
+  const navigation = useNavigation<any>()
   const insets = useSafeAreaInsets()
 
   const [user, setUser] = useState('M. Rizki Aiman')

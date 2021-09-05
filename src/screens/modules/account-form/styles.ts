@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     marginTop: -SPACES.twoSpace,
   },
   title: {
-    fontSize: 32,
+    fontSize: 24,
     fontFamily: 'Prompt_700Bold',
     marginVertical: SPACES.twoSpace,
   },

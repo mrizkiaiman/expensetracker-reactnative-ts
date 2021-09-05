@@ -5,6 +5,7 @@ export const RAW_COLORS = {
   error: '#EF2531',
   disabled: '#E5E5E6',
   placeholder: '#CDCDCD',
+  lightBlue: '#33C9FF',
 
   transparent: 'transparent',
   line: '#E2E2E2',
