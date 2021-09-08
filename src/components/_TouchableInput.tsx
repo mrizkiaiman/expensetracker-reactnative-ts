@@ -11,7 +11,7 @@ interface IPTouchableInput extends IProps {
   placeholder: string
   value?: string
   label?: string
-  onChangeText: (value: string) => void
+  onChangeText?: (value: string) => void
   isPassword?: boolean
   isRequired?: boolean
   isNumber?: boolean
@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Prompt_600SemiBold',
     fontSize: 18,
     paddingBottom: 4,
+    width: '100%'
   },
   inputContainer: {
     flexDirection: 'row',

@@ -9,7 +9,7 @@ import {RAW_COLORS, SCREEN_SIZE} from '@styles/vars'
 import {optionsFormatter} from '@utils/optionsFormatter'
 
 import Measurement from '@app/mockdata/measurement.json'
-import {FormikForm, FormikInput, FormikChipPicker} from '@components/formik'
+import {FormikForm, FormikInput, FormikChipPicker, FormikDatePicker} from '@components/formik'
 import {Header} from '@components/index'
 
 interface IPSecondTransactionForm extends IProps {
@@ -54,6 +54,7 @@ export const SecondTransactionForm: React.FunctionComponent<IPSecondTransactionF
             resetForm()
           }}>
           <FormikChipPicker label={'Measurement'} items={optionsFormatter(Measurement)} name={'measurement'} />
+          <FormikDatePicker label={'Date'} placeholder={'Please input the date'} name={'dt_created'} />
         </FormikForm>
       </View>
     </View>

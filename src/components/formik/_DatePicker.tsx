@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import {StyleSheet, View} from 'react-native'
+import {useFormikContext} from 'formik'
+
 import {IProps} from '@app/types'
 
 import DateTimePicker, {Event} from '@react-native-community/datetimepicker'
@@ -8,26 +10,31 @@ import TouchableInput from '../_TouchableInput'
 export interface IPDatePicker extends IProps {
   label: string
   placeholder: string
-  value?: string
   errorText?: string
   isRequired?: boolean
-  onChangeText: (value: string) => void
-  setDateValue: any
+  name: string
 }
 
 const DatePicker: React.FC<IPDatePicker> = props => {
+  const {name, label, placeholder, errorText, isRequired} = props
   const todaysDate = new Date()
+  const {setFieldValue, values, errors, touched} = useFormikContext<any>()
   const [date, setDate] = useState<Date>(todaysDate)
+  const [dateForDisplay, setDateForDisplay] = useState('')
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
+
+  const handleChange = (value: string) => {
+    setFieldValue(name, value)
+  }
+
   return (
     <View testID="datepicker-root">
       <TouchableInput
-        label={props.label}
-        placeholder={props.placeholder}
-        value={props.value}
-        errorText={props.errorText}
-        isRequired={props.isRequired}
-        onChangeText={props.onChangeText}
+        label={label}
+        placeholder={placeholder}
+        value={dateForDisplay}
+        errorText={errorText}
+        isRequired={isRequired}
         onPress={() => setIsDatePickerOpen(true)}
       />
       {isDatePickerOpen && (
@@ -47,8 +54,9 @@ const DatePicker: React.FC<IPDatePicker> = props => {
             }
             setIsDatePickerOpen(false)
             setDate(currentDate)
-            props.onChangeText(stringDate)
-            props.setDateValue('dueDate', stringDate)
+            setDateForDisplay(stringDate)
+            handleChange(stringDate)
+            
           }}
         />
       )}
