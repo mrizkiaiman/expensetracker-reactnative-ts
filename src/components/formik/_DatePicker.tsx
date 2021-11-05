@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {StyleSheet, View} from 'react-native'
 import {useFormikContext} from 'formik'
 
-import {IProps} from '@app/types'
+import {IProps} from '@app/constants/types/_common'
 
 import DateTimePicker, {Event} from '@react-native-community/datetimepicker'
 import TouchableInput from '../_TouchableInput'
@@ -28,7 +28,7 @@ const DatePicker: React.FC<IPDatePicker> = props => {
   }
 
   return (
-    <View testID="datepicker-root">
+    <View testID="datepicker-root" style={styles.mainContainer}>
       <TouchableInput
         label={label}
         placeholder={placeholder}
@@ -66,4 +66,8 @@ const DatePicker: React.FC<IPDatePicker> = props => {
 
 export default DatePicker
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  mainContainer: {
+    marginVertical: 6
+  }
+})

@@ -2,12 +2,12 @@ import React, {useState} from 'react'
 import {StyleSheet, View} from 'react-native'
 import {useFormikContext} from 'formik'
 
-import {IProps} from '@app/types'
+import {IProps} from '@app/constants/types/_common'
 import {RAW_COLORS, SCREEN_SIZE} from '@styles/vars'
 
 import {Chip} from './_Chip'
 import Text from '@components/_Text'
-import ErrorMessage from '@components/formik/_ErrorMessage'
+import ErrorMessage from '@app/components/Formik/_ErrorMessage'
 
 type item = {
   value: string
@@ -34,7 +34,7 @@ const ChipPicker: React.FunctionComponent<IPChipPicker> = props => {
   }
 
   return (
-    <View>
+    <View style={styles.root}>
       {label && (
         <Text style={styles.label}>
           {label}
@@ -59,6 +59,9 @@ const ChipPicker: React.FunctionComponent<IPChipPicker> = props => {
 }
 
 const styles = StyleSheet.create({
+  root: {
+    marginVertical: 6
+  },
   mainContainer: {
     flexDirection: 'row',
     alignItems: 'center',

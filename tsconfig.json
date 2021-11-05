@@ -5,10 +5,10 @@
     "baseUrl": "./" /* Base directory to resolve non-absolute module names. */,
     "paths": {
       "@app/*": ["src/*"],
-      "@assets/*": ["assets/*"],
+      "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
       "@domain/*": ["src/domain/*"],
-      "@models/*": ["src/domain/models/*"],
+      "@type/*": ["src/constants/types/*"],
       "@screens/*": ["src/screens/*"],
       "@services/*": ["src/domain/services/*"],
       "@states/*": ["src/states/*"],

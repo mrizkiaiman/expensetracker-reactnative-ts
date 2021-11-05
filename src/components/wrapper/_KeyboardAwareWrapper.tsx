@@ -1,6 +1,6 @@
 import React from 'react'
 import {StyleSheet, Text, View} from 'react-native'
-import {IProps} from '@app/types'
+import {IProps} from '@app/constants/types/_common'
 
 import {myStyles} from '@styles/index'
 import {RAW_COLORS, SPACES} from '@styles/vars'

@@ -10,10 +10,9 @@ module.exports = function (api) {
           extensions: ['.js', '.jsx', '.es', '.es6', '.mjs', '.ts', '.tsx'],
           alias: {
             '@app': './src',
-            '@assets': './assets',
+            '@assets': './src/assets',
             '@components': './src/components',
-            '@domain': './src/domain',
-            '@models': './src/models',
+            '@type': './src/constants/types',
             '@screens': './src/screens',
             '@services': './src/domain/services',
             '@states': './src/states',
@@ -25,6 +24,7 @@ module.exports = function (api) {
           },
         },
       ],
+      'react-native-reanimated/plugin',
     ],
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import {StyleSheet, View, TouchableOpacity} from 'react-native'
 
-import {IProps} from '@app/types'
+import {IProps} from '@app/constants/types/_common'
 import {RAW_COLORS, SCREEN_SIZE} from '@styles/vars'
 
 import Text from '@components/_Text'

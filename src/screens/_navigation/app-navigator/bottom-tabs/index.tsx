@@ -7,11 +7,11 @@ import routes from '@navigation/routes'
 
 import {RAW_COLORS} from '@styles/vars'
 
-import Home from '@screens/common/home'
-import Daily from '@screens/common/daily'
-import Profile from '@screens/common/profile'
-import Stats from '@app/screens/common/stats'
-import {FirstTransactionForm} from '@app/screens/modules/transaction-form/first-form'
+import Home from '@app/screens/Home'
+import Daily from '@app/screens/Daily'
+import Profile from '@app/screens/Profile'
+import Stats from '@app/screens/Stats'
+import {FirstTransactionForm} from '@app/screens/Transaction-Form/First-Form'
 
 interface TabProps {}
 interface IPTabIcons {

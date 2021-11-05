@@ -1,6 +1,6 @@
 import React from 'react'
 import {useFormikContext} from 'formik'
-import {IProps} from '@app/types'
+import {IProps} from '@app/constants/types/_common'
 
 import {Button} from '@components/index'
 

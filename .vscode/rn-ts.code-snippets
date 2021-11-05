@@ -7,7 +7,7 @@
   },
   "Functional Component": {
     "scope": "javascript,typescript,typescriptreact",
-    "prefix": "rnfcts",
+    "prefix": "rnfc",
     "body": [
       "import React from 'react'",
       "import {StyleSheet, View} from 'react-native'",
@@ -16,7 +16,7 @@
       "import {styles} from './styles'",
       "import {RAW_COLORS, SCREEN_SIZE} from '@styles/vars'",
       "",
-      "import {Text} from '@components'",
+      "import {Text} from '@components/index'",
       "",
       "interface IP$1 extends IProps {",
       "",
@@ -34,7 +34,7 @@
   },
   "Re-usable Component": {
     "scope": "javascript,typescript,typescriptreact",
-    "prefix": "rncts",
+    "prefix": "rnc",
     "body": [
       "import React from 'react'",
       "import {StyleSheet, View} from 'react-native'",
@@ -42,7 +42,7 @@
       "import {IProps} from '@app/types'",
       "import {RAW_COLORS, SCREEN_SIZE} from '@styles/vars'",
       "",
-      "import {Text} from '@components'",
+      "import {Text} from '@components/index'",
       "",
       "interface IP$1 extends IProps {",
       "",
@@ -65,7 +65,7 @@
   },
   "Stack Functional Component": {
     "scope": "javascript,typescript,typescriptreact",
-    "prefix": "stackrnfcts",
+    "prefix": "stackrnfc",
     "body": [
       "import React from 'react'",
       "import {StyleSheet, View} from 'react-native'",
@@ -75,7 +75,7 @@
       "import {styles} from './styles'",
       "import {RAW_COLORS, SCREEN_SIZE} from '@styles/vars'",
       "",
-      "import {Header, Text} from '@components'",
+      "import {Header, Text} from '@components/index'",
       "",
       "interface IP$1 extends IProps {",
       "",

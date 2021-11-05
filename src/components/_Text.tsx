@@ -1,6 +1,6 @@
 import React, {ReactNode} from 'react'
 import {StyleSheet, Text, View, StyleProp, TextStyle} from 'react-native'
-import {IProps} from '@app/types'
+import {IProps} from '@app/constants/types/_common'
 
 interface IPText extends IProps {
   type?: 'default' | 'regular' | 'semibold' | 'bold' | 'title' | 'big-title'

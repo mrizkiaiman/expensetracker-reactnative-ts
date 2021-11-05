@@ -3,10 +3,10 @@ import {createStackNavigator, TransitionPresets} from '@react-navigation/stack'
 import routes from '@navigation/routes'
 
 import BottomTabs from './bottom-tabs'
-import {FirstTransactionForm} from '@screens/modules/transaction-form/first-form'
-import {SecondTransactionForm} from '@screens/modules/transaction-form/second-form'
-import AccountList from '@screens/modules/account-list'
-import AccountForm from '@screens/modules/account-form'
+import {FirstTransactionForm} from '@app/screens/Transaction-Form/First-Form'
+import {SecondTransactionForm} from '@app/screens/Transaction-Form/Second-Form'
+import AccountList from '@app/screens/Account-List'
+import AccountForm from '@app/screens/Account-Form'
 
 interface IPAppNavigator {}
 

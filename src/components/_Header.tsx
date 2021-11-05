@@ -4,7 +4,7 @@ import {useNavigation} from '@react-navigation/core'
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
 import {RAW_COLORS} from '@styles/vars'
 
-import ChevronRight from '@assets/icons/chevron-right.svg'
+import ChevronRight from '@assets/icons/chevron-left.svg'
 import Text from '@app/components/_Text'
 
 interface IPHeader {

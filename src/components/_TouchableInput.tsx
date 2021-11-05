@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {StyleSheet, TextInput, View, TouchableOpacity} from 'react-native'
-import {IProps} from '@app/types'
+import {IProps} from '@app/constants/types/_common'
 import {RAW_COLORS} from '@styles/vars'
 
 import {Ionicons} from '@expo/vector-icons'

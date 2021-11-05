@@ -1,6 +1,6 @@
 import React from 'react'
 import {StyleSheet, TouchableOpacity} from 'react-native'
-import {IProps} from '@app/types'
+import {IProps} from '@app/constants/types/_common'
 import {RAW_COLORS} from '@styles/vars'
 
 import Text from '@app/components/_Text'
