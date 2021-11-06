@@ -1,6 +1,6 @@
 import React from 'react'
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack'
-import {AppStackParamList} from '@app/screens/_navigation/types/params'
+import {AppStackParamList} from '@app/screens/_navigation/types/_params'
 
 import BottomTabs from './bottom-tabs'
 import {FirstTransactionForm} from '@app/screens/Transaction-Form/First-Form'
@@ -8,9 +8,7 @@ import {SecondTransactionForm} from '@app/screens/Transaction-Form/Second-Form'
 import AccountList from '@app/screens/Account-List'
 import AccountForm from '@app/screens/Account-Form'
 
-interface IPAppNavigator {}
-
-const AppStack: React.FunctionComponent<IPAppNavigator> = ({}) => {
+const AppStack: React.FunctionComponent = () => {
   const Stack = createStackNavigator<AppStackParamList>()
   return (
     <Stack.Navigator

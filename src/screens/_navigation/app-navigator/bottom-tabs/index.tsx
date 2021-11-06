@@ -2,7 +2,7 @@ import React, {Children} from 'react'
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import {useNavigation} from '@react-navigation/native'
-import {BottomTabParamList} from '@app/screens/_navigation/types/params'
+import {BottomTabParamList} from '@app/screens/_navigation/types/_params'
 
 import {COLORS} from '@styles/vars'
 
@@ -13,7 +13,6 @@ import Profile from '@app/screens/Profile'
 import Stats from '@app/screens/Stats'
 import {FirstTransactionForm} from '@app/screens/Transaction-Form/First-Form'
 
-interface TabProps {}
 interface IPTabIcons {
   focused: boolean
   icon: any
@@ -42,7 +41,7 @@ const CustomTabButton = (props: any) => (
   </TouchableOpacity>
 )
 
-const BottomTabs: React.FunctionComponent<TabProps> = props => {
+const BottomTabs: React.FunctionComponent = props => {
   const navigation = useNavigation<any>()
   const Tab = createBottomTabNavigator<BottomTabParamList>()
 

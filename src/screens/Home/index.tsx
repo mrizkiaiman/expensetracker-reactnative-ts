@@ -6,7 +6,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context'
 import {IProps} from '@app/constants/types/_common'
 import {COLORS, SCREEN_SIZE} from '@styles/vars'
 import mockedTransactions from '@app/mockdata/transactions.json'
-import {AppStackParamList} from '@app/screens/_navigation/types/params'
+import {AppStackParamList} from '@app/screens/_navigation/types/_params'
 
 import CoinsImg from '@assets/icons/coins.svg'
 import {FontAwesome, Ionicons} from '@expo/vector-icons'

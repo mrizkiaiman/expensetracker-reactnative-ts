@@ -4,7 +4,7 @@ import {useNavigation} from '@react-navigation/native'
 
 import {useKeyboardListener} from '@utils/hooks'
 import {StackNavigationProp} from '@react-navigation/stack'
-import {AuthStackParamList} from '@app/screens/_navigation/types/params'
+import {AuthStackParamList} from '@app/screens/_navigation/types/_params'
 import {IProps} from '@app/constants/types/_common'
 import {styles} from './styles'
 import {COLORS} from '@styles/vars'

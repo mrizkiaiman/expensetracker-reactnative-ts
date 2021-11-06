@@ -1,13 +1,11 @@
 import React from 'react'
 import {createStackNavigator} from '@react-navigation/stack'
-import {AuthStackParamList} from '@app/screens/_navigation/types/params'
+import {AuthStackParamList} from '@app/screens/_navigation/types/_params'
 
 import SignIn from '@app/screens/SignIn'
 import SignUp from '@app/screens/SignUp'
 
-interface IPAuthNavigator {}
-
-const AuthStack: React.FunctionComponent<IPAuthNavigator> = ({}) => {
+const AuthStack: React.FunctionComponent = ({}) => {
   const Stack = createStackNavigator<AuthStackParamList>()
 
   return (
