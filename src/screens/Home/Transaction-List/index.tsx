@@ -2,7 +2,7 @@ import React from 'react'
 import {View} from 'react-native'
 
 import {IProps} from '@type/_common'
-import {IPTransactionRow} from '@type/transaction'
+import {ITransactionRow} from '@type/transaction'
 import numberDotsFormatter from '@app/utils/helpers/numberDotsFormatter'
 import moment from 'moment'
 import {styles} from './styles'
@@ -12,7 +12,7 @@ import {SvgUri} from 'react-native-svg'
 import {Text} from '@app/components'
 
 interface IPTransactionList extends IProps {
-  transactionList: IPTransactionRow[]
+  transactionList: ITransactionRow[]
 }
 
 const TransactionList: React.FunctionComponent<IPTransactionList> = ({transactionList}) => {

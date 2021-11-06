@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import {View, SafeAreaView} from 'react-native'
-import {SignInProps} from '@navigation/types/index'
+
+import {SignInProps} from '@nav-types/index'
+import {ISignInForm} from '@type/sign-in'
 
 import {useKeyboardListener} from '@hooks/index'
 import {styles} from './styles'
@@ -12,7 +14,7 @@ import {Text, Button} from '@app/components'
 
 const SignIn: React.FunctionComponent<SignInProps> = ({navigation}) => {
   const keyboardVisibility = useKeyboardListener()
-  const [initialValues, setInitialValues] = useState({
+  const [initialValues, setInitialValues] = useState<ISignInForm>({
     email: '',
     password: '',
   })

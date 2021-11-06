@@ -9,6 +9,7 @@
       "@components/*": ["src/components/*"],
       "@domain/*": ["src/domain/*"],
       "@type/*": ["src/constants/types/*"],
+      "@nav-types/*": ["src/screens/_navigation/types/*"],
       "@screens/*": ["src/screens/*"],
       "@services/*": ["src/domain/services/*"],
       "@states/*": ["src/states/*"],

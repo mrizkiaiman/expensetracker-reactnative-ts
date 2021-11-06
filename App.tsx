@@ -49,5 +49,5 @@ export default function App() {
 
   if (!isReady || !fontsLoaded)
     return <AppLoading startAsync={restoreUser} onFinish={() => setIsReady(true)} onError={console.warn} />
-  else return <NavigationContainer>{user ? <AuthNavigator /> : <AuthNavigator />}</NavigationContainer>
+  else return <NavigationContainer>{user ? <AuthNavigator /> : <AppNavigator />}</NavigationContainer>
 }

@@ -4,7 +4,7 @@ import {useNavigation, useRoute} from '@react-navigation/native'
 
 import {IProps} from '@app/constants/types/_common'
 import {styles} from './styles'
-import {IPTransactionRow} from '@app/constants/types/transaction'
+import {ITransactionRow} from '@app/constants/types/transaction'
 import {COLORS, SCREEN_SIZE} from '@styles/vars'
 import {optionsFormatter} from '@app/utils/helpers/optionsFormatter'
 
@@ -26,7 +26,7 @@ export const SecondTransactionForm: React.FunctionComponent<IPSecondTransactionF
     params: {transactionType},
   } = route
 
-  const [initialValues, setInitialValues] = useState<IPTransactionRow>({
+  const [initialValues, setInitialValues] = useState<ITransactionRow>({
     user: '',
     budget: '',
     category: {

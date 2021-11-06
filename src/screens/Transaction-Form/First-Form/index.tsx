@@ -1,8 +1,7 @@
 import React from 'react'
 import {TouchableOpacity, View} from 'react-native'
-import {useNavigation} from '@react-navigation/native'
+import {FirstTransactionFormProps} from '@nav-types/index'
 
-import {IProps} from '@app/constants/types/_common'
 import {SCREEN_SIZE, COLORS} from '@styles/vars'
 import {styles} from './style'
 import TransactionType from '@app/mockdata/transaction-type.json'
@@ -12,10 +11,7 @@ import ExpenseIcon from '@assets/icons/>|.svg'
 import IncomeIcon from '@assets/icons/|<.svg'
 import {Header, Text} from '@app/components'
 
-interface IPFirstTransactionForm extends IProps {}
-
-export const FirstTransactionForm: React.FunctionComponent<IPFirstTransactionForm> = props => {
-  const navigation = useNavigation<any>()
+export const FirstTransactionForm: React.FunctionComponent<FirstTransactionFormProps> = ({navigation}) => {
   return (
     <View style={{backgroundColor: 'white'}}>
       <Header title="Create Transaction" />
@@ -27,7 +23,7 @@ export const FirstTransactionForm: React.FunctionComponent<IPFirstTransactionFor
         <View style={styles.transactionTypeContainer}>
           {TransactionType.map((type, _) => (
             <TouchableOpacity
-              onPress={() => navigation.navigate('asd', {transactionType: type})}
+              onPress={() => navigation.navigate('TRANSACTION_FORM_SECOND', {transactionType: type})}
               style={[
                 styles.transactionTypeBox,
                 {backgroundColor: type?.name === 'Expense' ? COLORS.primary : COLORS.lightBlue},

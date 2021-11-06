@@ -1,11 +1,10 @@
 import React, {useState} from 'react'
 import {View, SafeAreaView} from 'react-native'
-import {useNavigation} from '@react-navigation/native'
+
+import {SignUpProps} from '@nav-types/index'
+import {ISignUpForm} from '@type/sign-up'
 
 import {useKeyboardListener} from '@utils/hooks'
-import {StackNavigationProp} from '@react-navigation/stack'
-import {AuthStackParamList} from '@app/screens/_navigation/types/_params'
-import {IProps} from '@app/constants/types/_common'
 import {styles} from './styles'
 import {COLORS} from '@styles/vars'
 
@@ -14,14 +13,10 @@ import {KeyboardAwareWrapper} from '@app/components/Wrapper'
 import {FormikForm, FormikInput} from '@components/Formik'
 import {Text, Button} from '@app/components'
 
-type SignUpScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'SIGN_IN'>
-interface IPSignUp extends IProps {}
-
-const SignUp: React.FunctionComponent<IPSignUp> = props => {
-  const navigation = useNavigation<SignUpScreenNavigationProp>()
+const SignUp: React.FunctionComponent<SignUpProps> = ({navigation}) => {
   const keyboardVisibility = useKeyboardListener()
 
-  const [initialValues, setInitialValues] = useState({
+  const [initialValues, setInitialValues] = useState<ISignUpForm>({
     email: '',
     password: '',
     name: '',

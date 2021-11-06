@@ -1,4 +1,4 @@
-export interface IPTransactionRow {
+export interface ITransactionRow {
   user?: string
   budget?: string
   category?: {

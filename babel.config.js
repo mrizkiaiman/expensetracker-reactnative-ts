@@ -19,6 +19,7 @@ module.exports = function (api) {
             '@utils': './src/utils',
             '@styles': './src/utils/styles',
             '@navigation': './src/screens/_navigation',
+            '@nav-types': './src/screens/_navigation/types',
             '@mockdata': './mockdata',
             '@hooks': './src/utils/hooks',
           },

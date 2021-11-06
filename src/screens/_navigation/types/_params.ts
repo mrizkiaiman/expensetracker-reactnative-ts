@@ -14,7 +14,11 @@ export type BottomTabParamList = {
 export type AppStackParamList = {
   BOTTOM_TAB: BottomTabParamList
   TRANSACTION_FORM_FIRST: undefined
-  TRANSACTION_FORM_SECOND: undefined
+  TRANSACTION_FORM_SECOND: {
+    transactionType?: {
+      name: string
+    }
+  }
   ACCOUNT_LIST: undefined
   ACCOUNT_FORM: undefined
 }
