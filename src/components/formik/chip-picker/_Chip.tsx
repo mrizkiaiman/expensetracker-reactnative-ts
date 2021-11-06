@@ -2,7 +2,7 @@ import React from 'react'
 import {StyleSheet, View, TouchableOpacity} from 'react-native'
 
 import {IProps} from '@app/constants/types/_common'
-import {RAW_COLORS, SCREEN_SIZE} from '@styles/vars'
+import {COLORS, SCREEN_SIZE} from '@styles/vars'
 
 import Text from '@components/_Text'
 
@@ -23,7 +23,7 @@ export const Chip: React.FunctionComponent<IPChip> = props => {
       style={[
         styles.mainContainer,
         style,
-        {backgroundColor: isSelected ? RAW_COLORS.primary : 'white', borderWidth: isSelected ? 0 : 1},
+        {backgroundColor: isSelected ? COLORS.primary : 'white', borderWidth: isSelected ? 0 : 1},
       ]}>
       <Text type="semibold" style={[styles.text, {color: isSelected ? 'white' : 'black'}]}>
         {item?.label ?? ''}
@@ -35,11 +35,11 @@ export const Chip: React.FunctionComponent<IPChip> = props => {
 const styles = StyleSheet.create({
   mainContainer: {
     borderRadius: 20,
-    backgroundColor: RAW_COLORS.primary,
+    backgroundColor: COLORS.primary,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 16,
-    borderColor: RAW_COLORS.line,
+    borderColor: COLORS.line,
   },
   text: {
     color: 'white',

@@ -6,7 +6,7 @@ import {IPTransactionRow} from '@type/transaction'
 import numberDotsFormatter from '@app/utils/helpers/numberDotsFormatter'
 import moment from 'moment'
 import {styles} from './styles'
-import {RAW_COLORS} from '@styles/vars'
+import {COLORS} from '@styles/vars'
 
 import {SvgUri} from 'react-native-svg'
 import {Text} from '@app/components'
@@ -20,7 +20,7 @@ const TransactionList: React.FunctionComponent<IPTransactionList> = ({transactio
     <>
       {transactionList.slice(0, 5).map((transaction, index) => (
         <View style={[styles.mainContainer, index === 4 && {borderBottomWidth: 0}]} key={transaction.description}>
-          <Text type="semibold" style={{color: RAW_COLORS.gray}}>
+          <Text type="semibold" style={{color: COLORS.gray}}>
             {moment(transaction.dt_created).format('ll')}
           </Text>
           <View style={styles.contentContainer}>

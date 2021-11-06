@@ -1,4 +1,4 @@
-export const RAW_COLORS = {
+export const COLORS = {
   background: '#fff',
   primary: '#FF3378',
   accent: '#0389FF',

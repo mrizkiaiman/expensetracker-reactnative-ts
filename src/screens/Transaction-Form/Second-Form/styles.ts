@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native'
-import {RAW_COLORS, SCREEN_SIZE} from '@styles/vars'
+import {COLORS, SCREEN_SIZE} from '@styles/vars'
 
 export const styles = StyleSheet.create({
   root: {

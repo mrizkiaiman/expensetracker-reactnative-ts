@@ -2,7 +2,7 @@ import React from 'react'
 import {StyleSheet, TouchableOpacity, Image, View} from 'react-native'
 import {useNavigation} from '@react-navigation/core'
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
-import {RAW_COLORS} from '@styles/vars'
+import {COLORS} from '@styles/vars'
 
 import ChevronRight from '@assets/icons/chevron-left.svg'
 import Text from '@app/components/_Text'
@@ -39,7 +39,7 @@ export default Header
 
 const styles = StyleSheet.create({
   mainContainer: {
-    backgroundColor: RAW_COLORS.background,
+    backgroundColor: COLORS.background,
     justifyContent: 'center',
     width: '100%',
     borderBottomLeftRadius: 25,

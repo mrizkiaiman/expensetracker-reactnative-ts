@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {StyleSheet, TextInput, View, TouchableOpacity} from 'react-native'
 import {IProps} from '@app/constants/types/_common'
-import {RAW_COLORS} from '@styles/vars'
+import {COLORS} from '@styles/vars'
 
 import {Ionicons} from '@expo/vector-icons'
 import ErrorIcon from '@assets/icons/errorText.svg'
@@ -48,7 +48,7 @@ const CustomInput: React.FunctionComponent<IPTouchableInput> = props => {
           />
           {isPassword && (
             <TouchableOpacity onPress={(): void => setState({...state, hide: !state.hide})}>
-              <Ionicons name={state.hide ? 'md-eye' : 'md-eye-off'} size={24} color={RAW_COLORS.gray} />
+              <Ionicons name={state.hide ? 'md-eye' : 'md-eye-off'} size={24} color={COLORS.gray} />
             </TouchableOpacity>
           )}
         </View>
@@ -72,22 +72,22 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 12,
     marginBottom: 4,
-    color: RAW_COLORS.gray,
+    color: COLORS.gray,
   },
   input: {
     marginVertical: 8,
     color: 'black',
-    backgroundColor: RAW_COLORS.background,
+    backgroundColor: COLORS.background,
     fontFamily: 'Prompt_600SemiBold',
     fontSize: 18,
     paddingBottom: 4,
-    width: '100%'
+    width: '100%',
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderBottomColor: RAW_COLORS.line,
+    borderBottomColor: COLORS.line,
     borderBottomWidth: 0.8,
   },
   errorTextContainer: {
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     paddingTop: 4,
   },
   errorText: {
-    color: RAW_COLORS.error,
+    color: COLORS.error,
     paddingHorizontal: 4,
     paddingTop: 4,
     fontSize: 11,

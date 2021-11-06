@@ -1,12 +1,12 @@
 import {StyleSheet} from 'react-native'
 import {myStyles} from '@styles/index'
-import {RAW_COLORS} from '@styles/vars'
+import {COLORS} from '@styles/vars'
 
 export const styles = StyleSheet.create({
   mainContainer: {
     backgroundColor: 'white',
     borderBottomWidth: 1,
-    borderBottomColor: RAW_COLORS.line,
+    borderBottomColor: COLORS.line,
     paddingTop: 14,
     paddingBottom: 18,
   },
@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
     borderRadius: 90,
   },
   accountTextContainer: {
-    backgroundColor: RAW_COLORS.primary,
+    backgroundColor: COLORS.primary,
     borderRadius: 8,
     width: 100,
     height: 30,

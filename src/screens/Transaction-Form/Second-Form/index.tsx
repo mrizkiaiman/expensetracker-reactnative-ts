@@ -5,7 +5,7 @@ import {useNavigation, useRoute} from '@react-navigation/native'
 import {IProps} from '@app/constants/types/_common'
 import {styles} from './styles'
 import {IPTransactionRow} from '@app/constants/types/transaction'
-import {RAW_COLORS, SCREEN_SIZE} from '@styles/vars'
+import {COLORS, SCREEN_SIZE} from '@styles/vars'
 import {optionsFormatter} from '@app/utils/helpers/optionsFormatter'
 
 import Measurement from '@app/mockdata/measurement.json'
@@ -25,7 +25,6 @@ export const SecondTransactionForm: React.FunctionComponent<IPSecondTransactionF
   const {
     params: {transactionType},
   } = route
-
 
   const [initialValues, setInitialValues] = useState<IPTransactionRow>({
     user: '',
@@ -56,10 +55,9 @@ export const SecondTransactionForm: React.FunctionComponent<IPSecondTransactionF
               resetForm()
             }}>
             <FormikInput label={'Description'} placeholder={'McMuffin'} name={'description'} />
-            <FormikInput label={'Amount'} placeholder={'Rp100.000'} name={'Amount'} isNumber />
+            <FormikInput label={'Amount'} placeholder={'Rp100.000'} name={'Amount'} keyboardType={'number-pad'} />
             <FormikDatePicker label={'Date'} placeholder={'Please input the date'} name={'dt_created'} />
             <FormikChipPicker label={'Measurement'} items={optionsFormatter(Measurement)} name={'measurement'} />
-        
           </FormikForm>
         </View>
       </View>

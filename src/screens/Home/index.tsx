@@ -4,9 +4,9 @@ import {useNavigation} from '@react-navigation/native'
 
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
 import {IProps} from '@app/constants/types/_common'
-import {RAW_COLORS, SCREEN_SIZE} from '@styles/vars'
+import {COLORS, SCREEN_SIZE} from '@styles/vars'
 import mockedTransactions from '@app/mockdata/transactions.json'
-import routes from '@navigation/routes'
+import {AppStackParamList} from '@app/screens/_navigation/types/params'
 
 import CoinsImg from '@assets/icons/coins.svg'
 import {FontAwesome, Ionicons} from '@expo/vector-icons'
@@ -16,13 +16,13 @@ import TransactionList from '@app/screens/Home/Transaction-List'
 interface IPHome extends IProps {}
 
 const Home: React.FunctionComponent<IPHome> = props => {
-  const navigation = useNavigation<any>()
+  const navigation = useNavigation<AppStackParamList>()
   const insets = useSafeAreaInsets()
 
   const [user, setUser] = useState('M. Rizki Aiman')
   return (
     <ScrollView>
-      <ScrollViewBounced color={RAW_COLORS.background} />
+      <ScrollViewBounced color={COLORS.background} />
       <View style={styles.mainContainer}>
         <View style={[styles.contentContainer, {paddingTop: insets.top}]}>
           <View style={styles.topHeader}>
@@ -50,7 +50,7 @@ const Home: React.FunctionComponent<IPHome> = props => {
             </View>
           </View>
         </View>
-        <View style={[styles.contentContainer, {borderTopWidth: 1, borderTopColor: RAW_COLORS.line, marginTop: 8}]}>
+        <View style={[styles.contentContainer, {borderTopWidth: 1, borderTopColor: COLORS.line, marginTop: 8}]}>
           <View style={[styles.topHeader, {marginVertical: 16}]}>
             <Text type="title" style={styles.titleText}>
               Account
@@ -69,19 +69,17 @@ const Home: React.FunctionComponent<IPHome> = props => {
               <Ionicons name="ios-cash" size={36} color="white" />
               <Text style={styles.boxMenuText}>Cash</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.boxMenu, styles.boxMenuTransparent]}
-              onPress={() => navigation.navigate(routes.ACCOUNT_FORM)}>
-              <FontAwesome name="plus" size={40} color={RAW_COLORS.primary} />
+            <TouchableOpacity style={[styles.boxMenu, styles.boxMenuTransparent]} onPress={() => navigation.navigate()}>
+              <FontAwesome name="plus" size={40} color={COLORS.primary} />
             </TouchableOpacity>
           </ScrollView>
         </View>
-        <View style={[styles.contentContainer, {borderTopWidth: 1, borderTopColor: RAW_COLORS.line, marginTop: 8}]}>
+        <View style={[styles.contentContainer, {borderTopWidth: 1, borderTopColor: COLORS.line, marginTop: 8}]}>
           <View style={[styles.topHeader, {marginTop: 16}]}>
             <Text type="title" style={styles.titleText}>
               Transactions
             </Text>
-            <Text type="semibold" style={{color: RAW_COLORS.primary}}>
+            <Text type="semibold" style={{color: COLORS.primary}}>
               See all
             </Text>
           </View>
@@ -99,10 +97,10 @@ const styles = StyleSheet.create({
     paddingBottom: 180,
   },
   contentContainer: {
-    backgroundColor: RAW_COLORS.background,
+    backgroundColor: COLORS.background,
     paddingHorizontal: 16,
     paddingBottom: 16,
-    borderBottomColor: RAW_COLORS.line,
+    borderBottomColor: COLORS.line,
     borderBottomWidth: 1,
   },
   topHeader: {
@@ -116,7 +114,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   titleText: {
-    color: RAW_COLORS.primary,
+    color: COLORS.primary,
   },
   boxMenuContainer: {
     flexDirection: 'row',
@@ -127,7 +125,7 @@ const styles = StyleSheet.create({
   boxMenu: {
     height: 100,
     width: 100,
-    backgroundColor: RAW_COLORS.primary,
+    backgroundColor: COLORS.primary,
     borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
@@ -139,9 +137,9 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   boxMenuTransparent: {
-    backgroundColor: RAW_COLORS.transparent,
+    backgroundColor: COLORS.transparent,
     borderWidth: 0.5,
-    borderColor: RAW_COLORS.gray,
+    borderColor: COLORS.gray,
   },
   incomeText: {
     fontSize: 18,
@@ -151,7 +149,7 @@ const styles = StyleSheet.create({
   },
   squareMenuButtonContainer: {
     marginTop: 16,
-    backgroundColor: RAW_COLORS.transparent,
+    backgroundColor: COLORS.transparent,
     justifyContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',
@@ -178,7 +176,7 @@ const styles = StyleSheet.create({
     width: 45,
     height: 45,
     borderRadius: 100,
-    backgroundColor: RAW_COLORS.red,
+    backgroundColor: COLORS.red,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -190,11 +188,11 @@ const styles = StyleSheet.create({
 {
   /* <View style={[styles.contentContainer, styles.squareMenuButtonContainer]}>
   <View style={styles.squareMenuButton}>
-    <View style={[styles.squareMenuButtonIconContainer, {backgroundColor: RAW_COLORS.blue}]}>
+    <View style={[styles.squareMenuButtonIconContainer, {backgroundColor: COLORS.blue}]}>
       <IncomeImg height={30} width={30} />
     </View>
     <View style={styles.squareMenuButtonTextContainer}>
-      <Text style={{color: RAW_COLORS.gray, marginBottom: 4}}>Income</Text>
+      <Text style={{color: COLORS.gray, marginBottom: 4}}>Income</Text>
       <Text type="semibold" style={{fontSize: 20}}>
         Rp80.000
       </Text>
@@ -205,7 +203,7 @@ const styles = StyleSheet.create({
       <ExpenseImg height={30} width={30} />
     </View>
     <View style={styles.squareMenuButtonTextContainer}>
-      <Text style={{color: RAW_COLORS.gray, marginBottom: 4}}>Expense</Text>
+      <Text style={{color: COLORS.gray, marginBottom: 4}}>Expense</Text>
       <Text type="semibold" style={{fontSize: 20}}>
         Rp80.000
       </Text>

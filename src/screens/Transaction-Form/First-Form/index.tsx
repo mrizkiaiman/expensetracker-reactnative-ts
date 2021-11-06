@@ -3,7 +3,7 @@ import {TouchableOpacity, View} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 
 import {IProps} from '@app/constants/types/_common'
-import {SCREEN_SIZE, RAW_COLORS} from '@styles/vars'
+import {SCREEN_SIZE, COLORS} from '@styles/vars'
 import {styles} from './style'
 import TransactionType from '@app/mockdata/transaction-type.json'
 
@@ -11,7 +11,6 @@ import Illustration from '@assets/illustrations/transaction.svg'
 import ExpenseIcon from '@assets/icons/>|.svg'
 import IncomeIcon from '@assets/icons/|<.svg'
 import {Header, Text} from '@app/components'
-import Routes from '@app/screens/_navigation/routes'
 
 interface IPFirstTransactionForm extends IProps {}
 
@@ -28,10 +27,10 @@ export const FirstTransactionForm: React.FunctionComponent<IPFirstTransactionFor
         <View style={styles.transactionTypeContainer}>
           {TransactionType.map((type, _) => (
             <TouchableOpacity
-              onPress={() => navigation.navigate(Routes.TRANSACTION_FORM_SECOND, {transactionType: type})}
+              onPress={() => navigation.navigate('asd', {transactionType: type})}
               style={[
                 styles.transactionTypeBox,
-                {backgroundColor: type?.name === 'Expense' ? RAW_COLORS.primary : RAW_COLORS.lightBlue},
+                {backgroundColor: type?.name === 'Expense' ? COLORS.primary : COLORS.lightBlue},
               ]}
               key={type?.name}>
               {type?.name === 'Expense' ? (

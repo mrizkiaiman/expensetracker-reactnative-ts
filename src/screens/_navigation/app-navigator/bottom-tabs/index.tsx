@@ -2,11 +2,11 @@ import React, {Children} from 'react'
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import {useNavigation} from '@react-navigation/native'
+import {BottomTabParamList} from '@app/screens/_navigation/types/params'
+
+import {COLORS} from '@styles/vars'
+
 import {MaterialCommunityIcons} from '@expo/vector-icons'
-import routes from '@navigation/routes'
-
-import {RAW_COLORS} from '@styles/vars'
-
 import Home from '@app/screens/Home'
 import Daily from '@app/screens/Daily'
 import Profile from '@app/screens/Profile'
@@ -22,8 +22,8 @@ interface IPTabIcons {
 
 const TabIcon = (props: IPTabIcons) => (
   <View style={styles.tabIconContainer}>
-    <MaterialCommunityIcons name={props.icon} size={24} color={props.focused ? RAW_COLORS.pink : RAW_COLORS.gray} />
-    <Text style={{...styles.tabIconText, color: props.focused ? RAW_COLORS.pink : RAW_COLORS.gray}}>{props.title}</Text>
+    <MaterialCommunityIcons name={props.icon} size={24} color={props.focused ? COLORS.pink : COLORS.gray} />
+    <Text style={{...styles.tabIconText, color: props.focused ? COLORS.pink : COLORS.gray}}>{props.title}</Text>
   </View>
 )
 
@@ -44,17 +44,16 @@ const CustomTabButton = (props: any) => (
 
 const BottomTabs: React.FunctionComponent<TabProps> = props => {
   const navigation = useNavigation<any>()
-  const Tab = createBottomTabNavigator()
+  const Tab = createBottomTabNavigator<BottomTabParamList>()
 
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarShowLabel: false,
-
         tabBarStyle: [styles.tabNavigator, styles.shadow],
       }}>
       <Tab.Screen
-        name={routes.HOME}
+        name={'HOME'}
         component={Home}
         options={{
           tabBarIcon: ({focused}) => <TabIcon title="Home" icon="view-dashboard-outline" focused={focused} />,
@@ -62,7 +61,7 @@ const BottomTabs: React.FunctionComponent<TabProps> = props => {
         }}
       />
       <Tab.Screen
-        name={routes.DAILY}
+        name={'DAILY'}
         component={Daily}
         options={{
           tabBarIcon: ({focused}) => <TabIcon title="Daily" icon="book-outline" focused={focused} />,
@@ -70,17 +69,17 @@ const BottomTabs: React.FunctionComponent<TabProps> = props => {
         }}
       />
       <Tab.Screen
-        name={routes.TRANSACTION_FORM_FIRST}
+        name={'TRANSACTION_FORM_FIRST'}
         component={FirstTransactionForm}
         options={{
           tabBarIcon: ({focused}) => (
             <MaterialCommunityIcons name="view-dashboard-outline" size={24} color={focused ? 'red' : 'black'} />
           ),
-          tabBarButton: props => <CustomTabButton onPress={() => navigation.navigate(routes.TRANSACTION_FORM_FIRST)} />,
+          tabBarButton: props => <CustomTabButton onPress={() => navigation.navigate('TRANSACTION_FORM_FIRST')} />,
         }}
       />
       <Tab.Screen
-        name={routes.STATS}
+        name={'STATS'}
         component={Stats}
         options={{
           tabBarIcon: ({focused}) => <TabIcon title="Stats" icon="wallet" focused={focused} />,
@@ -88,7 +87,7 @@ const BottomTabs: React.FunctionComponent<TabProps> = props => {
         }}
       />
       <Tab.Screen
-        name={routes.PROFILE}
+        name={'PROFILE'}
         component={Profile}
         options={{
           tabBarIcon: ({focused}) => <TabIcon title="Profile" icon="face-profile" focused={focused} />,
@@ -136,7 +135,7 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 35,
-    backgroundColor: RAW_COLORS.pink,
+    backgroundColor: COLORS.pink,
     justifyContent: 'center',
     alignItems: 'center',
   },

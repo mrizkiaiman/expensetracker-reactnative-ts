@@ -1,10 +1,10 @@
 import {StyleSheet} from 'react-native'
 import {myStyles} from '@styles/index'
-import {RAW_COLORS, SPACES} from '@styles/vars'
+import {COLORS, SPACES} from '@styles/vars'
 
 export const styles = StyleSheet.create({
   mainContainer: {
-    backgroundColor: RAW_COLORS.background,
+    backgroundColor: COLORS.background,
     flex: 1,
   },
   contentContainer: {

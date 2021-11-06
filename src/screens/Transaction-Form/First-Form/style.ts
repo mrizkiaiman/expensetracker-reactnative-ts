@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native"
-import {SCREEN_SIZE, RAW_COLORS} from '@styles/vars'
+import {SCREEN_SIZE, COLORS} from '@styles/vars'
 
 export const styles = StyleSheet.create({
   contentContainer: {
@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
   },
   transactionTypeBox: {
     borderWidth: 1,
-    borderColor: RAW_COLORS.line,
+    borderColor: COLORS.line,
     justifyContent: 'center',
     alignItems: 'center',
     height: SCREEN_SIZE.fullWidth * 0.385,

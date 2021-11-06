@@ -4,7 +4,7 @@ import {useNavigation} from '@react-navigation/native'
 
 import {IProps} from '@app/constants/types/_common'
 import {myStyles} from '@styles/index'
-import {RAW_COLORS, SCREEN_SIZE} from '@styles/vars'
+import {COLORS, SCREEN_SIZE} from '@styles/vars'
 
 import {Header} from '@app/components'
 
