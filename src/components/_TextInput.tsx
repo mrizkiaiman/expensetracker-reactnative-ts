@@ -4,7 +4,6 @@ import {IProps} from '@app/constants/types/_common'
 import {COLORS} from '@styles/vars'
 
 import {Ionicons} from '@expo/vector-icons'
-import ErrorIcon from '@assets/icons/errorText.svg'
 import SubmitButton from '@assets/icons/input-submit-button.svg'
 import Text from '@app/components/_Text'
 
@@ -86,12 +85,6 @@ const CustomTextInput: React.FunctionComponent<IPTextInput> = props => {
           </TouchableOpacity>
         )}
       </View>
-      {errorText && (
-        <View style={styles.errorTextContainer}>
-          <ErrorIcon style={styles.errorIcon} />
-          <Text style={styles.errorText}>{errorText}</Text>
-        </View>
-      )}
     </View>
   )
 }

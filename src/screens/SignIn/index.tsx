@@ -3,21 +3,21 @@ import {View, SafeAreaView} from 'react-native'
 
 import {SignInProps} from '@nav-types/index'
 import {ISignInForm} from '@type/sign-in'
-
 import {useKeyboardListener} from '@hooks/index'
+import {signInValidationSchema} from '@utils/validators/index'
 import {styles} from './styles'
 import {COLORS} from '@styles/vars'
 
 import SignInImage from '@assets/illustrations/sign-in.svg'
-import {FormikForm, FormikInput} from '@components/Formik'
+import {FormikForm, FormikInput, FormikButton} from '@components/Formik'
 import {Text, Button} from '@app/components'
 
 const SignIn: React.FunctionComponent<SignInProps> = ({navigation}) => {
   const keyboardVisibility = useKeyboardListener()
-  const [initialValues, setInitialValues] = useState<ISignInForm>({
+  const initialValues: ISignInForm = {
     email: '',
     password: '',
-  })
+  }
 
   const submit_signIn = async () => {}
 
@@ -31,6 +31,7 @@ const SignIn: React.FunctionComponent<SignInProps> = ({navigation}) => {
         )}
         <Text style={styles.title}>Sign in</Text>
         <FormikForm
+          validationSchema={signInValidationSchema}
           initialValues={initialValues}
           onSubmit={async ({resetForm, setSubmitting}: any) => {
             setSubmitting(true)
@@ -38,9 +39,10 @@ const SignIn: React.FunctionComponent<SignInProps> = ({navigation}) => {
           }}>
           <FormikInput label={'Email'} placeholder="mrizkiaiman@tester.com" name={'email'} />
           <FormikInput label={'Password'} placeholder={'**********'} name={'password'} />
+          <FormikButton title="Sign-in" onPress={submit_signIn} style={styles.submitButton} />
         </FormikForm>
 
-        <Button title="Sign-in" onPress={submit_signIn} />
+
         <Text style={styles.navigateToSignUpText}>
           Don't have an account?{' '}
           <Text onPress={() => navigation.navigate('SIGN_UP')} style={{color: COLORS.primary}}>

@@ -5,16 +5,17 @@ import {COLORS} from '@styles/vars'
 
 import Text from '@app/components/_Text'
 
-interface IPButton extends IProps {
+export interface IPButton extends IProps {
   title: string
   onPress?: () => void
+  disabled?: boolean
 }
 
 const CustomButton: React.FunctionComponent<IPButton> = props => {
-  const {title, onPress} = props
+  const {title, onPress, disabled, style} = props
 
   return (
-    <TouchableOpacity style={styles.mainContainer} onPress={onPress}>
+    <TouchableOpacity disabled={disabled} style={[styles.mainContainer, style, disabled && {backgroundColor: COLORS.disabled}]} onPress={onPress}>
       <Text type="bold" style={styles.title}>
         {title}
       </Text>

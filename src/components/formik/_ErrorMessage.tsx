@@ -1,7 +1,10 @@
 import React from 'react'
-import {StyleSheet, Text, View} from 'react-native'
+import {StyleSheet, View} from 'react-native'
+
 import {IProps} from '@app/constants/types/_common'
 import {FormikErrors, FormikTouched} from 'formik'
+
+import {Text} from '@components/index'
 
 interface IPFormikErrorMessage extends IProps {
   text: string | FormikErrors<any> | FormikErrors<any>[] | string[] | undefined
@@ -15,8 +18,10 @@ const FormikErrorMessage: React.FunctionComponent<IPFormikErrorMessage> = props 
     errorText: {
       color: 'red',
       marginLeft: 1,
-      marginTop: 5,
+      marginTop: -4,
+      marginBottom: 12,
       ...style,
+      
     },
   })
 

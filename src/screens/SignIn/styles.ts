@@ -23,4 +23,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 8,
   },
+  submitButton: {
+    marginTop: 24
+  }
 })

@@ -15,12 +15,11 @@ import {Text, Button} from '@app/components'
 
 const SignUp: React.FunctionComponent<SignUpProps> = ({navigation}) => {
   const keyboardVisibility = useKeyboardListener()
-
-  const [initialValues, setInitialValues] = useState<ISignUpForm>({
+  const initialValues: ISignUpForm = {
     email: '',
     password: '',
     name: '',
-  })
+  }
 
   const submit_signUp = () => {}
 

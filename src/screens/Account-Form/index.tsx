@@ -47,7 +47,7 @@ const AccountForm: React.FunctionComponent<IPAccountForm> = props => {
               label="Starter amount"
               name="amount"
               placeholder="Rp100.000"
-              isNumber={true}
+              keyboardType={'numeric'}
               autoCapitalize="none"
             />
             <FormikInput
