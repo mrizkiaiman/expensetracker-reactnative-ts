@@ -35,7 +35,6 @@ const CustomTextInput: React.FunctionComponent<IPTextInput> = props => {
     isRequired,
     keyboardType,
     style,
-    errorText,
     withSubmitButton,
     autoCapitalize,
     onFocus,

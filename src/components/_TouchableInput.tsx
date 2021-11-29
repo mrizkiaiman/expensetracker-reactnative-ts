@@ -4,23 +4,47 @@ import {IProps} from '@app/constants/types/_common'
 import {COLORS} from '@styles/vars'
 
 import {Ionicons} from '@expo/vector-icons'
-import ErrorIcon from '@assets/icons/errorText.svg'
+import SubmitButton from '@assets/icons/input-submit-button.svg'
 import Text from '@app/components/_Text'
 
 interface IPTouchableInput extends IProps {
-  placeholder: string
+  placeholder?: string
   value?: string
   label?: string
   onChangeText?: (value: string) => void
-  isPassword?: boolean
+  secureTextEntry?: boolean
   isRequired?: boolean
-  isNumber?: boolean
+  keyboardType?: 'default' | 'email-address' | 'numeric' | 'phone-pad' | 'number-pad' | 'name-phone-pad'
   errorText?: string
-  onPress?: () => void
+  autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters'
+  withSubmitButton?: boolean
+  onFocus?: () => void
+  onBlur?: () => void
+  editable?: boolean
+  textAlign?: 'left' | 'center' | 'right'
+  defaultValue?: string
+  onPress: () => void
 }
 
 const CustomInput: React.FunctionComponent<IPTouchableInput> = props => {
-  const {placeholder, value, onChangeText, label, isPassword, isRequired, isNumber, style, errorText, onPress} = props
+  const {
+    placeholder,
+    value,
+    onChangeText,
+    label,
+    secureTextEntry,
+    isRequired,
+    keyboardType,
+    style,
+    withSubmitButton,
+    autoCapitalize,
+    onFocus,
+    onBlur,
+    editable,
+    textAlign,
+    defaultValue,
+    onPress
+  } = props
 
   const [state, setState] = useState({
     hide: true,
@@ -37,28 +61,33 @@ const CustomInput: React.FunctionComponent<IPTouchableInput> = props => {
         </Text>
       )}
       <TouchableOpacity onPress={onPress}>
-        <View pointerEvents={onPress ? 'none' : 'auto'} style={styles.inputContainer}>
-          <TextInput
-            placeholder={placeholder}
-            value={value}
-            onChangeText={onChangeText}
-            style={[styles.input, style]}
-            keyboardType={isNumber ? 'phone-pad' : 'default'}
-            secureTextEntry={Boolean(isPassword && state.hide)}
-          />
-          {isPassword && (
-            <TouchableOpacity onPress={(): void => setState({...state, hide: !state.hide})}>
-              <Ionicons name={state.hide ? 'md-eye' : 'md-eye-off'} size={24} color={COLORS.gray} />
-            </TouchableOpacity>
-          )}
+        <View pointerEvents={'none'} style={styles.inputContainer}>
+        <TextInput
+          placeholder={placeholder}
+          value={value}
+          onChangeText={onChangeText}
+          style={[styles.input, {width: secureTextEntry ? '90%' : '100%'}, style]}
+          keyboardType={keyboardType}
+          secureTextEntry={Boolean(secureTextEntry && state.hide)}
+          autoCapitalize={autoCapitalize}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          editable={editable}
+          textAlign={textAlign}
+          defaultValue={defaultValue}
+        />
+        {secureTextEntry && (
+          <TouchableOpacity onPress={(): void => setState({...state, hide: !state.hide})}>
+            <Ionicons name={state.hide ? 'md-eye' : 'md-eye-off'} size={24} color={COLORS.gray} />
+          </TouchableOpacity>
+        )}
+        {withSubmitButton && (
+          <TouchableOpacity style={styles.submitButtonContainer}>
+            <SubmitButton />
+          </TouchableOpacity>
+        )}
         </View>
       </TouchableOpacity>
-      {errorText && (
-        <View style={styles.errorTextContainer}>
-          <ErrorIcon style={styles.errorIcon} />
-          <Text style={styles.errorText}>{errorText}</Text>
-        </View>
-      )}
     </View>
   )
 }
@@ -107,5 +136,8 @@ const styles = StyleSheet.create({
     marginRight: 5,
     height: 12,
     width: 12,
+  },
+  submitButtonContainer: {
+    marginLeft: '24%',
   },
 })

@@ -3,6 +3,7 @@ import {StyleSheet, View, ScrollView, TouchableOpacity} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
+import {BottomTabProps} from '@nav-types/index'
 import {IProps} from '@app/constants/types/_common'
 import {COLORS, SCREEN_SIZE} from '@styles/vars'
 import mockedTransactions from '@app/mockdata/transactions.json'
@@ -13,10 +14,8 @@ import {FontAwesome, Ionicons} from '@expo/vector-icons'
 import {Text, ScrollViewBounced} from '@app/components'
 import TransactionList from '@app/screens/Home/Transaction-List'
 
-interface IPHome extends IProps {}
 
-const Home: React.FunctionComponent<IPHome> = props => {
-  const navigation = useNavigation<AppStackParamList>()
+const Home: React.FunctionComponent<BottomTabProps> = ({navigation}) => {
   const insets = useSafeAreaInsets()
 
   const [user, setUser] = useState('M. Rizki Aiman')
@@ -69,7 +68,7 @@ const Home: React.FunctionComponent<IPHome> = props => {
               <Ionicons name="ios-cash" size={36} color="white" />
               <Text style={styles.boxMenuText}>Cash</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.boxMenu, styles.boxMenuTransparent]} onPress={() => navigation.navigate()}>
+            <TouchableOpacity style={[styles.boxMenu, styles.boxMenuTransparent]} onPress={() => navigation.navigate('ACCOUNT_FORM')}>
               <FontAwesome name="plus" size={40} color={COLORS.primary} />
             </TouchableOpacity>
           </ScrollView>

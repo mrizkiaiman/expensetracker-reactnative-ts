@@ -1,5 +1,5 @@
 import React, {useState, useRef} from 'react'
-import {StyleSheet, Text, View, Button} from 'react-native'
+import {StyleSheet, View, Button} from 'react-native'
 import {useNavigation, useRoute} from '@react-navigation/native'
 
 import {IProps} from '@app/constants/types/_common'
@@ -9,8 +9,9 @@ import {COLORS, SCREEN_SIZE} from '@styles/vars'
 import {optionsFormatter} from '@app/utils/helpers/optionsFormatter'
 
 import Measurement from '@app/mockdata/measurement.json'
-import {FormikForm, FormikInput, FormikChipPicker, FormikDatePicker} from '@app/components/Formik'
-import {Header} from '@components/index'
+import Experience from '@app/mockdata/experience.json'
+import {FormikForm, FormikInput, FormikChipPicker, FormikDatePicker, FormikTouchableInput, FormikPicker} from '@app/components/Formik'
+import {Header, Text} from '@components/index'
 
 interface IPSecondTransactionForm extends IProps {
   transactionType: {
@@ -56,8 +57,10 @@ export const SecondTransactionForm: React.FunctionComponent<IPSecondTransactionF
             }}>
             <FormikInput label={'Description'} placeholder={'McMuffin'} name={'description'} />
             <FormikInput label={'Amount'} placeholder={'Rp100.000'} name={'Amount'} keyboardType={'number-pad'} />
+            <FormikTouchableInput onPress={() => console.log('test')} label={'Account'} placeholder={'Choose account'} name={'account'} />
             <FormikDatePicker label={'Date'} placeholder={'Please input the date'} name={'dt_created'} />
             <FormikChipPicker label={'Measurement'} items={optionsFormatter(Measurement)} name={'measurement'} />
+            <FormikChipPicker label={'Experience'} items={optionsFormatter(Experience)} name={'experience'} />
           </FormikForm>
         </View>
       </View>

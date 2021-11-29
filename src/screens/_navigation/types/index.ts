@@ -4,5 +4,6 @@ import {AuthStackParamList, BottomTabParamList, AppStackParamList} from '@app/sc
 export type SignInProps = NativeStackScreenProps<AuthStackParamList, 'SIGN_IN'>
 export type SignUpProps = NativeStackScreenProps<AuthStackParamList, 'SIGN_UP'>
 
+export type BottomTabProps = NativeStackScreenProps<AppStackParamList, 'BOTTOM_TAB'>
 export type FirstTransactionFormProps = NativeStackScreenProps<AppStackParamList, 'TRANSACTION_FORM_FIRST'>
 export type SecondTransactionFormProps = NativeStackScreenProps<AppStackParamList, 'TRANSACTION_FORM_SECOND'>

@@ -1,17 +1,14 @@
 [
   {
-    "rating": 1
+    "name": "Bad",
+    "_id": "2"
   },
   {
-    "rating": 2
+    "name": "Fine",
+    "_id": "3"
   },
   {
-    "rating": 3
-  },
-  {
-    "rating": 4
-  },
-  {
-    "rating": 5
+    "name": "Excellent!",
+    "_id": "5"
   }
 ]
