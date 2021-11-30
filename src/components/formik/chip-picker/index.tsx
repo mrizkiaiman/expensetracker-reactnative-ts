@@ -60,7 +60,7 @@ const ChipPicker: React.FunctionComponent<IPChipPicker> = props => {
 
 const styles = StyleSheet.create({
   root: {
-    marginVertical: 6,
+    marginVertical: 10,
   },
   mainContainer: {
     flexDirection: 'row',
@@ -68,7 +68,8 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    marginBottom: 8,
+    marginBottom: 12,
+
     color: COLORS.gray,
   },
 })

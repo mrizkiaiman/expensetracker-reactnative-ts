@@ -49,6 +49,7 @@ const Picker = (props: IPPicker) => {
         )}
       </Text>
       <RNPickerSelect
+        itemKey={'0'}
         value={value}
         placeholder={{label: placeholder}}
         disabled={disabled}
@@ -84,9 +85,9 @@ const styles = StyleSheet.create({
     color: COLORS.placeholder
   },
   placeholder: {
-    color: COLORS.primary,
-    fontStyle: 'normal',
-    fontWeight: '600',
+    color: COLORS.placeholder,
+    fontSize: 14,
+    fontFamily: 'Prompt_600SemiBold',
   },
   onValue: {
     fontStyle: 'normal',

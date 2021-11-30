@@ -1,0 +1,5 @@
+30 Nov 2021
+- itemKey in RNPickerSelect need to be checked more
+- Test validation in add transaction
+- Transaction - second form -> check hooks react navigation
+- Theres bug when input is filled, the font changed

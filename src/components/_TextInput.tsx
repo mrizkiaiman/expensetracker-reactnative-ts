@@ -55,7 +55,7 @@ const CustomTextInput: React.FunctionComponent<IPTextInput> = props => {
       {label && (
         <Text style={styles.label}>
           {label}
-          {isRequired && <Text> *</Text>}
+          {isRequired && <Text style={styles.requiredIcon}>*</Text>}
         </Text>
       )}
       <View style={[styles.inputContainer, {width: withSubmitButton ? '70%' : '100%'}]}>
@@ -94,13 +94,16 @@ const styles = StyleSheet.create({
   mainContainer: {
     marginVertical: 6,
   },
+  requiredIcon: {
+    color: COLORS.red
+  },
   label: {
     fontSize: 14,
     marginBottom: 4,
     color: COLORS.gray,
   },
   input: {
-    marginVertical: 8,
+    marginVertical: 4,
     color: 'black',
     backgroundColor: COLORS.background,
     fontFamily: 'Prompt_600SemiBold',
@@ -113,24 +116,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     borderBottomColor: COLORS.line,
     borderBottomWidth: 0.8,
-  },
-  errorTextContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignSelf: 'flex-start',
-    paddingTop: 4,
-  },
-  errorText: {
-    color: COLORS.error,
-    paddingHorizontal: 4,
-    paddingTop: 4,
-    fontSize: 11,
-  },
-  errorIcon: {
-    marginTop: 6,
-    marginRight: 5,
-    height: 12,
-    width: 12,
   },
   submitButtonContainer: {
     marginLeft: '24%',

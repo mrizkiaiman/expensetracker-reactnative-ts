@@ -57,7 +57,7 @@ const CustomInput: React.FunctionComponent<IPTouchableInput> = props => {
       {label && (
         <Text style={styles.label}>
           {label}
-          {isRequired && <Text> *</Text>}
+          {isRequired && <Text style={styles.requiredIcon}>*</Text>}
         </Text>
       )}
       <TouchableOpacity onPress={onPress}>
@@ -97,6 +97,9 @@ export default CustomInput
 const styles = StyleSheet.create({
   mainContainer: {
     marginVertical: 6,
+  },
+  requiredIcon: {
+    color: COLORS.red
   },
   label: {
     fontSize: 12,

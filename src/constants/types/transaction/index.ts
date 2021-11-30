@@ -14,3 +14,14 @@ export interface ITransactionRow {
   dt_created: string
   dt_updated: string
 }
+
+export interface ITransactionForm {
+  user: string
+  category?: string
+  type?: string
+  account: string
+  measurement?: string
+  experience?: string
+  amount: number
+  description: string
+}

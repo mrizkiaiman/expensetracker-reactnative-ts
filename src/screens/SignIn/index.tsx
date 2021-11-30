@@ -41,8 +41,6 @@ const SignIn: React.FunctionComponent<SignInProps> = ({navigation}) => {
           <FormikInput label={'Password'} placeholder={'**********'} name={'password'} />
           <FormikButton title="Sign-in" onPress={submit_signIn} style={styles.submitButton} />
         </FormikForm>
-
-
         <Text style={styles.navigateToSignUpText}>
           Don't have an account?{' '}
           <Text onPress={() => navigation.navigate('SIGN_UP')} style={{color: COLORS.primary}}>
