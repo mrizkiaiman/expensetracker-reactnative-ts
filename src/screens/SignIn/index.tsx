@@ -36,6 +36,7 @@ const SignIn: React.FunctionComponent<SignInProps> = ({navigation}) => {
           onSubmit={async ({resetForm, setSubmitting}: any) => {
             setSubmitting(true)
             resetForm()
+            submit_signIn()
           }}>
           <FormikInput label={'Email'} placeholder="mrizkiaiman@tester.com" name={'email'} />
           <FormikInput label={'Password'} placeholder={'**********'} name={'password'} />

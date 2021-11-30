@@ -4,23 +4,22 @@ import {useNavigation} from '@react-navigation/native'
 
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
 import {BottomTabProps} from '@nav-types/index'
-import {IProps} from '@app/constants/types/_common'
 import {COLORS, SCREEN_SIZE} from '@styles/vars'
 import mockedTransactions from '@app/mockdata/transactions.json'
-import {AppStackParamList} from '@app/screens/_navigation/types/_params'
 
 import CoinsImg from '@assets/icons/coins.svg'
 import {FontAwesome, Ionicons} from '@expo/vector-icons'
 import {Text, ScrollViewBounced} from '@app/components'
 import TransactionList from '@app/screens/Home/Transaction-List'
+import {HomeEmptyStateAccount} from '@components/EmptyState/Home-EmptyStateAccount'
 
 
 const Home: React.FunctionComponent<BottomTabProps> = ({navigation}) => {
   const insets = useSafeAreaInsets()
-
   const [user, setUser] = useState('M. Rizki Aiman')
+
   return (
-    <ScrollView>
+    <ScrollView style={styles.root}>
       <ScrollViewBounced color={COLORS.background} />
       <View style={styles.mainContainer}>
         <View style={[styles.contentContainer, {paddingTop: insets.top}]}>
@@ -55,7 +54,8 @@ const Home: React.FunctionComponent<BottomTabProps> = ({navigation}) => {
               Account
             </Text>
           </View>
-          <ScrollView horizontal contentContainerStyle={styles.boxMenuContainer}>
+          <HomeEmptyStateAccount />
+          {/* <ScrollView horizontal contentContainerStyle={styles.boxMenuContainer}>
             <TouchableOpacity style={styles.boxMenu}>
               <FontAwesome name="bank" size={36} color="white" />
               <Text style={styles.boxMenuText}>Bank</Text>
@@ -71,9 +71,9 @@ const Home: React.FunctionComponent<BottomTabProps> = ({navigation}) => {
             <TouchableOpacity style={[styles.boxMenu, styles.boxMenuTransparent]} onPress={() => navigation.navigate('ACCOUNT_FORM')}>
               <FontAwesome name="plus" size={40} color={COLORS.primary} />
             </TouchableOpacity>
-          </ScrollView>
+          </ScrollView> */}
         </View>
-        <View style={[styles.contentContainer, {borderTopWidth: 1, borderTopColor: COLORS.line, marginTop: 8}]}>
+        {/* <View style={[styles.contentContainer, {borderTopWidth: 1, borderTopColor: COLORS.line, marginTop: 8}]}>
           <View style={[styles.topHeader, {marginTop: 16}]}>
             <Text type="title" style={styles.titleText}>
               Transactions
@@ -83,7 +83,7 @@ const Home: React.FunctionComponent<BottomTabProps> = ({navigation}) => {
             </Text>
           </View>
           <TransactionList transactionList={mockedTransactions} />
-        </View>
+        </View> */}
       </View>
     </ScrollView>
   )
@@ -92,6 +92,9 @@ const Home: React.FunctionComponent<BottomTabProps> = ({navigation}) => {
 export default Home
 
 const styles = StyleSheet.create({
+  root: {
+    backgroundColor: COLORS.background
+  },
   mainContainer: {
     paddingBottom: 180,
   },

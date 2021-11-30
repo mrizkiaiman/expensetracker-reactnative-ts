@@ -23,6 +23,7 @@ export interface IPTextInput extends IProps {
   editable?: boolean
   textAlign?: 'left' | 'center' | 'right'
   defaultValue?: string
+  submitOnPress?: () => void
 }
 
 const CustomTextInput: React.FunctionComponent<IPTextInput> = props => {
@@ -42,6 +43,7 @@ const CustomTextInput: React.FunctionComponent<IPTextInput> = props => {
     editable,
     textAlign,
     defaultValue,
+    submitOnPress
   } = props
 
   const [state, setState] = useState({
@@ -79,7 +81,7 @@ const CustomTextInput: React.FunctionComponent<IPTextInput> = props => {
           </TouchableOpacity>
         )}
         {withSubmitButton && (
-          <TouchableOpacity style={styles.submitButtonContainer}>
+          <TouchableOpacity onPress={submitOnPress} style={styles.submitButtonContainer}>
             <SubmitButton />
           </TouchableOpacity>
         )}

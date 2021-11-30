@@ -14,6 +14,7 @@ export interface IPFormikInput extends IPTextInput {
 
 export default ({name, onPress, ...props}: IPFormikInput) => {
   const {setFieldValue, values, errors, touched} = useFormikContext<any>()
+  
 
   return (
     <View style={styles.mainContainer}>

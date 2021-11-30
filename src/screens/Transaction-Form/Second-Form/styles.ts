@@ -3,7 +3,7 @@ import {COLORS, SCREEN_SIZE} from '@styles/vars'
 
 export const styles = StyleSheet.create({
   root: {
-    backgroundColor: 'white',
+    backgroundColor: COLORS.background,
     height: '100%',
   },
   mainContainer: {

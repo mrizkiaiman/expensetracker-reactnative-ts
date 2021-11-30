@@ -11,7 +11,7 @@ import {addTransactionValidationSchema} from '@utils/validators'
 
 import Measurement from '@app/mockdata/measurement.json'
 import Experience from '@app/mockdata/experience.json'
-import {FormikForm, FormikInput, FormikChipPicker, FormikDatePicker, FormikTouchableInput, FormikPicker} from '@app/components/Formik'
+import {FormikForm, FormikButton, FormikInput, FormikChipPicker, FormikDatePicker, FormikTouchableInput, FormikPicker} from '@app/components/Formik'
 import {FooterButtonWrapper} from '@components/Wrapper/index'
 import {Header, Button} from '@components/index'
 
@@ -39,6 +39,8 @@ export const SecondTransactionForm: React.FunctionComponent<IPSecondTransactionF
     description: '',
   })
 
+  const submit_addTransaction = async() => {}
+
   return (
     <>
       <View style={styles.root}>
@@ -49,16 +51,17 @@ export const SecondTransactionForm: React.FunctionComponent<IPSecondTransactionF
             onSubmit={async ({resetForm, setSubmitting}: any) => {
               setSubmitting(true)
               resetForm()
+              submit_addTransaction()
             }}>
             <ScrollView style={styles.mainContainer}>
               <FormikInput isRequired label={'Description'} placeholder={'McMuffin'} name={'description'} />
-              <FormikInput isRequired label={'Amount'} placeholder={'Rp100.000'} name={'Amount'} keyboardType={'number-pad'} />
+              <FormikInput isRequired label={'Amount'} placeholder={'Rp100.000'} name={'amount'} keyboardType={'number-pad'} />
               <FormikTouchableInput isRequired onPress={() => console.log('test')} label={'Account'} placeholder={'Choose account'} name={'account'} />
               <FormikDatePicker label={'Date'} placeholder={'Input the date'} name={'dt_created'} />
               <FormikChipPicker label={'Measurement'} items={optionsFormatter(Measurement)} name={'measurement'} />
               <FormikChipPicker label={'Experience'} items={optionsFormatter(Experience)} name={'experience'} />
             </ScrollView>
-            <FooterButtonWrapper><Button style={{flex: 1}} title="Submit"/></FooterButtonWrapper>
+            <FooterButtonWrapper><FormikButton style={{flex: 1}} title="Submit"/></FooterButtonWrapper>
           </FormikForm>
       </View>
     </>

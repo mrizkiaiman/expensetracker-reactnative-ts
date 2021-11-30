@@ -7,16 +7,19 @@ import {COLORS, SPACES} from '@styles/vars'
 
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 
-interface IPKeyboardAwareWrapper extends IProps {}
+interface IPKeyboardAwareWrapper extends IProps {
+  extraScrollHeight?: number
+  extraHeight?: number
+}
 
 const KeyboardAwareWrapper: React.FunctionComponent<IPKeyboardAwareWrapper> = props => {
-  const {children} = props
+  const {children, extraScrollHeight, extraHeight} = props
 
   return (
     <KeyboardAwareScrollView
       enableOnAndroid
-      extraScrollHeight={50}
-      extraHeight={50}
+      extraScrollHeight={extraScrollHeight ? extraScrollHeight : 50}
+      extraHeight={extraHeight ? extraHeight : 50}
       contentContainerStyle={{paddingBottom: SPACES.oneSpace}}
       keyboardShouldPersistTaps="handled"
       showsVerticalScrollIndicator={false}>

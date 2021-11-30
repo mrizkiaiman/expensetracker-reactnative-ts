@@ -1,5 +1,5 @@
 export interface IAccountForm {
   name: string
-  amount: string
+  amount?: string
   accountType: string
 }

@@ -12,11 +12,12 @@ export interface IPFormikInput extends IPTextInput {
 }
 
 export default ({name, ...props}: IPFormikInput) => {
-  const {setFieldValue, values, errors, touched} = useFormikContext<any>()
+  const {setFieldValue, values, errors, touched, handleSubmit} = useFormikContext<any>()
+  
 
   return (
     <View style={styles.mainContainer}>
-      <TextInput {...props} onChangeText={value => setFieldValue(name, value)} value={values[name]} />
+      <TextInput submitOnPress={handleSubmit} {...props} onChangeText={value => setFieldValue(name, value)} value={values[name].toString()} />
       <ErrorMessage visible={touched[name]} text={errors[name]} />
     </View>
   )

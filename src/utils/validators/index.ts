@@ -15,7 +15,12 @@ export const addTransactionValidationSchema = Yup.object().shape({
   user: Yup.string().required(),
   account: Yup.string().required('Account is required'),
   description: Yup.string().required('Description is required'),
-  amount: Yup.number().min(1)
+  amount: Yup.number().min(1).label('Amount')
+})
+
+export const addAccountValidationSchema = Yup.object().shape({
+  name: Yup.string().required('Name is required'),
+  accountType: Yup.string().required('Account type is required')
 })
 
 
