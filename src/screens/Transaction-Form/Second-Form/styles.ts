@@ -10,4 +10,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 16,
   },
+  modal: {
+    height: SCREEN_SIZE.fullHeight*0.2
+  }
 })

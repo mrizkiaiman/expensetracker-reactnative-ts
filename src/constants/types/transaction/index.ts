@@ -18,8 +18,10 @@ export interface ITransactionRow {
 export interface ITransactionForm {
   user: string
   category?: string
+  categoryForDisplay?: string
   type?: string
   account: string
+  accountForDisplay?: string
   measurement?: string
   experience?: string
   amount: number

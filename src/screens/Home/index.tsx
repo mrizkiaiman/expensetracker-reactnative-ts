@@ -13,7 +13,6 @@ import {Text, ScrollViewBounced} from '@app/components'
 import TransactionList from '@app/screens/Home/Transaction-List'
 import {HomeEmptyStateAccount} from '@components/EmptyState/Home-EmptyStateAccount'
 
-
 const Home: React.FunctionComponent<BottomTabProps> = ({navigation}) => {
   const insets = useSafeAreaInsets()
   const [user, setUser] = useState('M. Rizki Aiman')
@@ -54,8 +53,8 @@ const Home: React.FunctionComponent<BottomTabProps> = ({navigation}) => {
               Account
             </Text>
           </View>
-          <HomeEmptyStateAccount />
-          {/* <ScrollView horizontal contentContainerStyle={styles.boxMenuContainer}>
+          {/* <HomeEmptyStateAccount /> */}
+          <ScrollView horizontal contentContainerStyle={styles.boxMenuContainer}>
             <TouchableOpacity style={styles.boxMenu}>
               <FontAwesome name="bank" size={36} color="white" />
               <Text style={styles.boxMenuText}>Bank</Text>
@@ -68,12 +67,14 @@ const Home: React.FunctionComponent<BottomTabProps> = ({navigation}) => {
               <Ionicons name="ios-cash" size={36} color="white" />
               <Text style={styles.boxMenuText}>Cash</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.boxMenu, styles.boxMenuTransparent]} onPress={() => navigation.navigate('ACCOUNT_FORM')}>
+            <TouchableOpacity
+              style={[styles.boxMenu, styles.boxMenuTransparent]}
+              onPress={() => navigation.navigate('ACCOUNT_FORM')}>
               <FontAwesome name="plus" size={40} color={COLORS.primary} />
             </TouchableOpacity>
-          </ScrollView> */}
+          </ScrollView>
         </View>
-        {/* <View style={[styles.contentContainer, {borderTopWidth: 1, borderTopColor: COLORS.line, marginTop: 8}]}>
+        <View style={[styles.contentContainer, {borderTopWidth: 1, borderTopColor: COLORS.line, marginTop: 8}]}>
           <View style={[styles.topHeader, {marginTop: 16}]}>
             <Text type="title" style={styles.titleText}>
               Transactions
@@ -83,7 +84,7 @@ const Home: React.FunctionComponent<BottomTabProps> = ({navigation}) => {
             </Text>
           </View>
           <TransactionList transactionList={mockedTransactions} />
-        </View> */}
+        </View>
       </View>
     </ScrollView>
   )
@@ -93,7 +94,7 @@ export default Home
 
 const styles = StyleSheet.create({
   root: {
-    backgroundColor: COLORS.background
+    backgroundColor: COLORS.background,
   },
   mainContainer: {
     paddingBottom: 180,

@@ -11,9 +11,19 @@ import {addTransactionValidationSchema} from '@utils/validators'
 
 import Measurement from '@app/mockdata/measurement.json'
 import Experience from '@app/mockdata/experience.json'
-import {FormikForm, FormikButton, FormikInput, FormikChipPicker, FormikDatePicker, FormikTouchableInput, FormikPicker} from '@app/components/Formik'
+import {Modalize} from 'react-native-modalize'
+import {
+  FormikForm,
+  FormikButton,
+  FormikInput,
+  FormikChipPicker,
+  FormikDatePicker,
+  FormikTouchableInput,
+  FormikPicker,
+} from '@app/components/Formik'
 import {FooterButtonWrapper} from '@components/Wrapper/index'
 import {Header, Button} from '@components/index'
+import {ModalizeCategories} from './components/ModalizeCategories'
 
 interface IPSecondTransactionForm extends IProps {
   transactionType: {
@@ -23,46 +33,101 @@ interface IPSecondTransactionForm extends IProps {
 }
 
 export const SecondTransactionForm: React.FunctionComponent<IPSecondTransactionForm> = props => {
-  const navigation = useNavigation()
   const route: any = useRoute()
   const {
     params: {transactionType},
   } = route
 
+  const modalize_categoriesRef = useRef<Modalize>(null)
+  const modalize_accountRef = useRef<Modalize>(null)
+
   const [initialValues, setInitialValues] = useState<ITransactionForm>({
     user: '',
     category: '',
+    categoryForDisplay: '',
     account: '',
+    accountForDisplay: '',
     measurement: '',
     experience: '',
     amount: 0,
     description: '',
   })
 
-  const submit_addTransaction = async() => {}
+  const onOpenModalize = (modal?: string) => {
+    if (modal === 'account') {
+      modalize_accountRef.current?.open()
+    } else {
+      modalize_categoriesRef.current?.open()
+    }
+  }
+
+  const onCloseModalize = (modal?: string) => {
+    if (modal === 'account') {
+      modalize_accountRef.current?.close()
+    } else {
+      modalize_categoriesRef.current?.close()
+    }
+  }
+
+  const submit_addTransaction = async () => {}
 
   return (
     <>
       <View style={styles.root}>
         <Header title="Create Transaction" />
-          <FormikForm
-            validationSchema={addTransactionValidationSchema}
-            initialValues={initialValues}
-            onSubmit={async ({resetForm, setSubmitting}: any) => {
-              setSubmitting(true)
-              resetForm()
-              submit_addTransaction()
-            }}>
-            <ScrollView style={styles.mainContainer}>
-              <FormikInput isRequired label={'Description'} placeholder={'McMuffin'} name={'description'} />
-              <FormikInput isRequired label={'Amount'} placeholder={'Rp100.000'} name={'amount'} keyboardType={'number-pad'} />
-              <FormikTouchableInput isRequired onPress={() => console.log('test')} label={'Account'} placeholder={'Choose account'} name={'account'} />
-              <FormikDatePicker label={'Date'} placeholder={'Input the date'} name={'dt_created'} />
-              <FormikChipPicker label={'Measurement'} items={optionsFormatter(Measurement)} name={'measurement'} />
-              <FormikChipPicker label={'Experience'} items={optionsFormatter(Experience)} name={'experience'} />
-            </ScrollView>
-            <FooterButtonWrapper><FormikButton style={{flex: 1}} title="Submit"/></FooterButtonWrapper>
-          </FormikForm>
+        <FormikForm
+          validationSchema={addTransactionValidationSchema}
+          initialValues={initialValues}
+          onSubmit={async ({resetForm, setSubmitting}: any) => {
+            setSubmitting(true)
+            resetForm()
+            submit_addTransaction()
+          }}>
+          <ScrollView style={styles.mainContainer}>
+            <FormikInput isRequired label={'Description'} placeholder={'McMuffin'} name={'description'} />
+            <FormikInput
+              isRequired
+              label={'Amount'}
+              placeholder={'Rp100.000'}
+              name={'amount'}
+              keyboardType={'number-pad'}
+            />
+            <FormikTouchableInput
+              isRequired
+              onPress={() => onOpenModalize('account')}
+              label={'Account'}
+              placeholder={'Choose account'}
+              name={'account'}
+            />
+            <FormikTouchableInput
+              customValueDisplay
+              isRequired
+              onPress={() => onOpenModalize('category')}
+              label={'Category'}
+              placeholder={'Choose category'}
+              name={'category'}
+            />
+            <FormikDatePicker label={'Date'} placeholder={'Input the date'} name={'dt_created'} />
+            <FormikChipPicker label={'Measurement'} items={optionsFormatter(Measurement)} name={'measurement'} />
+            <FormikChipPicker label={'Experience'} items={optionsFormatter(Experience)} name={'experience'} />
+          </ScrollView>
+          <FooterButtonWrapper>
+            <FormikButton style={{flex: 1}} title="Submit" />
+          </FooterButtonWrapper>
+          <Modalize modalHeight={SCREEN_SIZE.fullHeight * 0.4} ref={modalize_accountRef}>
+            <FormikInput isRequired label={'Description'} placeholder={'McMuffin'} name={'description'} />
+            <FormikInput
+              isRequired
+              label={'Amount'}
+              placeholder={'Rp100.000'}
+              name={'amount'}
+              keyboardType={'number-pad'}
+            />
+          </Modalize>
+          <Modalize modalHeight={SCREEN_SIZE.fullHeight * 0.6} ref={modalize_categoriesRef}>
+            <ModalizeCategories name={'category'} onClose={() => onCloseModalize('category')} />
+          </Modalize>
+        </FormikForm>
       </View>
     </>
   )

@@ -22,14 +22,8 @@ const styles = StyleSheet.create({
     padding: 18,
     paddingTop: 9,
     backgroundColor: COLORS.background,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    borderTopColor: COLORS.line,
+    borderTopWidth: 0.4,
     alignSelf: 'flex-end',
   },
 })

@@ -65,7 +65,7 @@ const CustomInput: React.FunctionComponent<IPTouchableInput> = props => {
         <TextInput
           placeholder={placeholder}
           value={value}
-          onChangeText={onChangeText}
+          // onChangeText={onChangeText}
           style={[styles.input, {width: secureTextEntry ? '90%' : '100%'}, style]}
           keyboardType={keyboardType}
           secureTextEntry={Boolean(secureTextEntry && state.hide)}
