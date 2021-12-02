@@ -40,6 +40,7 @@ const DatePicker: React.FunctionComponent<IPDatePicker> = props => {
           display="default"
           onChange={(_event: Event | AndroidEvent, selectedDate: Date | undefined) => {
             const currentDate = selectedDate || date
+            
             let stringDate = ''
             if (currentDate) {
               stringDate = JSON.stringify(currentDate).slice(1, 11)

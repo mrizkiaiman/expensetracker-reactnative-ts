@@ -45,6 +45,10 @@ const DatePicker: React.FC<IPDatePicker> = props => {
           is24Hour={true}
           display="default"
           onChange={(event: Event, selectedDate: Date | undefined) => {
+            if (selectedDate === undefined) {
+              setIsDatePickerOpen(false)
+              return
+            }
             const currentDate = selectedDate || date
             let stringDate = ''
             if (currentDate) {
@@ -56,7 +60,6 @@ const DatePicker: React.FC<IPDatePicker> = props => {
             setDate(currentDate)
             setDateForDisplay(stringDate)
             handleChange(stringDate)
-            
           }}
         />
       )}

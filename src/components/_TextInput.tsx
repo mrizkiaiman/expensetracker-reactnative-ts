@@ -65,7 +65,7 @@ const CustomTextInput: React.FunctionComponent<IPTextInput> = props => {
           placeholder={placeholder}
           value={value}
           onChangeText={onChangeText}
-          style={[styles.input, {width: secureTextEntry ? '90%' : '100%'}, style]}
+          style={[styles.input, {width: secureTextEntry ? '90%' : '100%'}]}
           keyboardType={keyboardType}
           secureTextEntry={Boolean(secureTextEntry && state.hide)}
           autoCapitalize={autoCapitalize}
@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
     color: 'black',
     backgroundColor: COLORS.background,
     fontFamily: 'Prompt_600SemiBold',
+    fontWeight: '600',
     fontSize: 18,
     paddingBottom: 4,
   },

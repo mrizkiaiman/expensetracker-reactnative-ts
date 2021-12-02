@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
     color: 'black',
     backgroundColor: COLORS.background,
     fontFamily: 'Prompt_600SemiBold',
+    fontWeight: '600',
     fontSize: 18,
     paddingBottom: 4,
     width: '100%',

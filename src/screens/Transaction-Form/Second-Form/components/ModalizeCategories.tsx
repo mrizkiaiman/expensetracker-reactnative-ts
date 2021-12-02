@@ -27,7 +27,6 @@ interface PropsCategory {
 export const ModalizeCategories: React.FunctionComponent<IPModalizeCategories> = props => {
   const {setFieldValue, values, errors, touched, handleSubmit} = useFormikContext<any>()
   const {onOpen, onClose, name} = props
-  console.log(values)
 
   const onSelect = (value: string, valueForDisplay: string) => {
     setFieldValue(name, value)
@@ -42,9 +41,11 @@ export const ModalizeCategories: React.FunctionComponent<IPModalizeCategories> =
           <TouchableOpacity
             onPress={() => onSelect(category?._id, category?.name)}
             key={category?._id}
-            style={[styles.category, values?.category === category?._id && styles.selectedCategory]}>
+            style={[styles.category, values[name] === category?._id && styles.selectedCategory]}>
             <SvgUri width="40" height="40" uri={category?.img} />
-            <Text type={values?.category === category?._id ? 'bold' : 'default'} style={styles.categoryText}>
+            <Text
+              type={values[name] === category?._id ? 'bold' : 'default'}
+              style={[styles.categoryText, values[name] === category?._id && styles.selectedCategoryText]}>
               {category?.name}
             </Text>
           </TouchableOpacity>
@@ -89,6 +90,11 @@ const styles = StyleSheet.create({
     fontSize: 11,
     marginTop: 12,
     color: COLORS.gray,
+  },
+  selectedCategoryText: {
+    fontSize: 11,
+    marginTop: 12,
+    color: COLORS.primary,
   },
   submitButton: {
     zIndex: 100,

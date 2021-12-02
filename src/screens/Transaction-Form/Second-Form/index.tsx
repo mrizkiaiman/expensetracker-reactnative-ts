@@ -4,8 +4,8 @@ import {useNavigation, useRoute} from '@react-navigation/native'
 
 import {IProps} from '@app/constants/types/_common'
 import {styles} from './styles'
-import {ITransactionRow, ITransactionForm} from '@app/constants/types/transaction'
-import {COLORS, SCREEN_SIZE} from '@styles/vars'
+import {ITransactionForm} from '@app/constants/types/transaction'
+import {SCREEN_SIZE} from '@styles/vars'
 import {optionsFormatter} from '@app/utils/helpers/optionsFormatter'
 import {addTransactionValidationSchema} from '@utils/validators'
 
@@ -19,11 +19,11 @@ import {
   FormikChipPicker,
   FormikDatePicker,
   FormikTouchableInput,
-  FormikPicker,
 } from '@app/components/Formik'
 import {FooterButtonWrapper} from '@components/Wrapper/index'
-import {Header, Button} from '@components/index'
+import {Header} from '@components/index'
 import {ModalizeCategories} from './components/ModalizeCategories'
+import {ModalizeAccount} from './components/ModalizeAccount'
 
 interface IPSecondTransactionForm extends IProps {
   transactionType: {
@@ -93,6 +93,7 @@ export const SecondTransactionForm: React.FunctionComponent<IPSecondTransactionF
               keyboardType={'number-pad'}
             />
             <FormikTouchableInput
+              customValueDisplay
               isRequired
               onPress={() => onOpenModalize('account')}
               label={'Account'}
@@ -115,14 +116,7 @@ export const SecondTransactionForm: React.FunctionComponent<IPSecondTransactionF
             <FormikButton style={{flex: 1}} title="Submit" />
           </FooterButtonWrapper>
           <Modalize modalHeight={SCREEN_SIZE.fullHeight * 0.4} ref={modalize_accountRef}>
-            <FormikInput isRequired label={'Description'} placeholder={'McMuffin'} name={'description'} />
-            <FormikInput
-              isRequired
-              label={'Amount'}
-              placeholder={'Rp100.000'}
-              name={'amount'}
-              keyboardType={'number-pad'}
-            />
+            <ModalizeAccount name={'account'} onClose={() => onCloseModalize('account')} />
           </Modalize>
           <Modalize modalHeight={SCREEN_SIZE.fullHeight * 0.6} ref={modalize_categoriesRef}>
             <ModalizeCategories name={'category'} onClose={() => onCloseModalize('category')} />
