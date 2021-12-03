@@ -96,9 +96,12 @@ export const styles = StyleSheet.create({
   squareMenuButtonTextContainer: {
     marginTop: 32,
   },
-  emptyStateContainer: {
+  accountEmptyStateContainer: {
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%'
+  },
+  transactionEmptyStateContainer: {
+    marginTop: 32
   }
 })

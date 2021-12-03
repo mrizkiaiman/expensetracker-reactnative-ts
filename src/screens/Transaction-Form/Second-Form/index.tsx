@@ -1,8 +1,7 @@
 import React, {useState, useRef} from 'react'
 import {ScrollView, View} from 'react-native'
-import {useNavigation, useRoute} from '@react-navigation/native'
+import {SecondTransactionFormProps} from '@nav-types/index'
 
-import {IProps} from '@app/constants/types/_common'
 import {styles} from './styles'
 import {ITransactionForm} from '@app/constants/types/transaction'
 import {SCREEN_SIZE} from '@styles/vars'
@@ -25,15 +24,7 @@ import {Header} from '@components/index'
 import {ModalizeCategories} from './components/ModalizeCategories'
 import {ModalizeAccount} from './components/ModalizeAccount'
 
-interface IPSecondTransactionForm extends IProps {
-  transactionType: {
-    name: string
-    id: string
-  }
-}
-
-export const SecondTransactionForm: React.FunctionComponent<IPSecondTransactionForm> = props => {
-  const route: any = useRoute()
+export const SecondTransactionForm: React.FunctionComponent<SecondTransactionFormProps> = ({route}) => {
   const {
     params: {transactionType},
   } = route

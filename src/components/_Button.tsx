@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, TouchableOpacity} from 'react-native'
+import {StyleSheet, TouchableOpacity, View} from 'react-native'
 import {IProps} from '@app/constants/types/_common'
 import {COLORS} from '@styles/vars'
 
@@ -9,13 +9,19 @@ export interface IPButton extends IProps {
   title: string
   onPress?: () => void
   disabled?: boolean
+  leftIcon?: JSX.Element | false | undefined
+  rightIcon?: JSX.Element | false | undefined
 }
 
 const CustomButton: React.FunctionComponent<IPButton> = props => {
-  const {title, onPress, disabled, style} = props
+  const {title, onPress, disabled, style, rightIcon, leftIcon} = props
 
   return (
-    <TouchableOpacity disabled={disabled} style={[styles.mainContainer, style, disabled && {backgroundColor: COLORS.disabled}]} onPress={onPress}>
+    <TouchableOpacity
+      disabled={disabled}
+      style={[styles.mainContainer, style, disabled && {backgroundColor: COLORS.disabled}]}
+      onPress={onPress}>
+      {leftIcon && <View style={styles.leftIconContainer}>{leftIcon}</View>}
       <Text type="bold" style={styles.title}>
         {title}
       </Text>
@@ -33,10 +39,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 8,
     marginVertical: 8,
+    flexDirection: 'row',
   },
   title: {
     color: 'white',
-    fontWeight: 'bold',
     fontSize: 18,
+  },
+  leftIconContainer: {
+    marginRight: 8,
   },
 })

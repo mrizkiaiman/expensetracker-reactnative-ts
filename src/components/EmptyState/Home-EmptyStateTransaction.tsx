@@ -1,35 +1,25 @@
 import React from 'react'
 import {StyleSheet, View} from 'react-native'
-import {BottomTabsComponentProps} from '@nav-types/index'
 
 import {IProps} from '@app/constants/types/_common'
 import {COLORS, SCREEN_SIZE} from '@styles/vars'
 
-import Illustration from '@assets/illustrations/budget-empty-state.svg'
+import Illustration from '@assets/illustrations/transaction-empty-state.svg'
 import LineToBottom from '@assets/icons/line-to-bottom.svg'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import {Text, Button} from '@components/index'
-import {useNavigation} from '@react-navigation/core'
 
-interface IPHomeEmptyStateAccount extends IProps {}
+interface IPHomeEmptyStateTransaction extends IProps {}
 
-export const HomeEmptyStateAccount: React.FunctionComponent<IPHomeEmptyStateAccount> = props => {
-  const navigation = useNavigation<BottomTabsComponentProps>()
-
+export const HomeEmptyStateTransaction: React.FunctionComponent<IPHomeEmptyStateTransaction> = props => {
   return (
     <View style={styles.mainContainer}>
-      <Illustration />
+      <Illustration height={100} width={100} />
       <Text type="semibold" style={styles.illustrationTitle}>
-        No account yet
+        No transaction yet
       </Text>
-      <Text style={styles.illustrationDescriptionText}>You can create new account by tapping the button below</Text>
+      <Text style={styles.illustrationDescriptionText}>You can create new transaction by tapping the button below</Text>
       <LineToBottom />
-      <Button
-        onPress={() => navigation.navigate('ACCOUNT_FORM')}
-        title="New Account"
-        style={styles.addNewAccountButton}
-        leftIcon={<MaterialCommunityIcons name="plus" size={28} style={{marginTop: 2}} color="white" />}
-      />
     </View>
   )
 }
@@ -43,7 +33,7 @@ const styles = StyleSheet.create({
   illustrationTitle: {
     marginTop: 24,
     color: 'black',
-    fontSize: 22,
+    fontSize: 18,
   },
   addNewAccountButton: {
     width: SCREEN_SIZE.fullWidth * 0.5,
@@ -56,5 +46,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginVertical: 12,
     color: COLORS.gray,
+    fontSize: 14,
   },
 })
