@@ -8,9 +8,9 @@ import {COLORS} from '@styles/vars'
 
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import Home from '@app/screens/Home'
-import Daily from '@app/screens/Daily'
+import TransactionList from '@app/screens/Transaction-List/index'
 import Profile from '@app/screens/Profile'
-import Stats from '@app/screens/Stats'
+import AccountList from '@app/screens/Account-List'
 import {FirstTransactionForm} from '@app/screens/Transaction-Form/First-Form'
 
 interface IPTabIcons {
@@ -60,13 +60,14 @@ const BottomTabs: React.FunctionComponent = props => {
         }}
       />
       <Tab.Screen
-        name={'DAILY'}
-        component={Daily}
+        name={'TRANSACTION_LIST'}
+        component={TransactionList}
         options={{
-          tabBarIcon: ({focused}) => <TabIcon title="Daily" icon="book-outline" focused={focused} />,
+          tabBarIcon: ({focused}) => <TabIcon title="Transactions" icon="book-outline" focused={focused} />,
           headerShown: false,
         }}
       />
+
       <Tab.Screen
         name={'TRANSACTION_FORM_FIRST'}
         component={FirstTransactionForm}
@@ -78,10 +79,10 @@ const BottomTabs: React.FunctionComponent = props => {
         }}
       />
       <Tab.Screen
-        name={'STATS'}
-        component={Stats}
+        name={'ACCOUNT_LIST'}
+        component={AccountList}
         options={{
-          tabBarIcon: ({focused}) => <TabIcon title="Stats" icon="wallet" focused={focused} />,
+          tabBarIcon: ({focused}) => <TabIcon title="Accounts" icon="wallet" focused={focused} />,
           headerShown: false,
         }}
       />

@@ -1,10 +1,29 @@
 [
   {
     "_id": "1",
-    "name": "Bank BCA"
+    "name": "Bank BCA",
+    "amount": 7500000,
+    "type": {
+      "name": "Bank",
+      "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1638789882/torakka/account-type/bank_g0e65g.svg"
+    }
   },
   {
     "_id": "2",
-    "name": "Bank Jago"
+    "name": "My Wallet",
+    "amount": 500000,
+    "type": {
+      "name": "Cash",
+      "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1638789882/torakka/account-type/cash_rrikz7.svg"
+    }
+  },
+  {
+    "_id": "3",
+    "name": "Go-pay",
+    "amount": 800000,
+    "type": {
+      "name": "E-Wallet",
+      "img": "https://res.cloudinary.com/dqdhg7qnc/image/upload/v1638789804/torakka/account-type/e-wallet_mu9xj9.svg"
+    }
   }
 ]

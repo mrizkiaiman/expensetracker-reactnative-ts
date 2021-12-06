@@ -5,9 +5,9 @@ export type AuthStackParamList = {
 
 export type BottomTabParamList = {
   HOME: undefined
-  DAILY: undefined
+  ACCOUNT_LIST: undefined
   TRANSACTION_FORM_FIRST: undefined
-  STATS: undefined
+  TRANSACTION_LIST: undefined
   PROFILE: undefined
 }
 

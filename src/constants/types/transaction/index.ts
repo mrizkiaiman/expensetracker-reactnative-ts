@@ -1,7 +1,8 @@
 export interface ITransactionRow {
+  _id: string
   user?: string
   budget?: string
-  category?: {
+  category: {
     name: string
     img: string
   }

@@ -6,9 +6,9 @@ import {IProps} from '@app/constants/types/_common'
 import {ITransactionRow} from '@type/transaction/index'
 
 import {Text} from '@components/index'
-import {AccountCard} from './components/AccountCard'
+import {TransactionCard} from './components/TransactionCard'
 
-import mockAccount from '@app/mockdata/account.json'
+import mockTransactions from '@app/mockdata/transactions.json'
 
 interface IPDaily extends IProps {}
 
@@ -20,15 +20,15 @@ const Daily: React.FunctionComponent<IPDaily> = props => {
           ListHeaderComponent={
             <View style={styles.headerContainer}>
               <Text style={styles.title} type="bold">
-                Accounts
+                Transactions
               </Text>
               {/* <TouchableOpacity style={styles.filterIconContainer}>
                 <Image source={require('@assets/icons/filter.png')} style={styles.filterIcon} />
               </TouchableOpacity> */}
             </View>
           }
-          data={mockAccount}
-          renderItem={({item}) => <AccountCard account={item} />}
+          data={mockTransactions}
+          renderItem={({item}) => <TransactionCard transaction={item} />}
           keyExtractor={item => item?._id}
           contentContainerStyle={styles.listContainer}
         />

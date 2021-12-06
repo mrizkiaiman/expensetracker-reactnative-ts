@@ -1,6 +1,6 @@
 [
   {
-    "_id": "-",
+    "_id": "0",
     "user": "-",
     "budget": "Daily Life",
     "category": {
@@ -13,10 +13,11 @@
     "amount": 50000,
     "description": "McMuffin",
     "dt_created": "2021-06-04",
-    "dt_updated": "06-04-2021"
+    "dt_updated": "06-04-2021",
+    "transactionType": "Income"
   },
   {
-    "_id": "-",
+    "_id": "1",
     "user": "-",
     "budget": "Daily Life",
     "category": {
@@ -29,10 +30,11 @@
     "amount": 50000,
     "description": "Spotify",
     "dt_created": "2021-06-04",
-    "dt_updated": "06-04-2021"
+    "dt_updated": "06-04-2021",
+    "transactionType": "Expense"
   },
   {
-    "_id": "-",
+    "_id": "2",
     "user": "-",
     "budget": "Daily Life",
     "category": {
@@ -45,10 +47,11 @@
     "amount": 30000,
     "description": "Salad",
     "dt_created": "2021-06-04",
-    "dt_updated": "06-04-2021"
+    "dt_updated": "06-04-2021",
+    "transactionType": "Income"
   },
   {
-    "_id": "-",
+    "_id": "3",
     "user": "-",
     "budget": "Daily Life",
     "category": {
@@ -61,10 +64,11 @@
     "amount": 50000,
     "description": "McMuffin-",
     "dt_created": "2021-06-04",
-    "dt_updated": "06-04-2021"
+    "dt_updated": "06-04-2021",
+    "transactionType": "Expense"
   },
   {
-    "_id": "-",
+    "_id": "4",
     "user": "-",
     "budget": "Daily Life",
     "category": {
@@ -77,6 +81,7 @@
     "amount": 50000,
     "description": "Spotify-",
     "dt_created": "2021-06-04",
-    "dt_updated": "06-04-2021"
+    "dt_updated": "06-04-2021",
+    "transactionType": "Income"
   }
 ]

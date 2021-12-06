@@ -1,3 +1,4 @@
+export {default as Badge} from '@app/components/_Badge'
 export {default as Button} from '@app/components/_Button'
 export {default as DatePicker} from '@app/components/_DatePicker'
 export {default as Header} from '@app/components/_Header'

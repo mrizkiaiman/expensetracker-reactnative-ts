@@ -1,5 +1,6 @@
 import React from 'react'
 import {StyleSheet, TouchableOpacity, View} from 'react-native'
+
 import {IProps} from '@app/constants/types/_common'
 import {COLORS} from '@styles/vars'
 
