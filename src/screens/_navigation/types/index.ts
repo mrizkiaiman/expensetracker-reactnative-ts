@@ -9,3 +9,4 @@ export type BottomTabsComponentProps = NativeStackNavigationProp<AppStackParamLi
 
 export type FirstTransactionFormProps = NativeStackScreenProps<AppStackParamList, 'TRANSACTION_FORM_FIRST'>
 export type SecondTransactionFormProps = NativeStackScreenProps<AppStackParamList, 'TRANSACTION_FORM_SECOND'>
+export type AccountFormProps = NativeStackScreenProps<AppStackParamList, 'ACCOUNT_FORM'>

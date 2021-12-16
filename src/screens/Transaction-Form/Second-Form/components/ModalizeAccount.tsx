@@ -18,9 +18,11 @@ export const ModalizeAccount: React.FunctionComponent<IPModalizeAccount> = props
   const {setFieldValue, values, errors, touched, handleSubmit} = useFormikContext<any>()
   const {onOpen, onClose, name} = props
 
-  const onSelect = (value: string, valueForDisplay: string) => {
-    setFieldValue(name, value)
-    setFieldValue(`${name}ForDisplay`, valueForDisplay)
+  const onSelect = async (value: string, valueForDisplay: string) => {
+    setTimeout(() => {
+      setFieldValue(name, value)
+      setFieldValue(`${name}ForDisplay`, valueForDisplay)
+    }, 1000)
     onClose && onClose()
   }
 

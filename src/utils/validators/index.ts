@@ -12,9 +12,9 @@ export const signUpValidationSchema = Yup.object().shape({
 })
 
 export const addTransactionValidationSchema = Yup.object().shape({
-  user: Yup.string().required(),
   account: Yup.string().required('Account is required'),
   description: Yup.string().required('Description is required'),
+  category: Yup.string().required('Category is required'),
   amount: Yup.number().min(1).label('Amount')
 })
 

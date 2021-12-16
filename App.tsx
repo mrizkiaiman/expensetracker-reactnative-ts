@@ -24,6 +24,7 @@ import {
 
 import AppNavigator from '@navigation/app-navigator'
 import AuthNavigator from '@navigation/auth-navigator'
+import Toast from 'react-native-toast-message'
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -49,5 +50,20 @@ export default function App() {
 
   if (!isReady || !fontsLoaded)
     return <AppLoading startAsync={restoreUser} onFinish={() => setIsReady(true)} onError={console.warn} />
-  else return <NavigationContainer>{user ? <AppNavigator /> : <AppNavigator />}</NavigationContainer>
+  else
+    return (
+      <NavigationContainer>
+        {user ? (
+          <>
+            <AppNavigator />
+            <Toast />
+          </>
+        ) : (
+          <>
+            <AppNavigator />
+            <Toast />
+          </>
+        )}
+      </NavigationContainer>
+    )
 }

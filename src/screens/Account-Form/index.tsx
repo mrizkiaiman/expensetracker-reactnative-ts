@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
 import {SafeAreaView, View} from 'react-native'
-import {useNavigation} from '@react-navigation/native'
-import {useKeyboardListener} from '@hooks/index'
+import {AccountFormProps} from '@nav-types/index'
 
 import {IProps} from '@app/constants/types/_common'
 import {IAccountForm} from '@app/constants/types/account'
 import {styles} from './styles'
 import {SPACES} from '@styles/vars'
 import {addAccountValidationSchema} from '@utils/validators'
+import {successToast} from '@components/_Toast'
 
 import AddAcountImage from '@assets/illustrations/add-account.svg'
 import {KeyboardAwareWrapper} from '@app/components/Wrapper'
@@ -15,28 +15,24 @@ import {Text, Header} from '@app/components'
 import {FormikForm, FormikInput, FormikButton} from '@app/components/Formik'
 import {FooterButtonWrapper} from '@components/Wrapper/index'
 
-interface IPAccountForm extends IProps {}
-
-const AccountForm: React.FunctionComponent<IPAccountForm> = props => {
-
+const AccountForm: React.FunctionComponent<AccountFormProps> = ({navigation}) => {
   const [initialValues, setInitialValues] = useState<IAccountForm>({
     name: '',
     accountType: '',
   })
 
-  const submit_addAccount = async () => {}
+  const submit_addAccount = async () => {
+    successToast('New transaction is successfully added')
+    navigation.goBack()
+  }
 
   return (
     <View style={styles.mainContainer}>
       <FormikForm
         initialValues={initialValues}
         validationSchema={addAccountValidationSchema}
-        onSubmit={async ({resetForm, setSubmitting}: any) => {
-          setSubmitting(true)
-          resetForm()
-          submit_addAccount()
-        }}>
-        <KeyboardAwareWrapper extraScrollHeight={70} extraHeight={70}>
+        onSubmit={submit_addAccount}>
+        <KeyboardAwareWrapper extraScrollHeight={90} extraHeight={90}>
           <Header title="Create Account" />
           <AddAcountImage style={styles.illustrationImg} height={210} width={210} />
           <Text style={styles.title}>Add new account</Text>

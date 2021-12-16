@@ -29,8 +29,10 @@ export const ModalizeCategories: React.FunctionComponent<IPModalizeCategories> =
   const {onOpen, onClose, name} = props
 
   const onSelect = (value: string, valueForDisplay: string) => {
-    setFieldValue(name, value)
-    setFieldValue(`${name}ForDisplay`, valueForDisplay)
+    setTimeout(() => {
+      setFieldValue(name, value)
+      setFieldValue(`${name}ForDisplay`, valueForDisplay)
+    }, 1000)
     onClose && onClose()
   }
 

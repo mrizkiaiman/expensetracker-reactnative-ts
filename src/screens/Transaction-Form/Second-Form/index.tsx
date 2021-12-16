@@ -7,6 +7,7 @@ import {ITransactionForm} from '@app/constants/types/transaction'
 import {SCREEN_SIZE} from '@styles/vars'
 import {optionsFormatter} from '@app/utils/helpers/optionsFormatter'
 import {addTransactionValidationSchema} from '@utils/validators'
+import {successToast} from '@components/_Toast'
 
 import Measurement from '@app/mockdata/measurement.json'
 import Experience from '@app/mockdata/experience.json'
@@ -24,7 +25,7 @@ import {Header} from '@components/index'
 import {ModalizeCategories} from './components/ModalizeCategories'
 import {ModalizeAccount} from './components/ModalizeAccount'
 
-export const SecondTransactionForm: React.FunctionComponent<SecondTransactionFormProps> = ({route}) => {
+export const SecondTransactionForm: React.FunctionComponent<SecondTransactionFormProps> = ({route, navigation}) => {
   const {
     params: {transactionType},
   } = route
@@ -60,20 +61,20 @@ export const SecondTransactionForm: React.FunctionComponent<SecondTransactionFor
     }
   }
 
-  const submit_addTransaction = async () => {}
+  const submit_addTransaction = () => {
+    successToast('New transaction is successfully added')
+    navigation.goBack()
+  }
 
   return (
     <>
       <View style={styles.root}>
         <Header title="Create Transaction" />
         <FormikForm
+          enableReinitialize
           validationSchema={addTransactionValidationSchema}
           initialValues={initialValues}
-          onSubmit={async ({resetForm, setSubmitting}: any) => {
-            setSubmitting(true)
-            resetForm()
-            submit_addTransaction()
-          }}>
+          onSubmit={submit_addTransaction}>
           <ScrollView style={styles.mainContainer}>
             <FormikInput isRequired label={'Description'} placeholder={'McMuffin'} name={'description'} />
             <FormikInput
