@@ -1,18 +1,20 @@
 import React from 'react'
-import {StyleSheet, View, FlatList, Image, TouchableOpacity} from 'react-native'
+import {View, FlatList} from 'react-native'
+import {useQuery} from 'react-query'
 
 import {styles} from './style'
 import {IProps} from '@app/constants/types/_common'
-import {ITransactionRow} from '@type/transaction/index'
+import {ITransactionRow} from '@app/constants/types/transaction'
+import {getTransactions} from '@app/services/transaction/api'
 
 import {Text} from '@components/index'
-import {TransactionCard} from './components/TransactionCard'
-
-import mockTransactions from '@app/mockdata/transactions.json'
+import {TransactionCard, SkeletonCard} from './components/TransactionCard'
 
 interface IPDaily extends IProps {}
 
 const Daily: React.FunctionComponent<IPDaily> = props => {
+  const {data, isLoading, isFetching, error} = useQuery('transactions', getTransactions, {keepPreviousData: true})
+
   return (
     <View style={styles.root}>
       <View style={styles.mainContainer}>
@@ -27,9 +29,10 @@ const Daily: React.FunctionComponent<IPDaily> = props => {
               </TouchableOpacity> */}
             </View>
           }
-          data={mockTransactions}
-          renderItem={({item}) => <TransactionCard transaction={item} />}
-          keyExtractor={item => item?._id}
+          data={data?.response || []}
+          ListEmptyComponent={<LoadingState />}
+          renderItem={({item}) => <TransactionCard transaction={item} isFetching={isFetching} />}
+          keyExtractor={(item: ITransactionRow) => item?._id}
           contentContainerStyle={styles.listContainer}
         />
       </View>
@@ -38,3 +41,14 @@ const Daily: React.FunctionComponent<IPDaily> = props => {
 }
 
 export default Daily
+
+const LoadingState = () => {
+  return (
+    <View>
+      <TransactionCard isFetching={true} />
+      <TransactionCard isFetching={true} />
+      <TransactionCard isFetching={true} />
+      <TransactionCard isFetching={true} />
+    </View>
+  )
+}

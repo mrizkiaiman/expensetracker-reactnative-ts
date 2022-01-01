@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import {StyleSheet, Text, View} from 'react-native'
 import AppLoading from 'expo-app-loading'
 import {NavigationContainer} from '@react-navigation/native'
+import {QueryClient, QueryClientProvider} from 'react-query'
 import {
   useFonts,
   Oxanium_200ExtraLight,
@@ -25,6 +25,7 @@ import {
 import AppNavigator from '@navigation/app-navigator'
 import AuthNavigator from '@navigation/auth-navigator'
 import Toast from 'react-native-toast-message'
+import {MenuProvider} from 'react-native-popup-menu'
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -44,6 +45,8 @@ export default function App() {
     Prompt_800ExtraBold,
   })
 
+  const queryClient = new QueryClient()
+
   const [user, setUser] = useState('')
   const [isReady, setIsReady] = useState(false)
   const restoreUser = async () => {}
@@ -53,17 +56,12 @@ export default function App() {
   else
     return (
       <NavigationContainer>
-        {user ? (
-          <>
-            <AppNavigator />
+        <QueryClientProvider client={queryClient}>
+          <MenuProvider>
+            {user ? <AppNavigator /> : <AppNavigator />}
             <Toast />
-          </>
-        ) : (
-          <>
-            <AppNavigator />
-            <Toast />
-          </>
-        )}
+          </MenuProvider>
+        </QueryClientProvider>
       </NavigationContainer>
     )
 }

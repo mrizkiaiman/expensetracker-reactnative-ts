@@ -63,7 +63,7 @@ const BottomTabs: React.FunctionComponent = props => {
         name={'TRANSACTION_LIST'}
         component={TransactionList}
         options={{
-          tabBarIcon: ({focused}) => <TabIcon title="Transactions" icon="book-outline" focused={focused} />,
+          tabBarIcon: ({focused}) => <TabIcon title="Daily" icon="book-outline" focused={focused} />,
           headerShown: false,
         }}
       />
