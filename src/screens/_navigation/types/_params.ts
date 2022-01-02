@@ -9,6 +9,7 @@ export type BottomTabParamList = {
   TRANSACTION_FORM_FIRST: undefined
   TRANSACTION_LIST: undefined
   PROFILE: undefined
+  _: undefined
 }
 
 export type AppStackParamList = {

@@ -24,12 +24,12 @@ export const HomeEmptyStateAccount: React.FunctionComponent<IPHomeEmptyStateAcco
       </Text>
       <Text style={styles.illustrationDescriptionText}>You can create new account by tapping the button below</Text>
       <LineToBottom />
-      <Button
+      {/* <Button
         onPress={() => navigation.navigate('ACCOUNT_FORM')}
         title="New Account"
         style={styles.addNewAccountButton}
         leftIcon={<MaterialCommunityIcons name="plus" size={28} style={{marginTop: 2}} color="white" />}
-      />
+      /> */}
     </View>
   )
 }
@@ -56,5 +56,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginVertical: 12,
     color: COLORS.gray,
+    marginBottom: 12,
   },
 })

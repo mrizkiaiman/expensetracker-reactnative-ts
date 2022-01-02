@@ -9,6 +9,7 @@ import {getTransactions} from '@app/services/transaction/api'
 
 import {Text} from '@components/index'
 import {TransactionCard, SkeletonCard} from './components/TransactionCard'
+import {EmptyListLoading} from './components/EmptyListLoading'
 
 interface IPDaily extends IProps {}
 
@@ -30,7 +31,7 @@ const Daily: React.FunctionComponent<IPDaily> = props => {
             </View>
           }
           data={data?.response || []}
-          ListEmptyComponent={<LoadingState />}
+          ListEmptyComponent={<EmptyListLoading />}
           renderItem={({item}) => <TransactionCard transaction={item} isFetching={isFetching} />}
           keyExtractor={(item: ITransactionRow) => item?._id}
           contentContainerStyle={styles.listContainer}
@@ -41,14 +42,3 @@ const Daily: React.FunctionComponent<IPDaily> = props => {
 }
 
 export default Daily
-
-const LoadingState = () => {
-  return (
-    <View>
-      <TransactionCard isFetching={true} />
-      <TransactionCard isFetching={true} />
-      <TransactionCard isFetching={true} />
-      <TransactionCard isFetching={true} />
-    </View>
-  )
-}
