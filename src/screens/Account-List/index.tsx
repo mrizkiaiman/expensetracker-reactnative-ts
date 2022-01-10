@@ -3,7 +3,7 @@ import {StyleSheet, View, FlatList, Image, TouchableOpacity} from 'react-native'
 
 import {styles} from './style'
 import {IProps} from '@app/constants/types/_common'
-import {ITransactionRow} from '@type/transaction/index'
+import {IAccountRow} from '@type/account/index'
 
 import {Text} from '@components/index'
 import {AccountCard} from './components/AccountCard'

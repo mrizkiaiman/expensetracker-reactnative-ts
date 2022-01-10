@@ -5,6 +5,7 @@ import {BottomTabProps} from '@nav-types/index'
 import {COLORS, SCREEN_SIZE} from '@styles/vars'
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
 import {styles} from './styles'
+
 import CoinsImg from '@assets/icons/coins.svg'
 import {FontAwesome, Ionicons} from '@expo/vector-icons'
 import {Text, ScrollViewBounced} from '@app/components'

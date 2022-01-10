@@ -5,6 +5,7 @@ export interface IAccountForm {
 }
 
 export interface IAccountRow {
+  _id?: string
   name: string
   amount?: string
   type: {
