@@ -1,21 +1,21 @@
 import React from 'react'
-import {StyleSheet, View} from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
-import {IProps} from '@app/constants/types/_common'
-import {IAccountRow} from '@type/account/index'
-import {COLORS, SCREEN_SIZE} from '@styles/vars'
+import { IProps } from '@app/constants/types/_common'
+import { IAccountResponse } from '@type/account/index'
+import { COLORS, SCREEN_SIZE } from '@styles/vars'
 import numberDotsFormatter from '@utils/helpers/numberDotsFormatter'
 
-import {Text, Badge} from '@components/index'
+import { Text, Badge } from '@components/index'
 import SkeletonContent from 'react-native-skeleton-content'
-import {SvgUri} from 'react-native-svg'
+import { SvgUri } from 'react-native-svg'
 
 interface IPAccountCard extends IProps {
-  account: IAccountRow
+  account: IAccountResponse
 }
 
 export const AccountCard: React.FunctionComponent<IPAccountCard> = props => {
-  const {account} = props
+  const { account } = props
 
   return (
     <Skeleton>
@@ -36,10 +36,10 @@ export const AccountCard: React.FunctionComponent<IPAccountCard> = props => {
   )
 }
 
-const Skeleton = ({children}: IProps) => {
+const Skeleton = ({ children }: IProps) => {
   return (
     <SkeletonContent
-      containerStyle={{flex: 1, width: '100%', height: 180}}
+      containerStyle={{ flex: 1, width: '100%', height: 180 }}
       isLoading={true}
       layout={[
         {

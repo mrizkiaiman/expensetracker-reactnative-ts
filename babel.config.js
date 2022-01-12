@@ -14,7 +14,7 @@ module.exports = function (api) {
             '@components': './src/components',
             '@type': './src/constants/types',
             '@screens': './src/screens',
-            '@services': './src/domain/services',
+            '@services': './src/services',
             '@states': './src/states',
             '@utils': './src/utils',
             '@styles': './src/utils/styles',

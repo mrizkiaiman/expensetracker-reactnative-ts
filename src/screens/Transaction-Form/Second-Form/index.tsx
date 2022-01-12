@@ -1,17 +1,18 @@
-import React, {useState, useRef} from 'react'
-import {ScrollView, View} from 'react-native'
-import {SecondTransactionFormProps} from '@nav-types/index'
+import React, { useState, useRef, useEffect } from 'react'
+import { ScrollView, View } from 'react-native'
+import { SecondTransactionFormProps } from '@nav-types/index'
+import { useMutation } from 'react-query'
 
-import {styles} from './styles'
-import {ITransactionForm} from '@app/constants/types/transaction'
-import {SCREEN_SIZE} from '@styles/vars'
-import {optionsFormatter} from '@app/utils/helpers/optionsFormatter'
-import {addTransactionValidationSchema} from '@utils/validators'
-import {successToast} from '@components/_Toast'
+import { styles } from './styles'
+import { ITransactionForm } from '@app/constants/types/transaction'
+import { SCREEN_SIZE } from '@styles/vars'
+import { optionsFormatter } from '@app/utils/helpers/optionsFormatter'
+import { addTransactionValidationSchema } from '@utils/validators'
+import { createTransaction } from '@app/services/transaction/api'
 
 import Measurement from '@app/mockdata/measurement.json'
 import Experience from '@app/mockdata/experience.json'
-import {Modalize} from 'react-native-modalize'
+import { Modalize } from 'react-native-modalize'
 import {
   FormikForm,
   FormikButton,
@@ -20,14 +21,14 @@ import {
   FormikDatePicker,
   FormikTouchableInput,
 } from '@app/components/Formik'
-import {FooterButtonWrapper} from '@components/Wrapper/index'
-import {Header} from '@components/index'
-import {ModalizeCategories} from './components/ModalizeCategories'
-import {ModalizeAccount} from './components/ModalizeAccount'
+import { FooterButtonWrapper } from '@components/Wrapper/index'
+import { Header } from '@components/index'
+import { ModalizeCategories } from './components/ModalizeCategories'
+import { ModalizeAccount } from './components/ModalizeAccount'
 
-export const SecondTransactionForm: React.FunctionComponent<SecondTransactionFormProps> = ({route, navigation}) => {
+export const SecondTransactionForm: React.FunctionComponent<SecondTransactionFormProps> = ({ route, navigation }) => {
   const {
-    params: {transactionType},
+    params: { transactionType },
   } = route
 
   const modalize_categoriesRef = useRef<Modalize>(null)
@@ -44,6 +45,9 @@ export const SecondTransactionForm: React.FunctionComponent<SecondTransactionFor
     amount: 0,
     description: '',
   })
+  const { data, mutate, isError, isLoading, isSuccess, error } = useMutation((form: ITransactionForm) =>
+    createTransaction(form),
+  )
 
   const onOpenModalize = (modal?: string) => {
     if (modal === 'account') {
@@ -61,11 +65,6 @@ export const SecondTransactionForm: React.FunctionComponent<SecondTransactionFor
     }
   }
 
-  const submit_addTransaction = () => {
-    successToast('New transaction is successfully added')
-    navigation.goBack()
-  }
-
   return (
     <>
       <View style={styles.root}>
@@ -74,7 +73,9 @@ export const SecondTransactionForm: React.FunctionComponent<SecondTransactionFor
           enableReinitialize
           validationSchema={addTransactionValidationSchema}
           initialValues={initialValues}
-          onSubmit={submit_addTransaction}>
+          onSubmit={(values: ITransactionForm) => {
+            mutate(values)
+          }}>
           <ScrollView style={styles.mainContainer}>
             <FormikInput isRequired label={'Description'} placeholder={'McMuffin'} name={'description'} />
             <FormikInput
@@ -105,7 +106,7 @@ export const SecondTransactionForm: React.FunctionComponent<SecondTransactionFor
             <FormikChipPicker label={'Experience'} items={optionsFormatter(Experience)} name={'experience'} />
           </ScrollView>
           <FooterButtonWrapper>
-            <FormikButton style={{flex: 1}} title="Submit" />
+            <FormikButton style={{ flex: 1 }} title="Submit" />
           </FooterButtonWrapper>
           <Modalize modalHeight={SCREEN_SIZE.fullHeight * 0.4} ref={modalize_accountRef}>
             <ModalizeAccount name={'account'} onClose={() => onCloseModalize('account')} />

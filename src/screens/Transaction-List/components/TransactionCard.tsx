@@ -1,31 +1,31 @@
 import React from 'react'
-import {StyleSheet, View} from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
-import {IProps} from '@app/constants/types/_common'
-import {ITransactionRow} from '@type/transaction/index'
-import {COLORS, SCREEN_SIZE} from '@styles/vars'
+import { IProps } from '@app/constants/types/_common'
+import { ITransactionResponse } from '@type/transaction/index'
+import { COLORS, SCREEN_SIZE } from '@styles/vars'
 import numberDotsFormatter from '@utils/helpers/numberDotsFormatter'
 
-import {Text, Badge} from '@components/index'
-import {SvgUri} from 'react-native-svg'
-import {Entypo, Feather} from '@expo/vector-icons'
-import {Menu, MenuOptions, MenuOption, MenuTrigger} from 'react-native-popup-menu'
+import { Text, Badge } from '@components/index'
+import { SvgUri } from 'react-native-svg'
+import { Entypo, Feather } from '@expo/vector-icons'
+import { Menu, MenuOptions, MenuOption, MenuTrigger } from 'react-native-popup-menu'
 import SkeletonContent from 'react-native-skeleton-content'
 
 interface IPTransactionCard extends IProps {
-  transaction?: ITransactionRow
+  transaction?: ITransactionResponse
   isFetching: boolean
 }
 
 export const TransactionCard: React.FunctionComponent<IPTransactionCard> = props => {
-  const {transaction, isFetching} = props
+  const { transaction, isFetching } = props
 
   return (
     <SkeletonCard isFetching={isFetching}>
       <View style={styles.mainContainer}>
         <View>
           <View style={styles.descriptionWrapper}>
-            <View style={{width: 30, height: 30}}>
+            <View style={{ width: 30, height: 30 }}>
               <SvgUri width="30" height="30" uri={transaction?.category?.img || ''} />
             </View>
             <Text style={styles.descriptionText} type="semibold">
@@ -42,7 +42,7 @@ export const TransactionCard: React.FunctionComponent<IPTransactionCard> = props
         <View style={styles.rightContentContainer}>
           <Menu>
             <MenuTrigger>
-              <Entypo name="dots-three-vertical" style={{alignSelf: 'flex-end'}} size={22} color="gray" />
+              <Entypo name="dots-three-vertical" style={{ alignSelf: 'flex-end' }} size={22} color="gray" />
             </MenuTrigger>
             <MenuOptions>
               <MenuOption style={styles.flexRow} onSelect={() => alert(`Save`)}>
@@ -71,10 +71,10 @@ interface IPSkeleton extends IProps {
   isFetching: boolean
 }
 
-export const SkeletonCard = ({children, isFetching}: IPSkeleton) => {
+export const SkeletonCard = ({ children, isFetching }: IPSkeleton) => {
   return (
     <SkeletonContent
-      containerStyle={{flex: 1, width: '100%', height: 180}}
+      containerStyle={{ flex: 1, width: '100%', height: 180 }}
       isLoading={isFetching || false}
       layout={[
         {

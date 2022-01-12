@@ -11,7 +11,7 @@
       "@type/*": ["src/constants/types/*"],
       "@nav-types/*": ["src/screens/_navigation/types/*"],
       "@screens/*": ["src/screens/*"],
-      "@services/*": ["src/domain/services/*"],
+      "@services/*": ["src/services/*"],
       "@states/*": ["src/states/*"],
       "@styles/*": ["src/utils/styles/*"],
       "@utils/*": ["src/utils/*"],

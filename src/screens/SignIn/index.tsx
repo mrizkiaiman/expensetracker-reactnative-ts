@@ -1,31 +1,33 @@
-import React, {useState} from 'react'
-import {View, SafeAreaView} from 'react-native'
+import React, { useState } from 'react'
+import { View, SafeAreaView } from 'react-native'
+import { SignInProps } from '@nav-types/index'
+import { useMutation } from 'react-query'
 
-import {SignInProps} from '@nav-types/index'
-import {ISignInForm} from '@type/sign-in'
-import {useKeyboardListener} from '@hooks/index'
-import {signInValidationSchema} from '@utils/validators/index'
-import {styles} from './styles'
-import {COLORS} from '@styles/vars'
+import { ISignInForm } from '@type/sign-in'
+import { signIn } from '@services/auth/api/index'
+import { useKeyboardListener } from '@hooks/index'
+import { signInValidationSchema } from '@utils/validators/index'
+import { styles } from './styles'
+import { COLORS } from '@styles/vars'
 
 import SignInImage from '@assets/illustrations/sign-in.svg'
-import {FormikForm, FormikInput, FormikButton} from '@components/Formik'
-import {Text, Button} from '@app/components'
+import { FormikForm, FormikInput, FormikButton } from '@components/Formik'
+import { Text, Button, Loader } from '@app/components'
 
-const SignIn: React.FunctionComponent<SignInProps> = ({navigation}) => {
+const SignIn: React.FunctionComponent<SignInProps> = ({ navigation }) => {
+  const { data, mutate, isLoading } = useMutation((form: ISignInForm) => signIn(form))
   const keyboardVisibility = useKeyboardListener()
   const initialValues: ISignInForm = {
     email: '',
     password: '',
   }
 
-  const submit_signIn = async () => {}
-
   return (
     <SafeAreaView style={styles.mainContainer}>
+      <Loader loading={isLoading} />
       <View style={styles.contentContainer}>
         {keyboardVisibility ? (
-          <SignInImage style={{alignSelf: 'flex-start', marginTop: 64}} height={120} width={120} />
+          <SignInImage style={{ alignSelf: 'flex-start', marginTop: 64 }} height={120} width={120} />
         ) : (
           <SignInImage style={styles.illustrationImg} height={210} width={210} />
         )}
@@ -33,18 +35,16 @@ const SignIn: React.FunctionComponent<SignInProps> = ({navigation}) => {
         <FormikForm
           validationSchema={signInValidationSchema}
           initialValues={initialValues}
-          onSubmit={async ({resetForm, setSubmitting}: any) => {
-            setSubmitting(true)
-            resetForm()
-            submit_signIn()
+          onSubmit={(values: ISignInForm) => {
+            mutate(values)
           }}>
           <FormikInput label={'Email'} placeholder="mrizkiaiman@tester.com" name={'email'} />
           <FormikInput label={'Password'} placeholder={'**********'} name={'password'} />
-          <FormikButton title="Sign-in" onPress={submit_signIn} style={styles.submitButton} />
+          <FormikButton title="Sign-in" style={styles.submitButton} />
         </FormikForm>
         <Text style={styles.navigateToSignUpText}>
           Don't have an account?{' '}
-          <Text onPress={() => navigation.navigate('SIGN_UP')} style={{color: COLORS.primary}}>
+          <Text onPress={() => navigation.navigate('SIGN_UP')} style={{ color: COLORS.primary }}>
             Sign up
           </Text>
         </Text>

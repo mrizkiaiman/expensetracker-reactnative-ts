@@ -4,7 +4,7 @@ export interface IAccountForm {
   accountType: string
 }
 
-export interface IAccountRow {
+export interface IAccountResponse {
   _id?: string
   name: string
   amount?: string

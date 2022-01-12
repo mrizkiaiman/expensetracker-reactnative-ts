@@ -1,4 +1,4 @@
-export interface ITransactionRow {
+export interface ITransactionResponse {
   _id: string
   user?: string
   budget?: string

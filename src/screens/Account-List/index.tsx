@@ -1,12 +1,12 @@
 import React from 'react'
-import {StyleSheet, View, FlatList, Image, TouchableOpacity} from 'react-native'
+import { StyleSheet, View, FlatList, Image, TouchableOpacity } from 'react-native'
 
-import {styles} from './style'
-import {IProps} from '@app/constants/types/_common'
-import {IAccountRow} from '@type/account/index'
+import { styles } from './style'
+import { IProps } from '@app/constants/types/_common'
+import { IAccountResponse } from '@type/account/index'
 
-import {Text} from '@components/index'
-import {AccountCard} from './components/AccountCard'
+import { Text } from '@components/index'
+import { AccountCard } from './components/AccountCard'
 
 import mockAccount from '@app/mockdata/account.json'
 
@@ -28,7 +28,7 @@ const Daily: React.FunctionComponent<IPDaily> = props => {
             </View>
           }
           data={mockAccount}
-          renderItem={({item}) => <AccountCard account={item} />}
+          renderItem={({ item }) => <AccountCard account={item} />}
           keyExtractor={item => item?._id}
           contentContainerStyle={styles.listContainer}
         />

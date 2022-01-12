@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import AppLoading from 'expo-app-loading'
-import {NavigationContainer} from '@react-navigation/native'
-import {QueryClient, QueryClientProvider} from 'react-query'
+import { NavigationContainer } from '@react-navigation/native'
+import { QueryClient, QueryClientProvider, QueryCache } from 'react-query'
+import { IRESTApiResponse } from '@app/services/types'
 import {
   useFonts,
   Oxanium_200ExtraLight,
@@ -25,7 +26,8 @@ import {
 import AppNavigator from '@navigation/app-navigator'
 import AuthNavigator from '@navigation/auth-navigator'
 import Toast from 'react-native-toast-message'
-import {MenuProvider} from 'react-native-popup-menu'
+import { successToast, errorToast } from '@components/_Toast'
+import { MenuProvider } from 'react-native-popup-menu'
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -45,7 +47,12 @@ export default function App() {
     Prompt_800ExtraBold,
   })
 
-  const queryClient = new QueryClient()
+  const queryClient = new QueryClient({
+    queryCache: new QueryCache({
+      //@ts-ignore
+      onError: error => errorToast(`Something went wrong: ${error.message}`),
+    }),
+  })
 
   const [user, setUser] = useState('')
   const [isReady, setIsReady] = useState(false)
@@ -58,7 +65,7 @@ export default function App() {
       <NavigationContainer>
         <QueryClientProvider client={queryClient}>
           <MenuProvider>
-            {user ? <AppNavigator /> : <AppNavigator />}
+            {user ? <AppNavigator /> : <AuthNavigator />}
             <Toast />
           </MenuProvider>
         </QueryClientProvider>
