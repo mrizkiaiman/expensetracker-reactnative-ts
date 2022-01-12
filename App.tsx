@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import AppLoading from 'expo-app-loading'
 import { NavigationContainer } from '@react-navigation/native'
 import { QueryClient, QueryClientProvider, QueryCache } from 'react-query'
-import { IRESTApiResponse } from '@app/services/types'
 import {
   useFonts,
   Oxanium_200ExtraLight,
@@ -28,6 +27,7 @@ import AuthNavigator from '@navigation/auth-navigator'
 import Toast from 'react-native-toast-message'
 import { successToast, errorToast } from '@components/_Toast'
 import { MenuProvider } from 'react-native-popup-menu'
+import { getUser } from '@app/utils/auth'
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -54,9 +54,12 @@ export default function App() {
     }),
   })
 
-  const [user, setUser] = useState('')
   const [isReady, setIsReady] = useState(false)
-  const restoreUser = async () => {}
+  const [user, setUser] = useState<unknown>('')
+  const restoreUser = async () => {
+    const user = await getUser()
+    if (user) setUser(user)
+  }
 
   if (!isReady || !fontsLoaded)
     return <AppLoading startAsync={restoreUser} onFinish={() => setIsReady(true)} onError={console.warn} />

@@ -1,14 +1,16 @@
 import React from 'react'
-import {StyleSheet, View, TouchableOpacity, ScrollView} from 'react-native'
+import { StyleSheet, View, TouchableOpacity, ScrollView } from 'react-native'
+import { useQuery } from 'react-query'
 
-import {IProps} from '@app/constants/types/_common'
-import {COLORS, SCREEN_SIZE} from '@styles/vars'
+import { MASTER_CATEGORIES } from '@app/services/queryKeys'
+import { getMasterCategories } from '@app/services/master/api'
+import { IProps } from '@app/constants/types/_common'
+import { COLORS, SCREEN_SIZE } from '@styles/vars'
 import categories from '@app/mockdata/categories.json'
-import {useFormikContext} from 'formik'
-import {Image} from 'react-native-expo-image-cache'
+import { useFormikContext } from 'formik'
 
-import {Text, Button} from '@components/index'
-import {SvgUri} from 'react-native-svg'
+import { Text, Button, Loader } from '@components/index'
+import { SvgUri } from 'react-native-svg'
 
 interface IPModalizeCategories extends IProps {
   onOpen?: () => void
@@ -16,17 +18,11 @@ interface IPModalizeCategories extends IProps {
   name: string
 }
 
-interface PropsCategory {
-  item: {
-    _id: number
-    name: string
-    img: string
-  }
-}
-
 export const ModalizeCategories: React.FunctionComponent<IPModalizeCategories> = props => {
-  const {setFieldValue, values, errors, touched, handleSubmit} = useFormikContext<any>()
-  const {onOpen, onClose, name} = props
+  const { setFieldValue, values, errors, touched, handleSubmit } = useFormikContext<any>()
+  const { onOpen, onClose, name } = props
+
+  const { data, isFetching } = useQuery(MASTER_CATEGORIES, getMasterCategories)
 
   const onSelect = (value: string, valueForDisplay: string) => {
     setTimeout(() => {
@@ -39,12 +35,13 @@ export const ModalizeCategories: React.FunctionComponent<IPModalizeCategories> =
   return (
     <>
       <View style={styles.mainContainer}>
-        {categories.map((category, index) => (
+        <Loader loading={isFetching} />
+        {data?.response.map((category, index) => (
           <TouchableOpacity
             onPress={() => onSelect(category?._id, category?.name)}
             key={category?._id}
             style={[styles.category, values[name] === category?._id && styles.selectedCategory]}>
-            <SvgUri width="40" height="40" uri={category?.img} />
+            <SvgUri width="40" height="40" uri={category?.img || ''} />
             <Text
               type={values[name] === category?._id ? 'bold' : 'default'}
               style={[styles.categoryText, values[name] === category?._id && styles.selectedCategoryText]}>

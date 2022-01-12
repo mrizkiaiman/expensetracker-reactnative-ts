@@ -6,6 +6,7 @@ import { styles } from './style'
 import { IProps } from '@app/constants/types/_common'
 import { ITransactionResponse } from '@app/constants/types/transaction'
 import { getTransactions } from '@app/services/transaction/api'
+import { TRANSACTION_LIST } from '@app/services/queryKeys'
 
 import { Text } from '@components/index'
 import { TransactionCard, SkeletonCard } from './components/TransactionCard'
@@ -14,7 +15,7 @@ import { EmptyListLoading } from './components/EmptyListLoading'
 interface IPDaily extends IProps {}
 
 const Daily: React.FunctionComponent<IPDaily> = props => {
-  const { data, isLoading, isFetching, error, refetch } = useQuery('transactions', getTransactions, {
+  const { data, isFetching, refetch } = useQuery(TRANSACTION_LIST, getTransactions, {
     keepPreviousData: true,
   })
 

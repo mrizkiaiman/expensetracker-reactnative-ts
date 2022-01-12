@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { ScrollView, View } from 'react-native'
 import { SecondTransactionFormProps } from '@nav-types/index'
-import { useMutation } from 'react-query'
+import { useMutation, useQueries } from 'react-query'
 
 import { styles } from './styles'
 import { ITransactionForm } from '@app/constants/types/transaction'
@@ -9,6 +9,8 @@ import { SCREEN_SIZE } from '@styles/vars'
 import { optionsFormatter } from '@app/utils/helpers/optionsFormatter'
 import { addTransactionValidationSchema } from '@utils/validators'
 import { createTransaction } from '@app/services/transaction/api'
+import { getMasterCategories, getMasterExperience, getMasterMeasurements } from '@services/master/api'
+import { MASTER_CATEGORIES, MASTER_EXPERIENCE, MASTER_MEASUREMENT } from '@services/queryKeys'
 
 import Measurement from '@app/mockdata/measurement.json'
 import Experience from '@app/mockdata/experience.json'
@@ -22,7 +24,7 @@ import {
   FormikTouchableInput,
 } from '@app/components/Formik'
 import { FooterButtonWrapper } from '@components/Wrapper/index'
-import { Header } from '@components/index'
+import { Header, Loader } from '@components/index'
 import { ModalizeCategories } from './components/ModalizeCategories'
 import { ModalizeAccount } from './components/ModalizeAccount'
 
@@ -30,6 +32,22 @@ export const SecondTransactionForm: React.FunctionComponent<SecondTransactionFor
   const {
     params: { transactionType },
   } = route
+
+  const { mutate } = useMutation((form: ITransactionForm) => createTransaction(form))
+  const results = useQueries([
+    {
+      queryKey: MASTER_EXPERIENCE,
+      queryFn: getMasterExperience,
+    },
+    {
+      queryKey: MASTER_MEASUREMENT,
+      queryFn: getMasterMeasurements,
+    },
+  ])
+
+  const masterExperience = results[0]
+  const masterMeasurement = results[1]
+  const mastersLoading = Boolean(masterExperience?.isFetching && masterMeasurement?.isFetching)
 
   const modalize_categoriesRef = useRef<Modalize>(null)
   const modalize_accountRef = useRef<Modalize>(null)
@@ -45,9 +63,6 @@ export const SecondTransactionForm: React.FunctionComponent<SecondTransactionFor
     amount: 0,
     description: '',
   })
-  const { data, mutate, isError, isLoading, isSuccess, error } = useMutation((form: ITransactionForm) =>
-    createTransaction(form),
-  )
 
   const onOpenModalize = (modal?: string) => {
     if (modal === 'account') {
@@ -68,6 +83,7 @@ export const SecondTransactionForm: React.FunctionComponent<SecondTransactionFor
   return (
     <>
       <View style={styles.root}>
+        <Loader loading={mastersLoading} />
         <Header title="Create Transaction" />
         <FormikForm
           enableReinitialize
@@ -102,8 +118,16 @@ export const SecondTransactionForm: React.FunctionComponent<SecondTransactionFor
               name={'category'}
             />
             <FormikDatePicker label={'Date'} placeholder={'Input the date'} name={'dt_created'} />
-            <FormikChipPicker label={'Measurement'} items={optionsFormatter(Measurement)} name={'measurement'} />
-            <FormikChipPicker label={'Experience'} items={optionsFormatter(Experience)} name={'experience'} />
+            <FormikChipPicker
+              label={'Measurement'}
+              items={optionsFormatter(masterMeasurement?.data?.response || [])}
+              name={'measurement'}
+            />
+            <FormikChipPicker
+              label={'Experience'}
+              items={optionsFormatter(masterExperience?.data?.response || [])}
+              name={'experience'}
+            />
           </ScrollView>
           <FooterButtonWrapper>
             <FormikButton style={{ flex: 1 }} title="Submit" />

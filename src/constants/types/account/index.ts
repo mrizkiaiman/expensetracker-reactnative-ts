@@ -7,7 +7,7 @@ export interface IAccountForm {
 export interface IAccountResponse {
   _id?: string
   name: string
-  amount?: string
+  amount?: number
   type: {
     name: string
     img: string
