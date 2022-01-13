@@ -68,7 +68,7 @@ export default function App() {
       <NavigationContainer>
         <QueryClientProvider client={queryClient}>
           <MenuProvider>
-            {user ? <AppNavigator /> : <AuthNavigator />}
+            {user ? <AppNavigator /> : <AppNavigator />}
             <Toast />
           </MenuProvider>
         </QueryClientProvider>

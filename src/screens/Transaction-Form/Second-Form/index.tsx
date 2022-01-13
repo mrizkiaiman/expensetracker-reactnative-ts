@@ -9,11 +9,9 @@ import { SCREEN_SIZE } from '@styles/vars'
 import { optionsFormatter } from '@app/utils/helpers/optionsFormatter'
 import { addTransactionValidationSchema } from '@utils/validators'
 import { createTransaction } from '@app/services/transaction/api'
-import { getMasterCategories, getMasterExperience, getMasterMeasurements } from '@services/master/api'
-import { MASTER_CATEGORIES, MASTER_EXPERIENCE, MASTER_MEASUREMENT } from '@services/queryKeys'
+import { getMasterExperience, getMasterMeasurements } from '@services/master/api'
+import { MASTER_EXPERIENCE, MASTER_MEASUREMENT } from '@services/queryKeys'
 
-import Measurement from '@app/mockdata/measurement.json'
-import Experience from '@app/mockdata/experience.json'
 import { Modalize } from 'react-native-modalize'
 import {
   FormikForm,
@@ -34,7 +32,7 @@ export const SecondTransactionForm: React.FunctionComponent<SecondTransactionFor
   } = route
 
   const { mutate } = useMutation((form: ITransactionForm) => createTransaction(form))
-  const results = useQueries([
+  const queriesResult = useQueries([
     {
       queryKey: MASTER_EXPERIENCE,
       queryFn: getMasterExperience,
@@ -45,8 +43,8 @@ export const SecondTransactionForm: React.FunctionComponent<SecondTransactionFor
     },
   ])
 
-  const masterExperience = results[0]
-  const masterMeasurement = results[1]
+  const masterExperience = queriesResult[0]
+  const masterMeasurement = queriesResult[1]
   const mastersLoading = Boolean(masterExperience?.isFetching && masterMeasurement?.isFetching)
 
   const modalize_categoriesRef = useRef<Modalize>(null)

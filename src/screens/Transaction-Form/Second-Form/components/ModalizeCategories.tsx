@@ -1,12 +1,9 @@
 import React from 'react'
 import { StyleSheet, View, TouchableOpacity, ScrollView } from 'react-native'
-import { useQuery } from 'react-query'
 
-import { MASTER_CATEGORIES } from '@app/services/queryKeys'
-import { getMasterCategories } from '@app/services/master/api'
+import { useCategories } from '@app/services/master/hooks/useCategories'
 import { IProps } from '@app/constants/types/_common'
 import { COLORS, SCREEN_SIZE } from '@styles/vars'
-import categories from '@app/mockdata/categories.json'
 import { useFormikContext } from 'formik'
 
 import { Text, Button, Loader } from '@components/index'
@@ -22,7 +19,7 @@ export const ModalizeCategories: React.FunctionComponent<IPModalizeCategories> =
   const { setFieldValue, values, errors, touched, handleSubmit } = useFormikContext<any>()
   const { onOpen, onClose, name } = props
 
-  const { data, isFetching } = useQuery(MASTER_CATEGORIES, getMasterCategories)
+  const { data, isFetching } = useCategories()
 
   const onSelect = (value: string, valueForDisplay: string) => {
     setTimeout(() => {
